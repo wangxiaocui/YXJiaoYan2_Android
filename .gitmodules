@@ -1,0 +1,3 @@
+[submodule "libs/basic"]
+	path = libs/basic
+	url = git@github.com:caileiYanxiu/YXBasicLibrary2_Android.git

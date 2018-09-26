@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    signingConfigs {
+
+    }
+    defaultConfig {
+        applicationId "com.yanxiu.gphone.jiaoyan.android"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        flavorDimensions "4"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildTypes {
+            debug {
+                minifyEnabled false
+//                signingConfig signingConfigs.master_signing
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+                //针对不同的情况还可以分别处理，如果是在library中，这里就是libraryVariants.all
+
+                //个推参数
+                //APP_ID、APP_KEY、APP_SECRET请根据个推开发者后台申请到的应用参数进行相应替换
+                manifestPlaceholders = [
+                        //dev
+                        GETUI_APP_ID    : "9Ng5XgUmPl7ph0Ms20Y3G5",
+                        GETUI_APP_KEY   : "vzvNLfGIUP8h8aj6waobvA",
+                        GETUI_APP_SECRET: "pqVYEPxb6AAtvel7UHJsd2",
+                ]
+                //url配置
+                buildConfigField "int", "ENV_CONFIG_CURRENTINDEX", '1'
+            }
+
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                buildConfigField "int", "ENV_CONFIG_CURRENTINDEX", '0'
+            }
+        }
+
+        //参考博客：https://blog.csdn.net/qq_27942511/article/details/54286783
+        productFlavors {
+            //普通版本
+            master {
+                /**
+                 * 应用id，区分应用唯一标识,在defaultConfig中会默认的配置一个applicationId，但是这里会覆盖掉默认的applicationId
+                 */
+                applicationId "com.yanxiu.gphone.jiaoyan.android"
+                versionCode 1
+                versionName "1.0"
+                /**
+                 * appName,需要将res/values/string.xml文件中的app_name字段删除，这样打包之后就会根据不同的环境加载不同的app_name.
+                 *  需求  删除 "（学员端）"
+                 */
+                resValue "string", "app_name", "教研"
+                /**
+                 * 1.BAIDU_MAP_KEY :百度地图key，
+                 * 2.app_icon: 定义app_icon字段，在AndroidManifest.xml文件中用到
+                 * 3.SCHEME_KEY: scheme协议
+                 * 4.个推的三个key，全部为release的key，如果是debug模式，在debug里，会替换为debug的key
+                 */
+
+
+                manifestPlaceholders = [app_icon        : "@mipmap/ic_launcher",
+                                        SCHEME_KEY      : "faceshow",
+                                        GETUI_APP_ID    : "AzFI1hszEo6U21wtdrn5K8",
+                                        GETUI_APP_KEY   : "EvZ1LJLZ0z5HyzqWvRFWG2",
+                                        GETUI_APP_SECRET: "lydBIygOzJ9Rxm9aVBK8P6",]
+                /**
+                 * 在app/build/source/BuildConfig/dev/com.lyl.dev/BuildConfig中生成相应的资源
+                 * 1.PRODUCT_NAME : 产品名称 master/hubei ,用来判断是哪个版本
+                 * 2.TCAGENT_KEY : talkingData 的key
+                 */
+                buildConfigField "String", "PRODUCT_NAME", '"master"'
+                buildConfigField "String", "TCAGENT_KEY", '"37E19B68638D4FF5B7AF00360317BA71"'
+                buildConfigField "String", "URL_SERVER_FILE_NAME", '"env_config.json"'
+                buildConfigField "String", "PRODUCTLINE", '"4"'
+
+//                signingConfig signingConfigs.master_signing
+            }
+        }
+
+        //这里的作用就是即使项目中报错也不会停止打包
+        lintOptions {
+            checkReleaseBuilds false
+            // Or, if you prefer, you can continue to check for errors in release builds,
+            // but continue the build even when errors are found:
+            abortOnError false
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':common_base')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}

@@ -1,0 +1,5 @@
+include ':app', ':common_base', ':zxing-android-embedded', ':imagepicker', ':base_lib'
+project(':common_base').projectDir = new File('libs/common_base')
+project(':base_lib').projectDir = new File('libs/basic/base_lib')
+project(':imagepicker').projectDir = new File('libs/basic/imagepicker')
+project(':zxing-android-embedded').projectDir = new File('libs/basic/zxing-android-embedded')
