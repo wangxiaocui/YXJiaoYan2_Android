@@ -7,12 +7,13 @@ ext {
     //库版本 统一使用一个版本，防止多个版本
     getuiVersion = '2.11.1.0'
     photoviewVersion = '1.2.4'
-    luBanVersion = '1.1.3'
+    luBanVersion = '1.1.8'
     //common_base dependencies
     commonBaseLibDependencies = [
-            //  鲁班图像压缩
+            //  鲁班图像压缩  https://github.com/Curzibn/Luban
             luBan: "top.zibin:Luban:${luBanVersion}",
             getui    : "com.getui:sdk:${getuiVersion}",
+            //图片缩放 https://github.com/chrisbanes/PhotoView
             photoview: "com.github.chrisbanes.photoview:library:${photoviewVersion}"
     ]
 }
