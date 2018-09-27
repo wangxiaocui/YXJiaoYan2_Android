@@ -13,13 +13,13 @@ import com.lzy.imagepicker.loader.ImageLoader;
 public class GlideImageLoader implements ImageLoader {
     @Override
     public void displayImage(Activity activity, String path, ImageView imageView, int width, int height) {
-        Glide.with(activity).load(path).override(width, height).fitCenter().into(imageView);
+//        Glide.with(activity).load(path).override(width, height).fitCenter().into(imageView);
     }
 
     @Override
     public void displayImagePreview(Activity activity, String path, ImageView imageView, int width, int height) {
         //此处如果不设置 在选择图片时无法显示预览图片
-        Glide.with(activity).load(path).override(width, height).fitCenter().into(imageView);
+//        Glide.with(activity).load(path).override(width, height).fitCenter().into(imageView);
     }
 
     @Override

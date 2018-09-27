@@ -2,18 +2,15 @@ ext {
     // sdk and tools
     minSdkVersion = 19
     targetSdkVersion = 24
-    compileSdkVersion = 26
+    compileSdkVersion = 28
     buildToolsVersion = '27.0.0'
     //库版本 统一使用一个版本，防止多个版本
     getuiVersion = '2.11.1.0'
-    photoviewVersion = '1.2.4'
     luBanVersion = '1.1.8'
     //common_base dependencies
     commonBaseLibDependencies = [
             //  鲁班图像压缩  https://github.com/Curzibn/Luban
             luBan: "top.zibin:Luban:${luBanVersion}",
-            getui    : "com.getui:sdk:${getuiVersion}",
-            //图片缩放 https://github.com/chrisbanes/PhotoView
-            photoview: "com.github.chrisbanes.photoview:library:${photoviewVersion}"
+            getui: "com.getui:sdk:${getuiVersion}"
     ]
 }
