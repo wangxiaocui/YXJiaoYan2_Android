@@ -1,4 +1,4 @@
-package com.test.yanxiu.common_base.ui;
+package com.test.yanxiu.common_base.utils;
 
 import android.app.Activity;
 import android.os.Build;

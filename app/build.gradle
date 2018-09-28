@@ -96,7 +96,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
@@ -106,4 +106,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common_base')
+    if (courseModule.toBoolean()) {
+        implementation project(':module_course')
+    }
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

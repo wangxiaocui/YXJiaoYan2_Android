@@ -9,6 +9,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -24,4 +30,9 @@ dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
     api commonBaseLibDependencies.values()
     api project(path: ':base_lib')
+
+    //阿里开源组件化框架 https://github.com/alibaba/ARouter
+    //api要与compiler匹配使用，均使用最新版可以保证兼容
+    api 'com.alibaba:arouter-api:1.4.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
 }

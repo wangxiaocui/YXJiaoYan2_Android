@@ -1,4 +1,4 @@
-package com.test.yanxiu.common_base.ui;
+package com.test.yanxiu.common_base.ui.customize;
 
 import android.content.Context;
 import android.support.annotation.DrawableRes;

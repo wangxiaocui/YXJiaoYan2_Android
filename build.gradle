@@ -20,10 +20,6 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        //个推
-        maven {
-            url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/"
-        }
         maven { url "https://jitpack.io" }
     }
 }
