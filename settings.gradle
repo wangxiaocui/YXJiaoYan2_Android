@@ -1,3 +1,3 @@
-include ':app', ':common_base', ':base_lib', ':module_course'
+include ':app', ':common_base', ':base_lib'
 project(':common_base').projectDir = new File('libs/common_base')
 project(':base_lib').projectDir = new File('libs/basic/base_lib')

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_course"
+        android:icon="@drawable/selector_course"
+        android:title="视频课" />
+
+    <item
+        android:id="@+id/navigation_live"
+        android:icon="@drawable/selector_notice"
+        android:title="直播" />
+
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/selector_notice"
+        android:title="消息" />
+    <item
+        android:id="@+id/navigation_mine"
+        android:icon="@drawable/selector_my"
+        android:title="我的" />
+
+</menu>

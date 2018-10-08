@@ -8,50 +8,57 @@ import android.support.v4.app.FragmentTransaction;
 import com.test.yanxiu.common_base.route.RouteUtils;
 
 public abstract class BaseFragmentFactory {
+
+    private static final String CURRENT_INDEX = "STATE_CURRENT_INDEX";
+
     private FragmentManager mFragmentManager;
-    private int mCurrentIndex;
     private Fragment[] mFragments;
     private String[] mRoutePath;
 
+    protected int mCurrentIndex;
+
     public BaseFragmentFactory(Bundle savedInstanceState, FragmentManager fragmentManager) {
         if (savedInstanceState != null) {
-            mCurrentIndex = savedInstanceState.getInt("mCurrentIndex");
+            mCurrentIndex = savedInstanceState.getInt(CURRENT_INDEX);
         } else {
             mCurrentIndex = 0;
         }
         mFragmentManager = fragmentManager;
         mRoutePath = initFragmentPath();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
         mFragments = new Fragment[mRoutePath.length];
-        for (int i = 0; i < mFragments.length; i++) {
-            mFragments[i] = fragmentManager.findFragmentByTag(mRoutePath[i]);
-            if (mFragments[i] == null) {
-                mFragments[i] = RouteUtils.getFramentByPath(mRoutePath[i]);
-                transaction.add(initContainerId(), mFragments[i], mRoutePath[i]);
-            }
-            transaction.hide(mFragments[i]);
-        }
-        transaction.show(mFragments[mCurrentIndex]);
-        transaction.commit();
     }
 
     public abstract int initContainerId();
 
     public abstract String[] initFragmentPath();
 
-    public void hideAndShowFragment(int index) {
-        if (index == mCurrentIndex) {
+    protected void showFragment(int index) {
+        if (index == mCurrentIndex && mFragments[mCurrentIndex] != null) {
             return;
         }
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        transaction.hide(mFragments[mCurrentIndex]);
-        mCurrentIndex = index;
-        transaction.show(mFragments[mCurrentIndex]);
+        mFragments[mCurrentIndex] = mFragmentManager.findFragmentByTag(mRoutePath[mCurrentIndex]);
+        if (mFragments[mCurrentIndex] != null) {
+            transaction.hide(mFragments[mCurrentIndex]);
+        }
+
+        mFragments[index] = mFragmentManager.findFragmentByTag(mRoutePath[index]);
+        if (mFragments[index] == null) {
+            mFragments[index] = RouteUtils.getFramentByPath(mRoutePath[index]);
+            if (mFragments[index] != null) {
+                transaction.add(initContainerId(), mFragments[index], mRoutePath[index]);
+                transaction.show(mFragments[index]);
+                mCurrentIndex = index;
+            }
+        } else {
+            transaction.show(mFragments[index]);
+            mCurrentIndex = index;
+        }
         transaction.commit();
     }
 
     public void onSaveInstanceState(Bundle outState) {
-        outState.putInt("mCurrentIndex", mCurrentIndex);
+        outState.putInt(CURRENT_INDEX, mCurrentIndex);
     }
 
     public int getCurrentIndex() {

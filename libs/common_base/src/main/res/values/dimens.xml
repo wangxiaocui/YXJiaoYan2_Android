@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- actionbar height -->
+    <dimen name="actionBarSize">44dp</dimen>
 
     <!--publicLoadLayout start-->
     <dimen name="top_layout_height">44dp</dimen>
