@@ -48,12 +48,11 @@ public abstract class BaseFragmentFactory {
             if (mFragments[index] != null) {
                 transaction.add(initContainerId(), mFragments[index], mRoutePath[index]);
                 transaction.show(mFragments[index]);
-                mCurrentIndex = index;
             }
         } else {
             transaction.show(mFragments[index]);
-            mCurrentIndex = index;
         }
+        mCurrentIndex = index;
         transaction.commit();
     }
 
