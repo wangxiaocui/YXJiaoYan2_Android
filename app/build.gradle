@@ -107,4 +107,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common_base')
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
+    implementation project(':module_message')
+    implementation project(':module_signin')
 }

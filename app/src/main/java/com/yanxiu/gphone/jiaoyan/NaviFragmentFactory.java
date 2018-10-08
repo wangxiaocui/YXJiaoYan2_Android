@@ -27,7 +27,7 @@ public class NaviFragmentFactory extends BaseFragmentFactory {
         return new String[]{
                 RoutePathConfig.Course_Fragment,
                 RoutePathConfig.Course_Fragment,
-                RoutePathConfig.Course_Fragment,
+                RoutePathConfig.Message_Fragment,
                 RoutePathConfig.Course_Fragment
         };
     }
