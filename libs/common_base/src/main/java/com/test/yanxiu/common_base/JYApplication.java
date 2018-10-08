@@ -1,10 +1,14 @@
 package com.test.yanxiu.common_base;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.StrictMode;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.google.gson.Gson;
+import com.test.yanxiu.common_base.utils.FileUtils;
+import com.test.yanxiu.common_base.utils.serverUrl.EnvConfigBean;
+import com.test.yanxiu.common_base.utils.serverUrl.UrlBean;
+import com.test.yanxiu.common_base.utils.serverUrl.UrlRepository;
 import com.yanxiu.lib.yx_basic_library.YXApplication;
 
 
@@ -15,6 +19,7 @@ public class JYApplication extends YXApplication {
     public void onCreate() {
         super.onCreate();
         initRouter(this);
+        initUrlServer();
         try {
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
@@ -35,6 +40,21 @@ public class JYApplication extends YXApplication {
         ARouter.openDebug();
         // 尽可能早，推荐在Application中初始化
         ARouter.init(application);
+    }
+
+    private void initUrlServer() {
+        UrlBean urlBean;
+        Gson gson = new Gson();
+        String urlJson = FileUtils.getFromAssets(Constants.URL_SERVER_FILE_NAME);
+        if (urlJson.contains(Constants.MULTICONFIG)) {
+            EnvConfigBean envConfigBean = gson.fromJson(urlJson, EnvConfigBean.class);
+//            urlBean = envConfigBean.getData().get(envConfigBean.getCurrentIndex());
+            urlBean = envConfigBean.getData().get(BuildConfig.ENV_CONFIG_CURRENTINDEX);
+        } else {
+            urlBean = gson.fromJson(urlJson, UrlBean.class);
+        }
+        UrlRepository.getInstance().setUrlBean(urlBean);
+
     }
 
 }

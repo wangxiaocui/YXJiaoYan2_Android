@@ -6,10 +6,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
-import com.test.yanxiu.common_base.ui.base.JYBaseActivity;
-import com.test.yanxiu.common_base.ui.toolbar.AppBarHelper;
-import com.test.yanxiu.common_base.ui.toolbar.Style;
+import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
+import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
 @Route(path = RoutePathConfig.App_Main)

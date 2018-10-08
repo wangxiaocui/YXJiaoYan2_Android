@@ -1,0 +1,11 @@
+<resources>
+    <string name="retry">点击重试</string>
+    <string name="video_view_no_net">当前为无网络状态</string>
+    <string name="video_view_retry">点击重试</string>
+    <color name="player_titlebar_bg">#7f000000</color>
+    <string name="video_view_not_exist_hint">未找到该视频</string>
+    <string name="video_view_complete_hint">视频课程已播放完</string>
+    <string name="video_view_replay">点击重新观看</string>
+    <string name="video_network_change_hint">当前为非wifi网络，播放会产生流量费用</string>
+    <string name="video_view_continue">继续观看</string>
+</resources>

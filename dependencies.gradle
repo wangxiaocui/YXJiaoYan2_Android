@@ -11,9 +11,15 @@ ext {
     //api要与compiler匹配使用，均使用最新版可以保证兼容
     arouterApiVersion = '1.4.0'
     arouterCompilerVersion = '1.2.1'
+    //播放器版本
+    exoplayerVersion = '2.4.3'
     //common_base dependencies
     commonBaseLibDependencies = [
             //  鲁班图像压缩  https://github.com/Curzibn/Luban
             luBan: "top.zibin:Luban:${luBanVersion}",
+    ]
+    //VIDEO dependencies
+    videoLibDependencies = [
+            video    : "com.google.android.exoplayer:exoplayer:r${exoplayerVersion}"
     ]
 }
