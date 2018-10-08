@@ -5,7 +5,12 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     signingConfigs {
-
+        master {
+            keyAlias 'fsa'
+            keyPassword 'srt123456'
+            storeFile file('masterAdmin.jks')
+            storePassword 'srt123456'
+        }
     }
     defaultConfig {
         applicationId "com.yanxiu.gphone.jiaoyan.android"
@@ -20,7 +25,7 @@ android {
         buildTypes {
             debug {
                 minifyEnabled false
-//                signingConfig signingConfigs.master_signing
+                signingConfig signingConfigs.master
                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
                 //个推参数
@@ -35,6 +40,7 @@ android {
 
             release {
                 minifyEnabled false
+                signingConfig signingConfigs.master
                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             }
         }
@@ -64,7 +70,6 @@ android {
                 manifestPlaceholders = [GETUI_APP_ID    : "AzFI1hszEo6U21wtdrn5K8",
                                         GETUI_APP_KEY   : "EvZ1LJLZ0z5HyzqWvRFWG2",
                                         GETUI_APP_SECRET: "lydBIygOzJ9Rxm9aVBK8P6",]
-//                signingConfig signingConfigs.master_signing
             }
         }
 
@@ -91,4 +96,5 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
     implementation project(':module_message')
     implementation project(':module_signin')
+    implementation project(':module_video')
 }
