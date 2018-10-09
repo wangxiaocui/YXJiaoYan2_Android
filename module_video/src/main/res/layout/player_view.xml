@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.exoplayer2.ui.AspectRatioFrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <com.yanxiu.video.PlaybackControllerView
+        android:id="@id/exo_controller_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.yanxiu.video.other.LoadingView
+        android:id="@+id/loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <com.yanxiu.video.other.VideoPlayerErrorView
+        android:id="@+id/network_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:error_info_text="@string/video_view_no_net"
+        app:error_button_text="@string/video_view_retry"
+        android:visibility="gone" />
+
+    <com.yanxiu.video.other.VideoPlayerErrorView
+        android:id="@+id/not_found_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:error_info_text="@string/video_view_not_exist_hint"
+        app:error_button_text="@string/video_view_retry"
+        android:visibility="gone" />
+
+    <com.yanxiu.video.other.VideoPlayerErrorView
+        android:id="@+id/last_video_finished_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:error_info_text="@string/video_view_complete_hint"
+        app:error_button_text="@string/video_view_replay"
+        android:visibility="gone" />
+
+    <com.yanxiu.video.other.VideoPlayerErrorView
+        android:id="@+id/four_g_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:error_info_text="@string/video_network_change_hint"
+        app:error_button_text="@string/video_view_continue"
+        android:visibility="gone" />
+
+</merge>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VideoPlayerErrorView">
+        <attr name="error_info_text" format="string|reference" />
+        <attr name="error_button_text" format="string|reference" />
+    </declare-styleable>
+</resources>
