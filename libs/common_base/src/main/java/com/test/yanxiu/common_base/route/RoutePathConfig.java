@@ -10,6 +10,10 @@ public class RoutePathConfig {
     public static final String Course_Fragment = "/course/index";
 
     //region course
+    /**
+     * 课程详情页
+     * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
+     */
     public static final String App_Course_Detail = "/app/CourseDetailActivity";
 
     //endregion courses
