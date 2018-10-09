@@ -28,8 +28,8 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
             initData(bundle);
         }
         setBaseView(bindLayout());
-        initView(savedInstanceState, mCommonLayout);
         initTitle();
+        initView(savedInstanceState, mCommonLayout);
         initListener();
         doBusiness();
     }
