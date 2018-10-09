@@ -30,7 +30,7 @@ public class CourseDetailActivity extends JYBaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_main;
+        return R.layout.course_detail_activity;
     }
 
     @Override
