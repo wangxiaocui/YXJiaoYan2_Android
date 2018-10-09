@@ -1,14 +1,156 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.yanxiu.gphone.jiaoyan.business.mine.MineFragment">
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_title"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hello world" />
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="40dp"
+        tools:context="com.yanxiu.gphone.jiaoyan.business.mine.MineFragment">
 
-</FrameLayout>
+        <!-- 姓名，电话，头像，头衔 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- 姓名，电话，头衔-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!-- 姓名，头衔 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- 姓名 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="6dp"
+                        android:text="周皮特"
+                        android:textColor="#ffffff"
+                        android:textSize="39dp"
+                        android:textStyle="bold" />
+                    <!-- 头衔A -->
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:background="#ff0000" />
+                    <!-- 头衔B -->
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:background="#ff0000" />
+                </LinearLayout>
+                <!-- 电话 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-6dp"
+                    android:text="15987326899"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp" />
+            </LinearLayout>
+
+            <!-- 头像 -->
+            <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="0"
+                android:background="#ff0000"
+                android:src="@drawable/mock_default_portrait"
+                app:corner_size="45dp" />
+
+        </LinearLayout>
+
+        <!-- 签到 / 已经签到 -->
+        <TextView
+            android:id="@+id/tv_checkin"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mine_checkin_btn_normal_shape"
+            android:gravity="center"
+            android:text="签到"
+            android:textColor="#ffffff"
+            android:textSize="19dp" />
+
+        <it.gilvegliach.android.transparenttexttextview.TransparentTextTextView
+            android:id="@+id/tv_checkin_done"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/mine_checkin_btn_done_shape"
+            android:gravity="center"
+            android:text="已签到"
+            android:textColor="#00ffffff"
+            android:textSize="19dp"
+            android:visibility="gone" />
+
+        <!-- 个人资料，资质认证 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_marginTop="135dp"
+            android:background="@drawable/mine_item_group_bg_shape"
+            android:orientation="vertical">
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_gerenziliao"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_zizhirenzheng"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+        </LinearLayout>
+
+        <!-- 财富值，我的课程，我的证书，设置 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="203dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/mine_item_group_bg_shape"
+            android:orientation="vertical">
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_caifuzhi"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_wodekecheng"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_wodezhengshu"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+
+            <com.yanxiu.gphone.jiaoyan.business.mine.MineItemLayout
+                android:id="@+id/item_shezhi"
+                android:layout_width="match_parent"
+                android:layout_height="51dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
