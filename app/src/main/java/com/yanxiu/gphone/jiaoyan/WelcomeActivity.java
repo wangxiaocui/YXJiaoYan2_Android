@@ -5,11 +5,11 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.View;
 
+import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
+import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
+import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
-import com.test.yanxiu.common_base.ui.base.JYBaseActivity;
-import com.test.yanxiu.common_base.ui.toolbar.AppBarHelper;
-import com.test.yanxiu.common_base.ui.toolbar.Style;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
 public class WelcomeActivity extends JYBaseActivity {

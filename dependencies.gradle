@@ -6,6 +6,7 @@ ext {
     buildToolsVersion = '27.0.0'
     //库版本 统一使用一个版本，防止多个版本
     luBanVersion = '1.1.8'
+    xrecyclerview = '1.5.9'
 
     //阿里开源组件化框架 https://github.com/alibaba/ARouter
     //api要与compiler匹配使用，均使用最新版可以保证兼容
@@ -17,6 +18,8 @@ ext {
     commonBaseLibDependencies = [
             //  鲁班图像压缩  https://github.com/Curzibn/Luban
             luBan: "top.zibin:Luban:${luBanVersion}",
+            //下拉刷新 https://github.com/XRecyclerView/XRecyclerView
+            xrecyclerview: "com.jcodecraeer:xrecyclerview:${xrecyclerview}"
     ]
     //VIDEO dependencies
     videoLibDependencies = [
