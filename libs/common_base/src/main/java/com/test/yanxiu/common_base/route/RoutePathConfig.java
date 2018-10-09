@@ -9,6 +9,11 @@ public class RoutePathConfig {
     public static final String App_Main = "/app/main";
     public static final String Course_Fragment = "/course/index";
 
+    //region course
+    public static final String App_Course_Detail = "/app/CourseDetailActivity";
+
+    //endregion courses
+
     //endregion
 
     //region module_message
