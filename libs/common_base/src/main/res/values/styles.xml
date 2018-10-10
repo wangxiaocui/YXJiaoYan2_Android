@@ -16,4 +16,10 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="LargeTitleText">
+        <item name="android:textSize">@dimen/text_size_39dp</item>
+        <item name="android:textColor">@color/color_17171b</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
