@@ -69,11 +69,10 @@
 
 
     <color name="color_0068bd">#0068bd</color>
-    
-    <!--task color-->
+
     <color name="color_task_unfinished">#ff0000</color>
     <color name="color_task_finished">@color/color_333333</color>
-    !--qr code-->
+
     <color name="viewfinder_mask">#33000000</color>
     <color name="result_view">#b0000000</color>
     <color name="possible_result_points">#c0ffff00</color>
@@ -83,4 +82,13 @@
     <color name="color_e2e2e2">#e2e2e2</color>
     <color name="color_a1a8b2">#a1a8b2</color>
     <color name="color_e6e6e6">#e6e6e6</color>
+
+
+    <color name="color_17171b">#17171b</color>
+    <color name="color_007aff">#007aff</color>
+    <color name="color_e4e4eb">#e4e4eb</color>
+    <color name="color_f0f1f3">#f0f1f3</color>
+    <color name="color_0068d6">#0068d6</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

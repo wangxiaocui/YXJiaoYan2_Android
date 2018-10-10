@@ -20,6 +20,14 @@ public class RoutePathConfig {
 
     //endregion
 
+
+    //region module_signin
+    //LoginActivity
+    public static final String SIGNIN_LOGIN_ACTIVITY = "/signin/login";
+    //LoginByCodeActivity
+    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/login_by_code";
+    //endregion
+
     //region module_message
     //MessageFragment
     public static final String Message_Fragment = "/message/index";

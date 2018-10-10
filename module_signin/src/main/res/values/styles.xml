@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="AppTheme" parent="BaseAppTheme"></style>
+
+    <style name="AppTheme.CustomAppTheme_textinputLayout">
+        <item name="colorAccent">@color/color_007aff</item>
+        <item name="android:editTextColor">@color/color_17171b</item>
+        <item name="android:textColorHint">@color/color_007aff</item>
+    </style>
+</resources>

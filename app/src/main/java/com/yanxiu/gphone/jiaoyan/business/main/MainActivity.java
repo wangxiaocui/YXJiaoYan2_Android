@@ -72,17 +72,17 @@ public class MainActivity extends JYBaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_course:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(0);
                         return true;
                     case R.id.navigation_live:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(1);
                         return true;
                     case R.id.navigation_message:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(2);
                         return true;
                     case R.id.navigation_mine:
