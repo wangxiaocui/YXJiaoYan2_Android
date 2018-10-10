@@ -7,6 +7,7 @@ ext {
     //库版本 统一使用一个版本，防止多个版本
     luBanVersion = '1.1.8'
     xrecyclerview = '1.5.9'
+    transparent_text_view = '1.0.3'
 
     //阿里开源组件化框架 https://github.com/alibaba/ARouter
     //api要与compiler匹配使用，均使用最新版可以保证兼容
@@ -24,5 +25,9 @@ ext {
     //VIDEO dependencies
     videoLibDependencies = [
             video    : "com.google.android.exoplayer:exoplayer:r${exoplayerVersion}"
+    ]
+
+    appLibDependencies = [
+            transparent_text_view   : "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}"
     ]
 }

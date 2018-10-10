@@ -1,4 +1,4 @@
-package com.yanxiu.gphone.jiaoyan;
+package com.yanxiu.gphone.jiaoyan.business.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
+import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
 @Route(path = RoutePathConfig.App_Main)

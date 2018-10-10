@@ -97,4 +97,6 @@ dependencies {
     implementation project(':module_message')
     implementation project(':module_signin')
     implementation project(':module_video')
+
+    api appLibDependencies.values()
 }

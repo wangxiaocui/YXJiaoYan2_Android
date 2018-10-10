@@ -32,7 +32,7 @@ public abstract class BaseFragmentFactory {
 
     public abstract String[] initFragmentPath();
 
-    protected void showFragment(int index) {
+    public void showFragment(int index) {
         if (index == mCurrentIndex && mFragments[mCurrentIndex] != null) {
             return;
         }
