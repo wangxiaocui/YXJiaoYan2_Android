@@ -1,5 +1,6 @@
 package com.test.yanxiu.common_base.base.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -50,8 +51,19 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
      */
     protected CommonToolbar.Builder getDefaultStyleToolbar() {
         return new CommonToolbar.Builder(this)
-                .setStatusBarStyle(Style.DEFAULT)
-                .setBackgroundColorRes(R.color.colorPrimary);
+                .setStatusBarStyle(Style.DEFAULT);
+    }
+
+    /**
+     * 获取一个默认样式颜色的toolbar
+     */
+    protected CommonToolbar.Builder getDefaultBackStyleToolbar() {
+        return getDefaultStyleToolbar().addLeftIcon(View.generateViewId(), R.drawable.selector_back, 30, 30, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     /**
