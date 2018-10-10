@@ -2,6 +2,7 @@ package com.yanxiu.gphone.jiaoyan.module.signin.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -26,6 +27,9 @@ import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 @Route(path = RoutePathConfig.SIGNIN_LOGIN_ACTIVITY)
 public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> implements LoginContract.IView {
 
+    protected TextView tv_title;
+    protected TextInputLayout text_input_layout_accout;
+    protected TextInputLayout text_input_layout_password;
     protected EditText et_account;
     protected EditText et_password;
     protected TextView tv_get_code;
@@ -50,6 +54,9 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
+        tv_title = contentView.findViewById(R.id.tv_title);
+        text_input_layout_accout = contentView.findViewById(R.id.text_input_layout_accout);
+        text_input_layout_password = contentView.findViewById(R.id.text_input_layout_password);
         et_account = contentView.findViewById(R.id.et_account);
         et_password = contentView.findViewById(R.id.et_password);
         tv_get_code = contentView.findViewById(R.id.tv_get_code);
@@ -98,7 +105,7 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
         if (view.getId() == R.id.tv_login_type) {
             RouteUtils.startActivity(RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY);
         } else if (view.getId() == R.id.tv_register) {
-
+            RouteUtils.startActivity(RoutePathConfig.SIGNIN_REGISTER_ACTIVITY);
         }
     }
 

@@ -9,9 +9,9 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
-import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
+import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 

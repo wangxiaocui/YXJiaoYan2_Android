@@ -26,6 +26,8 @@ public class RoutePathConfig {
     public static final String SIGNIN_LOGIN_ACTIVITY = "/signin/login";
     //LoginByCodeActivity
     public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/login_by_code";
+    //RegisterActivity
+    public static final String SIGNIN_REGISTER_ACTIVITY = "/signin/register";
     //endregion
 
     //region module_message
