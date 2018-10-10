@@ -1,12 +1,16 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,6 +27,7 @@ import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.third_party.GlideImageLoader;
+import com.test.yanxiu.common_base.utils.FileUtils;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.mock.MockAsyncTask;
@@ -34,9 +39,11 @@ import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 import com.yanxiu.lib.yx_basic_library.util.permission.OnPermissionCallback;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Cai Lei on 2018/10/9.
@@ -144,6 +151,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     // region 更换头像 + 手机号
     private static final int REQUEST_CODE_CAMERA = 0x01;
     private static final int REQUEST_CODE_ALBUM = 0x02;
+    private static final int REQUEST_CODE_PIC_CROP = 0x03;
 
     private void setupImagePicker() {
         GlideImageLoader glideImageLoader = new GlideImageLoader();
@@ -233,6 +241,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     }
 
+    private String mPicCropPath;
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -245,11 +254,28 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
                     return;
                 }
                 ImageItem item = imageItems.get(0);
-                mPresenter.doUploadPortrait(item.path);
+
+                Uri org = Uri.fromFile(new File(item.path));
+                String path = item.path.substring(0, item.path.length() - 4);
+                // walkthrough: cailei, 这里非常奇怪，即便删除上次path下的file，依然使用第一次裁剪后的图片
+                // 只能想法每次裁剪用UUID生成不同的图片了
+                path += "_crop" + UUID.randomUUID() + ".jpg";
+                Uri des = Uri.fromFile(new File(path));
+
+                mPicCropPath = path;
+                doPicCrop(org, des);
+                break;
+
+            case REQUEST_CODE_PIC_CROP:
+                if (!new File(mPicCropPath).exists()) {
+                    return;
+                }
 
                 // todo: cailei
-                Glide.with(getActivity()).load(item.path).apply(new RequestOptions().centerCrop()).into(iv_portrait);
+                mPresenter.doUploadPortrait(mPicCropPath);
+                Glide.with(getActivity()).load(Uri.fromFile(new File(mPicCropPath))).apply(new RequestOptions().centerCrop()).into(iv_portrait);
                 break;
+
             default:
                 break;
         }
@@ -272,6 +298,30 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         return images;
     }
 
+    /**
+     * 裁剪图片方法实现
+     *
+     * @param uri
+     */
+    public void doPicCrop(Uri uri, Uri saveCroppedImageFileUri) {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        }
+        intent.setDataAndType(uri, "image/*");
+        intent.putExtra("crop", "true");
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("outputX", 300);
+        intent.putExtra("outputY", 300);
+        intent.putExtra("return-data", false);
+        //输出图片格式
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+        //取消人脸识别
+        intent.putExtra("noFaceDetection", true);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, saveCroppedImageFileUri);
+        startActivityForResult(intent, REQUEST_CODE_PIC_CROP);
+    }
     // endregion 更换头像 + 手机号
 
     // region mvp
