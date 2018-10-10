@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
@@ -241,7 +242,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     }
 
-    private String mPicCropPath;
+    private Uri mPicCropUri;
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -256,24 +257,31 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
                 ImageItem item = imageItems.get(0);
 
                 Uri org = Uri.fromFile(new File(item.path));
-                String path = item.path.substring(0, item.path.length() - 4);
-                // walkthrough: cailei, 这里非常奇怪，即便删除上次path下的file，依然使用第一次裁剪后的图片
-                // 只能想法每次裁剪用UUID生成不同的图片了
-                path += "_crop" + UUID.randomUUID() + ".jpg";
-                Uri des = Uri.fromFile(new File(path));
-
-                mPicCropPath = path;
+                Uri des = Uri.fromFile(new File(item.path + "_crop"));
+                new File(des.getPath()).delete();
+                mPicCropUri = des;
                 doPicCrop(org, des);
                 break;
 
             case REQUEST_CODE_PIC_CROP:
-                if (!new File(mPicCropPath).exists()) {
+                if (!new File(mPicCropUri.getPath()).exists()) {
+                    //不裁剪 也直接返回
                     return;
                 }
 
                 // todo: cailei
-                mPresenter.doUploadPortrait(mPicCropPath);
-                Glide.with(getActivity()).load(Uri.fromFile(new File(mPicCropPath))).apply(new RequestOptions().centerCrop()).into(iv_portrait);
+                mPresenter.doUploadPortrait(mPicCropUri.getPath());
+
+                RequestOptions options = new RequestOptions();
+                options.skipMemoryCache(true)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .centerCrop();
+
+                Glide.with(getActivity())
+                        .asDrawable()
+                        .load(mPicCropUri)
+                        .apply(options)
+                        .into(iv_portrait);
                 break;
 
             default:
