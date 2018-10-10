@@ -1,6 +1,7 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,12 +9,16 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
@@ -28,7 +33,9 @@ import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 import com.yanxiu.lib.yx_basic_library.util.permission.OnPermissionCallback;
 
+import java.io.File;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,6 +55,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     private LinearLayout ll_header;
     private BottomSheetDialog bottomSheetDialog;
+    private ImageView iv_portrait;
 
     @Override
     public void initData(@NonNull Bundle bundle) {
@@ -77,6 +85,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         item_shezhi.setTitle("设置");
 
         ll_header = contentView.findViewById(R.id.ll_header);
+        iv_portrait = contentView.findViewById(R.id.iv_portrait);
     }
 
     @Override
@@ -134,7 +143,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     // region 更换头像 + 手机号
     private static final int REQUEST_CODE_CAMERA = 0x01;
-    private static final int REQUEST_CODE_ALBUM = 0x01;
+    private static final int REQUEST_CODE_ALBUM = 0x02;
 
     private void setupImagePicker() {
         GlideImageLoader glideImageLoader = new GlideImageLoader();
@@ -146,6 +155,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         ip.setCrop(false);
         //选中数量限制
         ip.setSelectLimit(1);
+
     }
 
     private void popOptions() {
@@ -187,6 +197,8 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     }
 
     private void getPhotoFromCamera() {
+
+
         YXBaseActivity.requestCameraPermission(new OnPermissionCallback() {
             @Override
             public void onPermissionsGranted(@Nullable List<String> deniedPermissions) {
@@ -221,6 +233,44 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_CODE_CAMERA:
+            case REQUEST_CODE_ALBUM:
+                ArrayList<ImageItem> imageItems = createSelectedImagesList(data);
+                if (imageItems == null || imageItems.size() == 0) {
+                    //用户没选图片 直接返回
+                    return;
+                }
+                ImageItem item = imageItems.get(0);
+                mPresenter.doUploadPortrait(item.path);
+
+                // todo: cailei
+                Glide.with(getActivity()).load(item.path).apply(new RequestOptions().centerCrop()).into(iv_portrait);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 构造需要的图片数据
+     *
+     * @param data
+     */
+    private ArrayList<ImageItem> createSelectedImagesList(Intent data) {
+        ArrayList<ImageItem> images = null;
+        try {
+            images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
+        } catch (Exception e) {
+        }
+        if (images == null) {
+            return null;
+        }
+        return images;
+    }
 
     // endregion 更换头像 + 手机号
 

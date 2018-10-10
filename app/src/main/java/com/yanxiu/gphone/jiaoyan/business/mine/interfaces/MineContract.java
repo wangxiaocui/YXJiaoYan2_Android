@@ -9,7 +9,12 @@ import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBaseView;
 public class MineContract {
     public interface IPresenter extends IYXBasePresenter {
         void doCheckIn();
-        void doUploadPortrait();
+
+        /**
+         *
+         * @param path 图片的本地路径
+         */
+        void doUploadPortrait(String path);
     }
 
     public interface IView extends IYXBaseView<IPresenter> {

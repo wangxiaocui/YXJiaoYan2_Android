@@ -69,6 +69,7 @@
 
             <!-- 头像 -->
             <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
+                android:id="@+id/iv_portrait"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_vertical"

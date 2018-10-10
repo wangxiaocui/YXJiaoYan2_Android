@@ -29,7 +29,13 @@ public class MinePresenter
     }
 
     @Override
-    public void doUploadPortrait() {
-
+    public void doUploadPortrait(String path) {
+        // todo: cailei
+        MockAsyncTask.doTask(new MockAsyncTask.Callback() {
+            @Override
+            public void done() {
+                mView.onUserInfoUpdate();
+            }
+        });
     }
 }
