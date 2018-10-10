@@ -1,3 +1,5 @@
 <resources>
     <!--<string name="app_name">YXJiaoYan2_Android</string>-->
+    <string name="no_camera_permissions">相机权限被禁用，请在权限设置中开启</string>
+    <string name="no_storage_permissions">存储权限被禁用，请在权限设置中开启</string>
 </resources>

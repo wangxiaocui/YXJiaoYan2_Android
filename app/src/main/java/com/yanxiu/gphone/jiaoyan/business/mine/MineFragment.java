@@ -1,23 +1,42 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.BottomSheetDialog;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.lzy.imagepicker.ImagePicker;
+import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.third_party.GlideImageLoader;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineContract;
+import com.yanxiu.gphone.jiaoyan.business.mine.mock.MockAsyncTask;
+import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MinePresenter;
+import com.yanxiu.gphone.jiaoyan.customize.OptionsViewGroup;
+import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
+import com.yanxiu.lib.yx_basic_library.util.permission.OnPermissionCallback;
+
+import java.lang.reflect.Field;
+import java.util.List;
 
 /**
  * Created by Cai Lei on 2018/10/9.
  */
 @Route(path = RoutePathConfig.Mine_Fragment)
-public class MineFragment extends JYBaseFragment {
+public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
+        implements MineContract.IView {
     private TextView tv_checkin;
     private TextView tv_checkin_done;
     private MineItemLayout item_gerenziliao;
@@ -27,9 +46,12 @@ public class MineFragment extends JYBaseFragment {
     private MineItemLayout item_wodezhengshu;
     private MineItemLayout item_shezhi;
 
+    private LinearLayout ll_header;
+    private BottomSheetDialog bottomSheetDialog;
+
     @Override
     public void initData(@NonNull Bundle bundle) {
-
+        setupImagePicker();
     }
 
     @Override
@@ -53,6 +75,8 @@ public class MineFragment extends JYBaseFragment {
         item_wodezhengshu.setTitle("我的证书");
         item_shezhi = contentView.findViewById(R.id.item_shezhi);
         item_shezhi.setTitle("设置");
+
+        ll_header = contentView.findViewById(R.id.ll_header);
     }
 
     @Override
@@ -64,6 +88,7 @@ public class MineFragment extends JYBaseFragment {
         item_wodekecheng.setOnClickListener(this);
         item_wodezhengshu.setOnClickListener(this);
         item_shezhi.setOnClickListener(this);
+        ll_header.setOnClickListener(this);
     }
 
     @Override
@@ -73,8 +98,11 @@ public class MineFragment extends JYBaseFragment {
     @Override
     public void onWidgetClick(View view) {
         if (view == tv_checkin) {
-            tv_checkin.setVisibility(View.GONE);
-            tv_checkin_done.setVisibility(View.VISIBLE);
+            mPresenter.doCheckIn();
+        }
+
+        if (view == ll_header) {
+            popOptions();
         }
 
         if (view == item_gerenziliao) {
@@ -100,7 +128,112 @@ public class MineFragment extends JYBaseFragment {
     }
 
     @Override
-    protected IYXBasePresenter initPresenterImpl() {
-        return null;
+    protected MineContract.IPresenter initPresenterImpl() {
+        return new MinePresenter(this);
     }
+
+    // region 更换头像 + 手机号
+    private static final int REQUEST_CODE_CAMERA = 0x01;
+    private static final int REQUEST_CODE_ALBUM = 0x01;
+
+    private void setupImagePicker() {
+        GlideImageLoader glideImageLoader = new GlideImageLoader();
+        ImagePicker ip = ImagePicker.getInstance();
+        ip.setImageLoader(glideImageLoader);
+        //显示拍照按钮
+        ip.setShowCamera(false);
+        //允许裁剪（单选才有效）
+        ip.setCrop(false);
+        //选中数量限制
+        ip.setSelectLimit(1);
+    }
+
+    private void popOptions() {
+        final String[] options = new String[]{"拍照设置头像", "从相册选择头像", "更换手机号"};
+
+        LinearLayout ll_bottom_sheet = (LinearLayout) getLayoutInflater().inflate(R.layout.mine_portrait_phone_options, null);
+        OptionsViewGroup options_view_group = ll_bottom_sheet.findViewById(R.id.options_view_group);
+        options_view_group.setupWith(options, "取消");
+
+        options_view_group.setCallback(new OptionsViewGroup.Callback() {
+            @Override
+            public void onCancel() {
+                YXLogger.d("cailei", "cancel");
+                bottomSheetDialog.dismiss();
+            }
+
+            @Override
+            public void onSelect(int index) {
+                YXLogger.d("cailei", index+"");
+                bottomSheetDialog.dismiss();
+                if (0 == index) {
+                    getPhotoFromCamera();
+                }
+                if (1 == index) {
+                    getPhotoFromAlbum();
+                }
+                if (2 == index) {
+
+                }
+            }
+        });
+
+        bottomSheetDialog = new BottomSheetDialog(getActivity());
+        bottomSheetDialog.setCancelable(false);
+        bottomSheetDialog.setCanceledOnTouchOutside(true);
+        bottomSheetDialog.setContentView(ll_bottom_sheet);
+
+        bottomSheetDialog.show();
+    }
+
+    private void getPhotoFromCamera() {
+        YXBaseActivity.requestCameraPermission(new OnPermissionCallback() {
+            @Override
+            public void onPermissionsGranted(@Nullable List<String> deniedPermissions) {
+                Intent intent = new Intent(MineFragment.this.getActivity(), ImageGridActivity.class);
+                intent.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS, true);
+                startActivityForResult(intent, REQUEST_CODE_CAMERA);
+            }
+
+            @Override
+            public void onPermissionsDenied(@Nullable List<String> deniedPermissions) {
+                Toast.makeText(MineFragment.this.getActivity(), R.string.no_storage_permissions, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void getPhotoFromAlbum() {
+        YXBaseActivity.requestWriteAndReadPermission(new OnPermissionCallback() {
+            @Override
+            public void onPermissionsGranted(@Nullable List<String> deniedPermissions) {
+                Intent intent = new Intent(MineFragment.this.getActivity(), ImageGridActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_ALBUM);
+            }
+
+            @Override
+            public void onPermissionsDenied(@Nullable List<String> deniedPermissions) {
+                Toast.makeText(MineFragment.this.getActivity(), R.string.no_storage_permissions, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void changePhone() {
+
+    }
+
+
+    // endregion 更换头像 + 手机号
+
+    // region mvp
+    @Override
+    public void onCheckInDone() {
+        tv_checkin.setVisibility(View.GONE);
+        tv_checkin_done.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onUserInfoUpdate() {
+
+    }
+    // endregion mvp
 }
