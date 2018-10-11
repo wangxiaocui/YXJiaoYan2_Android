@@ -8,6 +8,7 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
@@ -15,8 +16,11 @@ import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
+import com.test.yanxiu.common_base.utils.CacheDataManager;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.lib.yx_basic_library.YXApplication;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 /**
  * 设置页面，没用mvp
@@ -81,7 +85,9 @@ public class MineSettingActivity extends JYBaseActivity {
 
     @Override
     public void doBusiness() {
-
+        long cacheSize = CacheDataManager.getAllCacheSize(YXApplication.getContext());
+        String cacheSizeStr = CacheDataManager.getFormatSize(cacheSize);
+        tv_cache_size.setText(cacheSizeStr);
     }
 
     @Override
@@ -95,7 +101,9 @@ public class MineSettingActivity extends JYBaseActivity {
         }
 
         if (view == ll_clear_cache) {
-
+            YXToastUtil.showToast("已清除");
+            CacheDataManager.ClearAllCache(YXApplication.getContext());
+            tv_cache_size.setText("0 KB");
         }
 
         if (view == ll_check_version) {
