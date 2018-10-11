@@ -20,5 +20,8 @@ public class LoginContract {
 
     public interface IPresenter extends IYXBasePresenter {
         void login(String username, String password);
+
+        void verifyCode(String phone, String code);
+
     }
 }

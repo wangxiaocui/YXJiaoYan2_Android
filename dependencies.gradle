@@ -15,19 +15,23 @@ ext {
     arouterCompilerVersion = '1.2.1'
     //播放器版本
     exoplayerVersion = '2.4.3'
+    //flowlayout
+    flowlayoutVersion = '1.1.2'
     //common_base dependencies
     commonBaseLibDependencies = [
             //  鲁班图像压缩  https://github.com/Curzibn/Luban
-            luBan: "top.zibin:Luban:${luBanVersion}",
+            luBan        : "top.zibin:Luban:${luBanVersion}",
             //下拉刷新 https://github.com/XRecyclerView/XRecyclerView
-            xrecyclerview: "com.jcodecraeer:xrecyclerview:${xrecyclerview}"
+            xrecyclerview: "com.jcodecraeer:xrecyclerview:${xrecyclerview}",
+            //流式tag布局 https://github.com/hongyangAndroid/FlowLayout
+            flowlayout   : "com.hyman:flowlayout-lib:${flowlayoutVersion}"
     ]
     //VIDEO dependencies
     videoLibDependencies = [
-            video    : "com.google.android.exoplayer:exoplayer:r${exoplayerVersion}"
+            video: "com.google.android.exoplayer:exoplayer:r${exoplayerVersion}"
     ]
 
     appLibDependencies = [
-            transparent_text_view   : "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}"
+            transparent_text_view: "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}"
     ]
 }

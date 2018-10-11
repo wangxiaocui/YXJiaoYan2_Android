@@ -1,5 +1,6 @@
 package com.yanxiu.gphone.jiaoyan.module.signin.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -27,6 +28,8 @@ import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 @Route(path = RoutePathConfig.SIGNIN_LOGIN_ACTIVITY)
 public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> implements LoginContract.IView {
 
+    private static final int REQUEST_CODE = 100;
+
     protected TextView tv_title;
     protected TextInputLayout text_input_layout_accout;
     protected TextInputLayout text_input_layout_password;
@@ -36,7 +39,6 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
     protected Button btn_login;
     protected TextView tv_login_type;
     protected TextView tv_register;
-
 
     @Override
     protected LoginContract.IPresenter initPresenterImpl() {
@@ -49,7 +51,7 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
 
     @Override
     public int bindLayout() {
-        return R.layout.activity_login;
+        return R.layout.signin_activity_login;
     }
 
     @Override
@@ -100,12 +102,11 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
     @Override
     public void onWidgetClick(View view) {
         if (view.getId() == R.id.btn_login) {
-
-        }
-        if (view.getId() == R.id.tv_login_type) {
-            RouteUtils.startActivity(RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY);
+            onLoginClick();
+        } else if (view.getId() == R.id.tv_login_type) {
+            onLoginTypeClick();
         } else if (view.getId() == R.id.tv_register) {
-            RouteUtils.startActivity(RoutePathConfig.SIGNIN_REGISTER_ACTIVITY);
+            onRegisterClick();
         }
     }
 
@@ -119,7 +120,7 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
 
     @Override
     public void onLoginSuccess() {
-        RouteUtils.startActivity(RoutePathConfig.App_Main);
+        setResult(RESULT_OK);
         finish();
     }
 
@@ -128,4 +129,24 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
         YXToastUtil.showToast(errorMsg);
     }
 
+    protected void onLoginClick() {
+        mPresenter.login(et_account.getText().toString(), et_password.getText().toString());
+    }
+
+    protected void onLoginTypeClick() {
+        RouteUtils.startActivityForResult(this, RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY, REQUEST_CODE);
+    }
+
+    protected void onRegisterClick() {
+        RouteUtils.startActivity(RoutePathConfig.SIGNIN_REGISTER_ACTIVITY);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+
+            finish();
+        }
+    }
 }

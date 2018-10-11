@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:text="学段"
+            android:textStyle="bold" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/tag_flow_layout_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemSpacing="10dp">
+
+        </com.zhy.view.flowlayout.TagFlowLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/color_f0f1f3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:text="学科"
+            android:textStyle="bold" />
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/tag_flow_layout_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemSpacing="10dp">
+
+        </com.zhy.view.flowlayout.TagFlowLayout>
+    </LinearLayout>
+</ScrollView>
