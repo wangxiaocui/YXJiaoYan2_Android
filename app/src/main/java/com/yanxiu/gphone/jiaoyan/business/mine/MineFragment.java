@@ -27,6 +27,7 @@ import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.route.RouteUtils;
 import com.test.yanxiu.common_base.third_party.GlideImageLoader;
 import com.test.yanxiu.common_base.utils.FileUtils;
 import com.yanxiu.gphone.jiaoyan.R;
@@ -139,7 +140,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
             YXLogger.d("cailei", "我的证书");
         }
         if (view == item_shezhi) {
-            YXLogger.d("cailei", "设置");
+            RouteUtils.startActivity(RoutePathConfig.Mine_Setting_Activity);
         }
 
     }

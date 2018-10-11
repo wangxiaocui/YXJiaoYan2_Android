@@ -38,10 +38,11 @@ public class RoutePathConfig {
 
 
     //region mine
-    /**
-     * tab"我的"入口页
-     */
+
+    // tab"我的"入口页
     public static final String Mine_Fragment = "/mine/index";
+    // "设置" 页
+    public static final String Mine_Setting_Activity = "/mine/setting";
 
     //endregion mine
 }
