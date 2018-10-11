@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.test.yanxiu.common_base.R;
+import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
 import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
@@ -23,7 +25,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        AppBarHelper.with(this).setStatusBarColor(ContextCompat.getColor(this, R.color.color_ffffff)).apply();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             initData(bundle);
@@ -58,7 +60,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
      * 获取一个默认样式颜色的toolbar
      */
     protected CommonToolbar.Builder getDefaultBackStyleToolbar() {
-        return getDefaultStyleToolbar().addLeftIcon(View.generateViewId(), R.drawable.selector_back, 30, 30, new View.OnClickListener() {
+        return getDefaultStyleToolbar().addLeftIcon(View.generateViewId(), R.drawable.selector_back, 20, 20, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

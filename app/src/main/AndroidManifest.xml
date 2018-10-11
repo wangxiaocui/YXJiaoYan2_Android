@@ -21,6 +21,7 @@
             android:name=".business.main.MainActivity"
             android:theme="@style/AppTheme.Main" />
         <activity android:name=".business.mine.MineSettingActivity"></activity>
+        <activity android:name=".business.course_detail.CourseDetailActivity" />
     </application>
 
 </manifest>
