@@ -125,16 +125,6 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
         if (view == item_gerenziliao) {
             YXLogger.d("cailei", "个人资料");
-            String[] arr = {
-                    "http://b.hiphotos.baidu.com/image/pic/item/e824b899a9014c08ef778daf077b02087bf4f468.jpg",
-                    "http://g.hiphotos.baidu.com/image/pic/item/8644ebf81a4c510f175ba5166d59252dd42aa51b.jpg",
-                    "http://h.hiphotos.baidu.com/image/pic/item/34fae6cd7b899e51e099e61d4fa7d933c8950da0.jpg",
-                    "http://g.hiphotos.baidu.com/image/pic/item/d50735fae6cd7b8960afd68e022442a7d8330ef8.jpg",
-                    "http://e.hiphotos.baidu.com/image/pic/item/622762d0f703918f9c37edc65c3d269758eec4dc.jpg"
-            };
-            for (String s : arr) {
-                Glide.with(getActivity()).load(s);
-            }
         }
         if (view == item_zizhirenzheng) {
             YXLogger.d("cailei", "资质证书");

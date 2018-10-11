@@ -18,6 +18,7 @@ import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
+import com.test.yanxiu.common_base.db.SpManager;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
@@ -95,7 +96,8 @@ public class MineVideoResolutionActivity extends JYBaseActivity {
         @Override
         public void onItemClick(View itemView, Object data, int position) {
             VideoResolutionBean bean = (VideoResolutionBean)data;
-            YXLogger.d("cailei", bean.title);
+            SpManager.setVideoResolution4g(bean.title);
+            finish();
         }
     };
 
