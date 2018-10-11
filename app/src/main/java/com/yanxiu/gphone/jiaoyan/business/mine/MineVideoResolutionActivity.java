@@ -77,12 +77,7 @@ public class MineVideoResolutionActivity extends JYBaseActivity {
     @Override
     protected void initTitle() {
         super.initTitle();
-
-        // todo: cailei 需要都调试好了放到Base里去
-        new CommonToolbar.Builder(this).setStatusBarStyle(Style.DEFAULT)
-                .addLeftIcon(View.generateViewId(), com.test.yanxiu.common_base.R.drawable.selector_back, 20, 20, backListener)
-                .addLeftText(View.generateViewId(), "返回", 18, getResources().getColor(R.color.color_007aff), backListener)
-                .apply();
+        getJyDefaultToolbar().setTitle("移动网络视频播放清晰度", 18, getResources().getColor(R.color.color_17171b));
     }
 
     private View.OnClickListener backListener = new View.OnClickListener() {
