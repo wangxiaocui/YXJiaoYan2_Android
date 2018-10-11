@@ -20,6 +20,7 @@
         <activity
             android:name=".business.main.MainActivity"
             android:theme="@style/AppTheme.Main"></activity>
+        <activity android:name=".business.course_detail.CourseDetailActivity" />
     </application>
 
 </manifest>
