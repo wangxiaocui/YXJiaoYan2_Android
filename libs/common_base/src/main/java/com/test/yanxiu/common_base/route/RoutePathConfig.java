@@ -43,6 +43,8 @@ public class RoutePathConfig {
     public static final String Mine_Fragment = "/mine/index";
     // "设置" 页
     public static final String Mine_Setting_Activity = "/mine/setting";
+    // "移动网络视频播放清晰度" 页
+    public static final String Mine_Video_Resolution_Activity = "/mine/setting/video_resolution";
 
     //endregion mine
 }
