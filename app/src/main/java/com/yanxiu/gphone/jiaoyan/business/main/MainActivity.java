@@ -13,6 +13,7 @@ import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.utils.checkLogin.CheckLoginUtil;
+import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
@@ -81,6 +82,7 @@ public class MainActivity extends JYBaseActivity {
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
                         AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(1);
+                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail);
                         return true;
                     case R.id.navigation_message:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));

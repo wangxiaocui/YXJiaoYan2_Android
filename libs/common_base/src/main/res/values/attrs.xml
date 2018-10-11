@@ -45,4 +45,21 @@
             <enum name="grid" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="StarProgressBar">
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="textColor" format="color" />
+        <!--总大小-->
+        <attr name="totalSize" format="dimension" />
+        <attr name="totalheight" format="dimension" />
+        <!--星星图片-->
+        <attr name="starIcon" format="reference" />
+        <!--星星个数-->
+        <attr name="starsCount" format="integer" />
+        <!--是否可点击滑动操作-->
+        <attr name="clickAble" format="boolean" />
+    </declare-styleable>
+
 </resources>
