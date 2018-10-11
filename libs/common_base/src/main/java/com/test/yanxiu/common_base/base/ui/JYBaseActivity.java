@@ -15,6 +15,8 @@ import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
+import java.util.zip.Inflater;
+
 /**
  * Created by Hu Chao on 18/9/28.
  */
@@ -45,15 +47,30 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     }
 
     protected void initTitle() {
-
     }
 
     /**
      * 获取一个默认样式颜色的toolbar
      */
     protected CommonToolbar.Builder getDefaultStyleToolbar() {
-        return new CommonToolbar.Builder(this)
-                .setStatusBarStyle(Style.DEFAULT);
+        CommonToolbar.Builder builder = new CommonToolbar.Builder(this).setStatusBarStyle(Style.DEFAULT);
+        return builder;
+    }
+
+    // JY默认的左侧样式 "< 返回"
+    protected CommonToolbar getJyDefaultToolbar() {
+        CommonToolbar.Builder builder = new CommonToolbar.Builder(this).setStatusBarStyle(Style.DEFAULT);
+        CommonToolbar toolbar = builder.apply();
+
+        View v = this.getLayoutInflater().inflate(R.layout.common_left_navi_back, null);
+        toolbar.addLeftView(View.generateViewId(), v);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        return toolbar;
     }
 
     /**
