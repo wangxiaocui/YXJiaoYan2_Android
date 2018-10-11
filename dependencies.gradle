@@ -17,6 +17,7 @@ ext {
     exoplayerVersion = '2.4.3'
     //flowlayout
     flowlayoutVersion = '1.1.2'
+    bannerVersion = '1.4.10'
     //common_base dependencies
     commonBaseLibDependencies = [
             //  鲁班图像压缩  https://github.com/Curzibn/Luban
@@ -32,6 +33,8 @@ ext {
     ]
 
     appLibDependencies = [
-            transparent_text_view: "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}"
+            transparent_text_view: "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}",
+            //banner https://github.com/youth5201314/banner
+            banner               : "com.youth.banner:banner:${bannerVersion}"
     ]
 }

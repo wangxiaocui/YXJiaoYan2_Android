@@ -1,71 +1,41 @@
 package com.test.yanxiu.common_base.base.net;
 
 import com.test.yanxiu.common_base.Constants;
+import com.test.yanxiu.common_base.db.UserInfoManager;
 import com.test.yanxiu.common_base.utils.serverUrl.UrlRepository;
 import com.yanxiu.lib.yx_basic_library.network.YXRequestBase;
+import com.yanxiu.lib.yx_basic_library.network.YXRequestParamType;
 
 
 /**
  * requset基类
  */
-
 public abstract class JYBaseRequest extends YXRequestBase {
-    // TODO 这里的参数，需要根据server的协议来定，目前都是易学易练的公用参数
-    public String osType = Constants.osType;
-    public String pcode = Constants.pcode;
-//    public String token = UserInfoManager.getInstance().getToken();
-    public String trace_uid;
-    public String version = Constants.version;
 
+    @YXRequestParamType(YXRequestParamType.Type.GET)
+    public final String platform = Constants.PLATFORM;
+    @YXRequestParamType(YXRequestParamType.Type.GET)
+    public final String versionCode = Constants.version;
+
+    public final String token = UserInfoManager.getInstance().getToken();
 
     @Override
     protected String urlServer() {
-        return UrlRepository.getInstance().getServer();
+        return UrlRepository.getInstance().getServer() + ver();
+    }
+
+    protected String ver() {
+        return "/v1";
+    }
+
+    @Override
+    protected HttpType httpType() {
+        return HttpType.POST;
     }
 
     @Override
     protected boolean shouldLog() {
         return true;
-    }
-
-    public String getOsType() {
-        return osType;
-    }
-
-    public void setOsType(String osType) {
-        this.osType = osType;
-    }
-
-    public String getPcode() {
-        return pcode;
-    }
-
-    public void setPcode(String pcode) {
-        this.pcode = pcode;
-    }
-
-//    public String getToken() {
-//        return token;
-//    }
-//
-//    public void setToken(String token) {
-//        this.token = token;
-//    }
-
-    public String getTrace_uid() {
-        return trace_uid;
-    }
-
-    public void setTrace_uid(String trace_uid) {
-        this.trace_uid = trace_uid;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
 }
