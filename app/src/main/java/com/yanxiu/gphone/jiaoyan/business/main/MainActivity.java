@@ -12,8 +12,10 @@ import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.utils.checkLogin.CheckLoginUtil;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 @Route(path = RoutePathConfig.App_Main)
 public class MainActivity extends JYBaseActivity {
@@ -83,7 +85,18 @@ public class MainActivity extends JYBaseActivity {
                     case R.id.navigation_message:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
                         AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
-                        mFragmentFactory.showFragment(2);
+                        CheckLoginUtil.checkLogin(MainActivity.this, new CheckLoginUtil.OnLoginStateCallback() {
+                            @Override
+                            public void onLoginSuccess() {
+                                YXToastUtil.showToast("登录成功");
+                                mFragmentFactory.showFragment(2);
+                            }
+
+                            @Override
+                            public void onLoginFail() {
+                                YXToastUtil.showToast("登录失败");
+                            }
+                        });
                         return true;
                     case R.id.navigation_mine:
                         root_view.setBackground(null);

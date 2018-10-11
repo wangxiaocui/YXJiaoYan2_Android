@@ -25,16 +25,19 @@ public class RoutePathConfig {
     //LoginActivity
     public static final String SIGNIN_LOGIN_ACTIVITY = "/signin/login";
     //LoginByCodeActivity
-    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/login_by_code";
+    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/loginByCode";
     //RegisterActivity
     public static final String SIGNIN_REGISTER_ACTIVITY = "/signin/register";
+    //SetPasswordActivity
+    public static final String SIGNIN_SET_PASSWORD_ACTIVITY = "/signin/setPassword";
+    //SetSubjectActivity
+    public static final String SIGNIN_SET_SUBJECT_ACTIVITY = "/signin/setSubject";
     //endregion
 
     //region module_message
     //MessageFragment
     public static final String Message_Fragment = "/message/index";
     //endregion
-
 
 
     //region mine

@@ -1,24 +1,14 @@
 package com.yanxiu.gphone.jiaoyan.module.signin.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.module.signin.R;
-import com.yanxiu.gphone.jiaoyan.module.signin.interfaces.LoginContract;
-import com.yanxiu.gphone.jiaoyan.module.signin.presenter.LoginPresenter;
-import com.yanxiu.gphone.jiaoyan.module.signin.util.CountDownUtil;
 import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 /**
@@ -32,10 +22,9 @@ public class RegisterActivity extends LoginByCodeActivity {
     private TextView tv_agreement;
     private TextView tv_privacy;
 
-
     @Override
     public int bindLayout() {
-        return R.layout.activity_login;
+        return R.layout.signin_activity_login;
     }
 
     @Override
@@ -62,15 +51,21 @@ public class RegisterActivity extends LoginByCodeActivity {
 
     @Override
     public void onWidgetClick(View view) {
-        if (view.getId() == R.id.tv_get_code) {
-            getCode();
-        } else if (view.getId() == R.id.btn_login) {
-
-        } else if (view.getId() == R.id.tv_agreement) {
+        super.onWidgetClick(view);
+        if (view.getId() == R.id.tv_agreement) {
             YXToastUtil.showToast("跳转用户协议");
         } else if (view.getId() == R.id.tv_privacy) {
             YXToastUtil.showToast("跳转隐私政策");
         }
     }
 
+    @Override
+    protected void onLoginClick() {
+        mPresenter.verifyCode(et_account.getText().toString(), et_password.getText().toString());
+    }
+
+    @Override
+    public void onLoginSuccess() {
+        RouteUtils.startActivity(RoutePathConfig.SIGNIN_SET_PASSWORD_ACTIVITY);
+    }
 }
