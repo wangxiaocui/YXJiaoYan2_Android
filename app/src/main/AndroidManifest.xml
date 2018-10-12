@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yanxiu.gphone.jiaoyan">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.test.yanxiu.common_base.JYApplication"
         android:allowBackup="true"

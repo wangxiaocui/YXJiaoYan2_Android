@@ -12,26 +12,24 @@ import java.util.List;
  * Created by 戴延枫 on 2018/4/16.
  */
 
-
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder> {
-    public Context mContext;
-    public List<T> mDatas;
-    public OnRecyclerViewItemClickListener mOnRecyclerViewItemClickListener;
-    public View mEmptyView;
+    protected Context mContext;
+    protected List<T> mDatas;
+    protected OnRecyclerViewItemClickListener mOnRecyclerViewItemClickListener;
 
     private BaseAdapter() {
 
     }
 
     public BaseAdapter(Context context) {
-        super();
-        mContext = context;
+        this(context, null);
     }
 
     public BaseAdapter(Context context, List<T> datas) {
         super();
         mContext = context;
-        mDatas = datas;
+        mDatas = new ArrayList<>();
+        setData(datas);
     }
 
 
@@ -41,8 +39,29 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
      * @param datas
      */
     public void setData(List<T> datas) {
-        mDatas = datas;
-        notifyDataSetChanged();
+        mDatas.clear();
+        if (datas == null || datas.isEmpty()) {
+            mDatas.addAll(datas);
+        }
+    }
+
+    /**
+     * 获取数据list
+     *
+     * @return
+     */
+    public List<T> getData() {
+        return mDatas;
+    }
+
+    /**
+     * 获取单条数据
+     *
+     * @param position
+     * @return
+     */
+    public T getData(int position) {
+        return mDatas.get(position);
     }
 
     /**
@@ -53,13 +72,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     public void addData(List<T> datas) {
         if (datas == null || datas.isEmpty())
             return;
-        int poisition = getItemCount();
-        if (mDatas != null) {
-            mDatas.addAll(datas);
-        } else {
-            mDatas = datas;
-        }
-        notifyItemRangeInserted(poisition, datas.size());
+        mDatas.addAll(datas);
     }
 
     /**
@@ -70,14 +83,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
     public void addData(T data) {
         if (data == null)
             return;
-        int poisition = getItemCount();
-        if (mDatas != null) {
-            mDatas.add(data);
-        } else {
-            mDatas = new ArrayList<>();
-            mDatas.add(data);
-        }
-        notifyItemInserted(poisition);
+        mDatas.add(data);
     }
 
     /**
@@ -91,8 +97,6 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
 
     @Override
     public int getItemCount() {
-        if (mDatas == null)
-            return 0;
-        return mDatas.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
 }
