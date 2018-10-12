@@ -17,7 +17,7 @@ public abstract class JYBaseRequest extends YXRequestBase {
     @YXRequestParamType(YXRequestParamType.Type.GET)
     public final String versionCode = Constants.version;
 
-    public final String token = UserInfoManager.getInstance().getToken();
+    public String token = UserInfoManager.getInstance().getToken();
 
     @Override
     protected String urlServer() {
