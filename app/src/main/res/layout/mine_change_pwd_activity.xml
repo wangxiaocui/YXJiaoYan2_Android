@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.yanxiu.gphone.jiaoyan.business.mine.MineSettingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/LargeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更换手机号" />
+
+        <!-- 旧、新手机号 -->
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/text_input_layout_phone"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="45dp"
+            app:errorEnabled="false"
+            app:theme="@style/AppTheme.CustomAppTheme_textinputLayout">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/text_input_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:gravity="center_vertical"
+                android:hint="手机号"
+                android:inputType="text"
+                android:textColor="@color/color_17171b"
+                android:textColorHint="@color/color_007aff"
+                android:textSize="@dimen/text_size_20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_f0f1f3" />
+        </android.support.design.widget.TextInputLayout>
+
+        <!-- 验证码 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/text_input_layout_code"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/tv_get_code"
+                app:errorEnabled="false"
+                app:theme="@style/AppTheme.CustomAppTheme_textinputLayout">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/text_input_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
+                    android:hint="密码"
+                    android:inputType="textPassword"
+                    android:textColor="@color/color_17171b"
+                    android:textColorHint="@color/color_007aff"
+                    android:textSize="@dimen/text_size_20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_f0f1f3" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_get_code"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/signin_get_code_btn_bg_selector"
+                android:gravity="center"
+                android:text="获取验证码"
+                android:textColor="@color/signin_get_code_text_color_selector"
+                android:textSize="@dimen/text_size_20dp" />
+        </RelativeLayout>
+
+        <!-- 提交 or 下一步 -->
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/signin_login_btn_bg_selector"
+            android:enabled="false"
+            android:text="next"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/text_size_20dp" />
+
+    </LinearLayout>
+</ScrollView>

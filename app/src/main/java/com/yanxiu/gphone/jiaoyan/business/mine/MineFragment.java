@@ -193,7 +193,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
                     getPhotoFromAlbum();
                 }
                 if (2 == index) {
-
+                    changePhone();
                 }
             }
         });
@@ -240,7 +240,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     }
 
     private void changePhone() {
-
+        RouteUtils.startActivity(RoutePathConfig.Mine_Change_Pwd_Step1_Activity);
     }
 
     private Uri mPicCropUri;
