@@ -9,7 +9,6 @@
     <dimen name="net_error_layout_height">220dp</dimen>
     <dimen name="net_error_layout_retrybutton_top">55dp</dimen>
     <dimen name="net_error_layout_margintop">22dp</dimen>
-    <dimen name="text_size_16">16dp</dimen>
     <dimen name="net_error_layout_retrybutton_width">125dp</dimen>
     <dimen name="net_error_layout_retrybutton_height">40dp</dimen>
     <dimen name="wavesRadius">5dp</dimen>
@@ -19,8 +18,11 @@
 
     <!-- text_size -->
     <dimen name="text_size_39dp">39dp</dimen>
+    <dimen name="text_size_21dp">21dp</dimen>
     <dimen name="text_size_20dp">20dp</dimen>
+    <dimen name="text_size_18dp">18dp</dimen>
     <dimen name="text_size_16dp">16dp</dimen>
+    <dimen name="text_size_15dp">15dp</dimen>
     <dimen name="text_size_12dp">12dp</dimen>
 
 </resources>

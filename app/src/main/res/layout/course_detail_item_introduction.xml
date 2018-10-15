@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingBottom="10dp">
+
+    <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
+        android:id="@+id/iv_head"
+        android:scaleType="fitXY"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:corner_size="45dp"
+        android:src="@color/color_1da1f2"/>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_15dp"
+        android:textStyle="bold"
+        tool:text="课程简介" />
+
+    <TextView
+        android:id="@+id/tv_honor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/course_detail_zhuanjia_shape"
+        android:gravity="center"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/text_size_12dp"
+        tool:text="知名庄家" />
+
+
+</LinearLayout>

@@ -4,91 +4,180 @@
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/possible_result_points">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/w"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="6dp"
-        app:cardElevation="10dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <ImageView
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view"
                 android:layout_width="match_parent"
-                android:layout_height="169dp"
-                android:layout_gravity="center"
-                android:src="@drawable/bigger" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="6dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="169dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bigger" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@color/color_ffffff">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tool:text="试看" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tool:text="可是看两分钟" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center_vertical"
+                            android:background="@color/color_f0f1f3" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tool:text="加入学习" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tool:text="需要消耗20财富值" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_class_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:lineSpacingExtra="1dp"
+                android:text="苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋苏有朋"
+                android:textColor="@color/color_17171b"
+                android:textSize="@dimen/text_size_21dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_class_name"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="主讲：苏有朋"
+                android:textColor="@color/color_a6a5ab"
+                android:textSize="@dimen/text_size_18dp" />
+
+            <com.test.yanxiu.common_base.customize.view.StarProgressBar
+                android:id="@+id/good_progress_view2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_teacher"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="12dp"
+                app:backgroundColor="@color/color_d4d4da"
+                app:clickAble="false"
+                app:starIcon="@drawable/star_single"
+                app:starsCount="5" />
+
+            <TextView
+                android:id="@+id/tv_student_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/good_progress_view2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="3866人学习过"
+                android:textColor="@color/color_a6a5ab"
+                android:textSize="@dimen/text_size_12dp" />
+
+            <include
+                layout="@layout/line"
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_student_num"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="23dp" />
 
             <LinearLayout
+                android:id="@+id/tab_container"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/color_ffffff">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="90px">
+                    <!--app:tabIndicatorColor="@color/golden"-->
+                    <!--app:tabSelectedTextColor="@color/golden"-->
+                    <!--app:tabTextColor="@color/txt_color_tint_"-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tool:text="试看" />
+                </android.support.design.widget.TabLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tool:text="可是看两分钟" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@color/color_f0f1f3" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tool:text="加入学习" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tool:text="需要消耗20财富值" />
-
-                </LinearLayout>
+                <com.test.yanxiu.common_base.customize.viewgroup.CustomViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <com.test.yanxiu.common_base.customize.view.StarProgressBar
-        android:id="@+id/good_progress_view2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:backgroundColor="#ffcccccc"
-        app:clickAble="true"
-        app:starIcon="@drawable/star_single"
-        app:starsCount="5" />`
 
 </RelativeLayout>
