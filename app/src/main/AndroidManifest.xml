@@ -24,7 +24,9 @@
             android:theme="@style/AppTheme.Main" />
         <activity android:name=".business.mine.MineSettingActivity" />
         <activity android:name=".business.course_detail.CourseDetailActivity" />
-        <activity android:name=".business.mine.MineVideoResolutionActivity"></activity>
+        <activity android:name=".business.mine.MineVideoResolutionActivity" />
+        <activity android:name=".business.mine.MineChangePwdStep1Activity"></activity>
+        <activity android:name=".business.mine.MineChangePwdStep2Activity"></activity>
     </application>
 
 </manifest>

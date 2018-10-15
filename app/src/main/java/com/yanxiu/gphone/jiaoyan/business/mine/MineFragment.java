@@ -1,7 +1,9 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,16 +14,27 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
+import com.bigkoo.pickerview.builder.TimePickerBuilder;
+import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
+import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.bigkoo.pickerview.view.TimePickerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.gson.Gson;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
@@ -31,6 +44,7 @@ import com.test.yanxiu.common_base.route.RouteUtils;
 import com.test.yanxiu.common_base.third_party.GlideImageLoader;
 import com.test.yanxiu.common_base.utils.FileUtils;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.mine.basic_candidate.TreeNode;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.mock.MockAsyncTask;
 import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MinePresenter;
@@ -44,6 +58,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -125,6 +140,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
         if (view == item_gerenziliao) {
             YXLogger.d("cailei", "个人资料");
+            test();
         }
         if (view == item_zizhirenzheng) {
             YXLogger.d("cailei", "资质证书");
@@ -193,7 +209,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
                     getPhotoFromAlbum();
                 }
                 if (2 == index) {
-
+                    changePhone();
                 }
             }
         });
@@ -240,7 +256,7 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     }
 
     private void changePhone() {
-
+        RouteUtils.startActivity(RoutePathConfig.Mine_Change_Pwd_Step1_Activity);
     }
 
     private Uri mPicCropUri;
@@ -345,4 +361,77 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
     }
     // endregion mvp
+
+
+    private ArrayList<TreeNode> options1Items = new ArrayList<>();
+    private ArrayList<ArrayList<TreeNode>> options2Items = new ArrayList<>();
+    private ArrayList<ArrayList<ArrayList<TreeNode>>> options3Items = new ArrayList<>();
+    public void test() {
+        String json = FileUtils.getFromAssets("area.json");
+        Gson gson = new Gson();
+        TreeNode tree = gson.fromJson(json, TreeNode.class);
+
+        TreeNode.setParentRecurse(tree);
+        int j = 0;
+
+        OptionsPickerView pvOptions = new OptionsPickerBuilder(getActivity(), new OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                String id = options1Items.get(options1).uid + "\n" +
+                        options2Items.get(options1).get(options2).uid + "\n" +
+                        options3Items.get(options1).get(options2).get(options3).uid;
+
+                String name = options1Items.get(options1).toString() + "\n" +
+                        options2Items.get(options1).get(options2).toString() + "\n" +
+                        options3Items.get(options1).get(options2).get(options3).toString();
+
+                YXLogger.d("cailei", "id : " + id + "\nname : " + name);
+            }
+        })
+
+                .setTitleText("城市选择")
+                .setDividerColor(Color.BLACK)
+                .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
+                .setContentTextSize(20)
+                .isDialog(true)
+                .build();
+
+        // 调整位置
+        Dialog mDialog = pvOptions.getDialog();
+        if (mDialog != null) {
+
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.BOTTOM);
+
+            params.leftMargin = 0;
+            params.rightMargin = 0;
+            pvOptions.getDialogContainerLayout().setLayoutParams(params);
+
+            Window dialogWindow = mDialog.getWindow();
+            if (dialogWindow != null) {
+                dialogWindow.setWindowAnimations(com.bigkoo.pickerview.R.style.picker_view_slide_anim);//修改动画样式
+                dialogWindow.setGravity(Gravity.BOTTOM);//改成Bottom,底部显示
+            }
+        }
+
+        options1Items = tree.children;
+        options2Items = new ArrayList<>();
+        options3Items = new ArrayList<>();
+        for (TreeNode node : tree.children) {
+            options2Items.add(node.children);
+        }
+
+        for (TreeNode node : tree.children) {
+            ArrayList<ArrayList<TreeNode>> list = new ArrayList<>();
+            for (TreeNode node2 : node.children) {
+                list.add(node2.children);
+            }
+            options3Items.add(list);
+        }
+
+        pvOptions.setPicker(options1Items, options2Items, options3Items);//三级选择器
+        pvOptions.show(item_gerenziliao);
+    }
 }

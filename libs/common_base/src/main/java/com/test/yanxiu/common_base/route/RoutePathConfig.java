@@ -51,6 +51,9 @@ public class RoutePathConfig {
     public static final String Mine_Setting_Activity = "/mine/setting";
     // "移动网络视频播放清晰度" 页
     public static final String Mine_Video_Resolution_Activity = "/mine/setting/video_resolution";
-
+    // "更换手机号" 旧手机号 页
+    public static final String Mine_Change_Pwd_Step1_Activity = "/mine/change_pwd/step1";
+    // "更换手机号" 新手机号 页
+    public static final String Mine_Change_Pwd_Step2_Activity = "/mine/change_pwd/step2";
     //endregion mine
 }
