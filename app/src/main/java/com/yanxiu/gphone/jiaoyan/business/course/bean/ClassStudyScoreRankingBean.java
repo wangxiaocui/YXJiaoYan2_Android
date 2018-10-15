@@ -1,4 +1,4 @@
-package com.yanxiu.gphone.jiaoyan.business.course;
+package com.yanxiu.gphone.jiaoyan.business.course.bean;
 
 import com.yanxiu.lib.yx_basic_library.base.bean.YXBaseBean;
 

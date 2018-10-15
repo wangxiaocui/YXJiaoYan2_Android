@@ -1,4 +1,4 @@
-package com.yanxiu.gphone.jiaoyan.business.course;
+package com.yanxiu.gphone.jiaoyan.business.course.net;
 
 import com.test.yanxiu.common_base.base.net.JYBaseRequest;
 

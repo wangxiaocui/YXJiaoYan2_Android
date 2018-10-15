@@ -20,6 +20,7 @@
     <!-- text_size -->
     <dimen name="text_size_39dp">39dp</dimen>
     <dimen name="text_size_20dp">20dp</dimen>
+    <dimen name="text_size_19dp">19dp</dimen>
     <dimen name="text_size_16dp">16dp</dimen>
     <dimen name="text_size_12dp">12dp</dimen>
 
