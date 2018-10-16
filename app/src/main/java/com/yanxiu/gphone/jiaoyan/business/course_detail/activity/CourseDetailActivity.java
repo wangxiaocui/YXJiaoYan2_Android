@@ -68,6 +68,12 @@ public class CourseDetailActivity extends JYBaseActivity {
     @Override
     protected void initTitle() {
         super.initTitle();
+        getJyDefaultToolbar().addRightIcon(View.generateViewId(), R.drawable.homepage_my, 20, 20, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                YXToastUtil.showToast("right");
+            }
+        });
     }
 
     private void initIntroductionView() {

@@ -2,23 +2,16 @@ package com.yanxiu.gphone.jiaoyan.business.course_detail.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.yanxiu.gphone.jiaoyan.R;
-import com.yanxiu.gphone.jiaoyan.business.course.CourseListContract;
-import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.DirectioryAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.EvaluationAdapter;
-import com.yanxiu.gphone.jiaoyan.business.course_detail.bean.DirectioryBean;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.bean.EvalutionBean;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.interfaces.EvalutionFragmentContract;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.presenter.EvalutionFragmentPresenter;
-import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 import java.util.ArrayList;
