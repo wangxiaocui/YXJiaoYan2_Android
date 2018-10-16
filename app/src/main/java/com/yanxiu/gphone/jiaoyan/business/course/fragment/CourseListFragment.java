@@ -7,7 +7,9 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
+import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CourseListAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course.interfaces.CourseListContract;
@@ -34,7 +36,6 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
         super.initView(savedInstanceState, contentView);
         View bannerHead = LayoutInflater.from(getContext()).inflate(R.layout.course_banner_layout, xrecycler_view, false);
         mBanner = bannerHead.findViewById(R.id.banner);
-//        mBanner.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, YXScreenUtil.dpToPxInt(getContext(), 335)));
         xrecycler_view.addHeaderView(bannerHead);
         mBanner.setDelayTime(3000);
     }
@@ -52,7 +53,12 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
 
     @Override
     public void initListener() {
-
+        mAdapter.setOnRecyclerViewItemClickListener(new OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, Object data, int position) {
+                RouteUtils.startActivity(RoutePathConfig.App_Course_Detail);
+            }
+        });
     }
 
     @Override

@@ -52,7 +52,7 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, final int position) {
         holder.setData(position, mDatas.get(position));
         if (getItemViewType(position) == COURSE_SINGLE) {
             if (position + 1 < getItemCount()
@@ -62,6 +62,14 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
                 ((SingleViewHolder) holder).setDividerVisibility(View.VISIBLE);
             }
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mOnRecyclerViewItemClickListener != null) {
+                    mOnRecyclerViewItemClickListener.onItemClick(v, mDatas.get(position), position);
+                }
+            }
+        });
     }
 
 

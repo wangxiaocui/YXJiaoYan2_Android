@@ -5,4 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="216dp"
     app:banner_layout="@layout/customize_banner_viewpager_layout"
-    app:is_auto_play="false" />
+    app:indicator_drawable_selected="@drawable/course_banner_indicator_selected_shape"
+    app:indicator_drawable_unselected="@drawable/course_banner_indicator_unselected_shape"
+    app:indicator_height="8dp"
+    app:indicator_margin="10dp"
+    app:indicator_width="8dp" />

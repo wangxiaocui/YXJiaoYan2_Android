@@ -75,18 +75,17 @@ public class MainActivity extends JYBaseActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_course:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
                         mFragmentFactory.showFragment(0);
                         return true;
                     case R.id.navigation_live:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
                         mFragmentFactory.showFragment(1);
-                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail);
                         return true;
                     case R.id.navigation_message:
                         root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
                         CheckLoginUtil.checkLogin(MainActivity.this, new CheckLoginUtil.OnLoginStateCallback() {
                             @Override
                             public void onLoginSuccess() {
@@ -99,7 +98,7 @@ public class MainActivity extends JYBaseActivity {
                                 YXToastUtil.showToast("登录失败");
                             }
                         });
-                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail_Tab);
+//                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail_Tab);
                         return true;
                     case R.id.navigation_mine:
                         root_view.setBackground(null);
