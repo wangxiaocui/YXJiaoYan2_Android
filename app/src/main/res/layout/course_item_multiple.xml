@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="216dp"
     android:layout_marginBottom="12dp"
@@ -12,11 +13,12 @@
     app:cardPreventCornerOverlap="false">
 
     <ImageView
+        android:id="@+id/iv_course_cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ll_detail"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_login" />
+        tools:src="@drawable/bg_login" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,23 +31,25 @@
             android:background="#3d000000">
 
             <TextView
+                android:id="@+id/tv_speaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
-                android:text="主讲：孙长龙"
                 android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/text_size_15dp" />
+                android:textSize="@dimen/text_size_15dp"
+                tools:text="主讲：孙长龙" />
 
             <TextView
+                android:id="@+id/tv_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
-                android:text="9课时(360分钟)"
                 android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/text_size_15dp" />
+                android:textSize="@dimen/text_size_15dp"
+                tools:text="9课时(360分钟)" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -66,9 +70,9 @@
                 android:layout_marginTop="15dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群"
                 android:textColor="@color/color_17171b"
-                android:textSize="@dimen/text_size_18dp" />
+                android:textSize="@dimen/text_size_18dp"
+                tools:text="如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群" />
 
             <TextView
                 android:id="@+id/tv_level"
@@ -77,31 +81,40 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/tv_title"
                 android:layout_marginLeft="15dp"
-                android:text="初中"
-                android:textColor="@color/color_a6a5ab"
-                android:textSize="@dimen/text_size_12dp" />
+                android:background="@drawable/course_detail_zhuanjia_shape"
+                android:gravity="center"
+                android:paddingLeft="9dp"
+                android:paddingRight="9dp"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_size_12dp"
+                tools:text="初中" />
 
             <TextView
                 android:id="@+id/tv_subject"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="18dp"
                 android:layout_alignBottom="@+id/tv_level"
                 android:layout_marginLeft="8dp"
                 android:layout_toRightOf="@+id/tv_level"
-                android:text="英语与语法"
-                android:textColor="@color/color_a6a5ab"
-                android:textSize="@dimen/text_size_12dp" />
+                android:background="@drawable/course_detail_zhuanjia_shape"
+                android:gravity="center"
+                android:paddingLeft="9dp"
+                android:paddingRight="9dp"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/text_size_12dp"
+                tools:text="英语与语法" />
 
             <TextView
                 android:id="@+id/tv_looker_num"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="18dp"
                 android:layout_alignBottom="@+id/tv_level"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:text="12789人观看"
+                android:gravity="center"
                 android:textColor="@color/color_a6a5ab"
-                android:textSize="@dimen/text_size_12dp" />
+                android:textSize="@dimen/text_size_12dp"
+                tools:text="12789人观看" />
         </RelativeLayout>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

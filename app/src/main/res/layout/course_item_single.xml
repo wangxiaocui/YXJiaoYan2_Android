@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingLeft="20dp"
@@ -8,31 +9,30 @@
     android:paddingTop="13dp">
 
     <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
-        android:id="@+id/tv_course_cover"
+        android:id="@+id/iv_course_cover"
         android:layout_width="95dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/bg_login"
-        app:corner_size="4dp" />
+        app:corner_size="4dp"
+        tools:src="@drawable/bg_login" />
 
     <ImageView
+        android:id="@+id/iv_course_play"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignBottom="@+id/tv_course_cover"
-        android:layout_alignRight="@+id/tv_course_cover"
+        android:layout_alignBottom="@+id/iv_course_cover"
+        android:layout_alignRight="@+id/iv_course_cover"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:src="@drawable/homepage_notice" />
+        tools:src="@drawable/homepage_notice" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/tv_course_cover"
-        android:layout_alignTop="@+id/tv_course_cover"
-        android:layout_marginBottom="4dp"
+        android:layout_alignBottom="@+id/iv_course_cover"
+        android:layout_alignTop="@+id/iv_course_cover"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="4dp"
-        android:layout_toRightOf="@+id/tv_course_cover">
+        android:layout_toRightOf="@+id/iv_course_cover">
 
         <TextView
             android:id="@+id/tv_title"
@@ -41,18 +41,22 @@
             android:layout_marginBottom="8dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群的关系如何把握"
             android:textColor="@color/color_17171b"
-            android:textSize="@dimen/text_size_18dp" />
+            android:textSize="@dimen/text_size_18dp"
+            tools:text="如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群的关系如何把握" />
 
         <TextView
             android:id="@+id/tv_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_title"
-            android:text="初中"
-            android:textColor="@color/color_a6a5ab"
-            android:textSize="@dimen/text_size_12dp" />
+            android:background="@drawable/course_detail_zhuanjia_shape"
+            android:gravity="center"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/text_size_12dp"
+            tools:text="初中" />
 
         <TextView
             android:id="@+id/tv_subject"
@@ -61,9 +65,13 @@
             android:layout_alignBottom="@+id/tv_level"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/tv_level"
-            android:text="英语与语法"
-            android:textColor="@color/color_a6a5ab"
-            android:textSize="@dimen/text_size_12dp" />
+            android:background="@drawable/course_detail_zhuanjia_shape"
+            android:gravity="center"
+            android:paddingLeft="9dp"
+            android:paddingRight="9dp"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/text_size_12dp"
+            tools:text="英语与语法" />
 
 
         <TextView
@@ -73,26 +81,27 @@
             android:layout_above="@+id/tv_looker_num"
             android:layout_centerVertical="true"
             android:layout_marginBottom="5dp"
-            android:text="主讲：孙长龙  ·  60分钟"
             android:textColor="@color/color_a6a5ab"
-            android:textSize="@dimen/text_size_15dp" />
+            android:textSize="@dimen/text_size_15dp"
+            tools:text="主讲：孙长龙  ·  60分钟" />
 
         <TextView
             android:id="@+id/tv_looker_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:text="12789人观看"
             android:textColor="@color/color_a6a5ab"
-            android:textSize="@dimen/text_size_12dp" />
+            android:textSize="@dimen/text_size_12dp"
+            tools:text="12789人观看" />
     </RelativeLayout>
 
     <View
+        android:id="@+id/view_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/tv_course_cover"
+        android:layout_below="@+id/iv_course_cover"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="12dp"
-        android:layout_toRightOf="@+id/tv_course_cover"
+        android:layout_toRightOf="@+id/iv_course_cover"
         android:background="@color/color_f0f1f3" />
 </RelativeLayout>

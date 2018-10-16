@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseViewHolder;
@@ -11,7 +13,6 @@ import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course.bean.ClassStudyScoreRankingBean;
 
 import java.util.List;
-import java.util.Random;
 
 
 public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
@@ -30,14 +31,9 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
 
     @Override
     public int getItemViewType(int position) {
-        int random = new Random().nextInt();
         if (position < 2) {
             return COURSE_MULTIPLE;
-        } else if (position < 5) {
-            return COURSE_SINGLE;
-        } else if (position == 5) {
-            return COURSE_MULTIPLE;
-        } else if (random % 4 == 0) {
+        } else if (position == 5 || position == 8) {
             return COURSE_MULTIPLE;
         } else {
             return COURSE_SINGLE;
@@ -46,29 +42,92 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
         if (viewType == COURSE_SINGLE) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.course_item_single, parent, false);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.course_item_single, parent, false);
+            return new SingleViewHolder(mContext, view);
         } else {
-            view = LayoutInflater.from(mContext).inflate(R.layout.course_item_multiple, parent, false);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.course_item_multiple, parent, false);
+            return new MultipleViewHolder(mContext, view);
         }
-        ViewHolder viewHolder = new ViewHolder(mContext, view);
-        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(BaseViewHolder holder, int position) {
         holder.setData(position, mDatas.get(position));
+        if (getItemViewType(position) == COURSE_SINGLE) {
+            if (position + 1 < getItemCount()
+                    && getItemViewType(position + 1) == COURSE_MULTIPLE) {
+                ((SingleViewHolder) holder).setDividerVisibility(View.INVISIBLE);
+            } else {
+                ((SingleViewHolder) holder).setDividerVisibility(View.VISIBLE);
+            }
+        }
     }
 
-    class ViewHolder extends BaseViewHolder<ClassStudyScoreRankingBean> {
 
-        public ViewHolder(Context context, View itemView) {
+    static class CourseViewHolder extends BaseViewHolder<ClassStudyScoreRankingBean> {
+        protected ImageView iv_course_cover;
+        protected TextView tv_title;
+        protected TextView tv_level;
+        protected TextView tv_subject;
+        protected TextView tv_speaker;
+        protected TextView tv_looker_num;
+
+        public CourseViewHolder(Context context, View itemView) {
             super(context, itemView);
+            iv_course_cover = itemView.findViewById(R.id.iv_course_cover);
+            tv_title = itemView.findViewById(R.id.tv_title);
+            tv_level = itemView.findViewById(R.id.tv_level);
+            tv_subject = itemView.findViewById(R.id.tv_subject);
+            tv_speaker = itemView.findViewById(R.id.tv_speaker);
+            tv_looker_num = itemView.findViewById(R.id.tv_looker_num);
         }
 
         @Override
         public void setData(final int position, final ClassStudyScoreRankingBean data) {
+            iv_course_cover.setImageResource(R.drawable.bg_login);
+            tv_title.setText("如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群的关系如何把握");
+            tv_level.setText("初中");
+            tv_subject.setText("英语与语法");
+            tv_looker_num.setText("1234人观看");
+        }
+    }
+
+    static class SingleViewHolder extends CourseViewHolder {
+        private ImageView iv_course_play;
+        private View view_divider;
+
+        public SingleViewHolder(Context context, View itemView) {
+            super(context, itemView);
+            iv_course_play = itemView.findViewById(R.id.iv_course_play);
+            view_divider = itemView.findViewById(R.id.view_divider);
+        }
+
+        @Override
+        public void setData(final int position, final ClassStudyScoreRankingBean data) {
+            super.setData(position, data);
+            tv_speaker.setText("主讲：嘿嘿嘿\u3000·\u3000120分钟");
+            iv_course_play.setImageResource(R.drawable.homepage_notice);
+        }
+
+        public void setDividerVisibility(int visibility) {
+            view_divider.setVisibility(visibility);
+        }
+    }
+
+    class MultipleViewHolder extends CourseViewHolder {
+        private TextView tv_duration;
+
+        public MultipleViewHolder(Context context, View itemView) {
+            super(context, itemView);
+            tv_duration = itemView.findViewById(R.id.tv_duration);
+        }
+
+        @Override
+        public void setData(final int position, final ClassStudyScoreRankingBean data) {
+            super.setData(position, data);
+            tv_speaker.setText("主讲：哈哈哈");
+            tv_duration.setText("9课时 (360分钟)");
         }
     }
 
