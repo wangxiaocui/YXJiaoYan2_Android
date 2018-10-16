@@ -1,4 +1,4 @@
-package com.yanxiu.gphone.jiaoyan.business.course;
+package com.yanxiu.gphone.jiaoyan.business.course.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseViewHolder;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.course.bean.ClassStudyScoreRankingBean;
 
 import java.util.List;
 

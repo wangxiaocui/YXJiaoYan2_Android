@@ -74,18 +74,18 @@ public class MainActivity extends JYBaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_course:
-                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
+                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
                         AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(0);
                         return true;
                     case R.id.navigation_live:
-                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
+                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
                         AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         mFragmentFactory.showFragment(1);
                         RouteUtils.startActivity(RoutePathConfig.App_Course_Detail);
                         return true;
                     case R.id.navigation_message:
-                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ccff00));
+                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
                         AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.color_1da1f2)).apply();
                         CheckLoginUtil.checkLogin(MainActivity.this, new CheckLoginUtil.OnLoginStateCallback() {
                             @Override
