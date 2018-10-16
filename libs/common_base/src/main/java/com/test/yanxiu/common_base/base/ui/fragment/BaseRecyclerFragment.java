@@ -34,7 +34,7 @@ public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContrac
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-        xrecycler_view = contentView.findViewById(R.id.xrecycler_view);
+        xrecycler_view = contentView.findViewById(R.id.rv);
         xrecycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
         xrecycler_view.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override

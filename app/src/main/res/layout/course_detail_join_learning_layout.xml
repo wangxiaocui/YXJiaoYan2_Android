@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.yanxiu.gphone.jiaoyan.customize.aggregate.wave.StopWaveView
+        android:id="@+id/learning_wave"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:above_wave_color="#dfe2e6"
+        app:blow_wave_color="#51dfe2e6"
+        app:progress="100"
+        app:use_default_alpha="true"
+        app:wave_height="little"
+        app:wave_hz="normal"
+        app:wave_length="middle"
+        app:wave_style="stop" />
+
+    <LinearLayout
+        android:id="@+id/layout_join_learning"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_try"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="试看"
+                android:textColor="@color/color_17171b"
+                android:textSize="@dimen/text_size_18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/course_detailt_leraning_top"
+                android:text="可试看两分钟"
+                android:textColor="@color/color_007aff"
+                android:textSize="@dimen/text_size_12dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/color_f0f1f3" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_17171b"
+                android:textSize="@dimen/text_size_18dp"
+                android:textStyle="bold"
+                android:text="加入学习" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/course_detailt_leraning_top"
+                android:text="需要消耗20财富值"
+                android:textColor="@color/color_007aff"
+                android:textSize="@dimen/text_size_12dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_learning_other"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_18dp"
+            android:textStyle="bold"
+            android:text="免费加入学习" />
+
+        <TextView
+            android:id="@+id/tv_other_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/course_detailt_leraning_top"
+            android:textColor="@color/color_007aff"
+            android:textSize="@dimen/text_size_12dp"
+            android:text="需要消耗0财富值" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_learning_finish"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="恭喜您！"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/course_detailt_leraning_top"
+            android:text="您已完成此课程的学习！"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_16dp" />
+
+    </LinearLayout>
+</FrameLayout>

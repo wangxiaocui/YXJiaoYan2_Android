@@ -9,6 +9,6 @@
         android:layout_centerInParent="true"
         android:text="Message"
         android:textColor="@color/color_333333"
-        android:textSize="@dimen/text_size_16" />
+        android:textSize="@dimen/text_size_16dp" />
 
 </RelativeLayout>

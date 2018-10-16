@@ -40,7 +40,7 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseViewHolder
      */
     public void setData(List<T> datas) {
         mDatas.clear();
-        if (datas == null || datas.isEmpty()) {
+        if (datas != null && !datas.isEmpty()) {
             mDatas.addAll(datas);
         }
     }

@@ -18,6 +18,11 @@ public class RoutePathConfig {
      * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
      */
     public static final String App_Course_Detail = "/app/CourseDetailActivity";
+    /**
+     * 课程详情页
+     * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailTabData}
+     */
+    public static final String App_Course_Detail_Tab = "/app/CourseDetailTabActivity";
 
     //endregion courses
 

@@ -99,6 +99,7 @@ public class MainActivity extends JYBaseActivity {
                                 YXToastUtil.showToast("登录失败");
                             }
                         });
+                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail_Tab);
                         return true;
                     case R.id.navigation_mine:
                         root_view.setBackground(null);
