@@ -7,12 +7,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
+import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
+import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.course.CourseListContract;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.DirectioryAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.EvaluationAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.bean.DirectioryBean;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.bean.EvalutionBean;
+import com.yanxiu.gphone.jiaoyan.business.course_detail.interfaces.EvalutionFragmentContract;
+import com.yanxiu.gphone.jiaoyan.business.course_detail.presenter.EvalutionFragmentPresenter;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
@@ -23,9 +28,8 @@ import java.util.ArrayList;
  * Created by 戴延枫 on 2018/10/12.
  */
 
-public class EvaluationFragment extends JYBaseFragment implements OnRecyclerViewItemClickListener {
+public class EvaluationFragment extends BaseRecyclerFragment<EvalutionFragmentContract.IPresenter> implements EvalutionFragmentContract.IView, OnRecyclerViewItemClickListener {
 
-    private RecyclerView rv;
     private EvaluationAdapter adapter;
 
     /**
@@ -56,17 +60,23 @@ public class EvaluationFragment extends JYBaseFragment implements OnRecyclerView
      */
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-        rv = contentView.findViewById(R.id.rv);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        rv.setLayoutManager(linearLayoutManager);
+        super.initView(savedInstanceState, contentView);
+    }
+
+    /**
+     * 设置recyclerveiw的adapter
+     *
+     * @return
+     */
+    @Override
+    protected BaseAdapter initAdapter() {
         adapter = new EvaluationAdapter(getActivity());
         ArrayList<EvalutionBean> list = new ArrayList();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 5; i++) {
             list.add(new EvalutionBean());
         }
         adapter.setData(list);
-        rv.setAdapter(adapter);
+        return adapter;
     }
 
     /**
@@ -96,12 +106,28 @@ public class EvaluationFragment extends JYBaseFragment implements OnRecyclerView
     }
 
     @Override
-    protected IYXBasePresenter initPresenterImpl() {
-        return null;
+    protected EvalutionFragmentPresenter initPresenterImpl() {
+        return new EvalutionFragmentPresenter(this);
     }
 
     @Override
     public void onItemClick(View itemView, Object data, int position) {
         YXToastUtil.showToast("" + position);
+    }
+
+    @Override
+    protected boolean pullRefreshEnabled() {
+        return true;
+    }
+
+    @Override
+    protected boolean loadingMoreEnabled() {
+        return true;
+    }
+
+    @Override
+    protected String getLoadMoreOffset() {
+//        return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getUserId());
+        return "";
     }
 }

@@ -17,7 +17,7 @@ public class Constants {
     //server配置 结束
 
 
-    public static final String OS = "android";
+    public static final String PLATFORM = "android";
     public static final String osType = "0";
     public static final String pcode = "010110000";
     public static final String BRAND = SystemUtil.getBrandName();

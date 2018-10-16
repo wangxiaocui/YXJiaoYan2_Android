@@ -18,6 +18,11 @@ public class LoginPresenter extends YXBasePresenterImpl<LoginContract.IView> imp
         signIn(username, password);
     }
 
+    @Override
+    public void verifyCode(String phone, String code) {
+        mView.onLoginSuccess();
+    }
+
     /**
      * 1.请求token
      *
@@ -25,6 +30,7 @@ public class LoginPresenter extends YXBasePresenterImpl<LoginContract.IView> imp
      * @param password
      */
     private void signIn(String username, String password) {
+        mView.onLoginSuccess();
 //        mLoginName = username;
 //        SignInRequest request = new SignInRequest();
 //        request.loginName = username;

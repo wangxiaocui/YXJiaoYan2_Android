@@ -53,7 +53,7 @@ public abstract class BaseFragmentFactory {
             transaction.show(mFragments[index]);
         }
         mCurrentIndex = index;
-        transaction.commit();
+        transaction.commitAllowingStateLoss();
     }
 
     public void onSaveInstanceState(Bundle outState) {

@@ -93,10 +93,10 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':common_base')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.arouterCompilerVersion}"
     implementation project(':module_message')
     implementation project(':module_signin')
     implementation project(':module_video')
-
-    api appLibDependencies.values()
+    implementation appLibDependencies.values()
 }

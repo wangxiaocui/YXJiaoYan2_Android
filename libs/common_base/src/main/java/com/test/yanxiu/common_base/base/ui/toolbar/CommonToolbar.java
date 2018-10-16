@@ -254,7 +254,8 @@ public class CommonToolbar extends Toolbar {
             params.rightMargin = mDefaultPadding;
             mTitleText.setLayoutParams(params);
             // Config some fields.
-            mTitleText.setMaxEms(8);
+            // 去掉字符限制，否则长title显示不全
+            // mTitleText.setMaxEms(8);
             mTitleText.setLines(1);
             mTitleText.setEllipsize(TextUtils.TruncateAt.END);
             // Add to center container.

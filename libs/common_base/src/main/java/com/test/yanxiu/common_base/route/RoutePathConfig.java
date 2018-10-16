@@ -15,6 +15,11 @@ public class RoutePathConfig {
      * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
      */
     public static final String App_Course_Detail = "/app/CourseDetailActivity";
+    /**
+     * 课程详情页
+     * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailTabData}
+     */
+    public static final String App_Course_Detail_Tab = "/app/CourseDetailTabActivity";
 
     //endregion courses
 
@@ -25,9 +30,13 @@ public class RoutePathConfig {
     //LoginActivity
     public static final String SIGNIN_LOGIN_ACTIVITY = "/signin/login";
     //LoginByCodeActivity
-    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/login_by_code";
+    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/loginByCode";
     //RegisterActivity
     public static final String SIGNIN_REGISTER_ACTIVITY = "/signin/register";
+    //SetPasswordActivity
+    public static final String SIGNIN_SET_PASSWORD_ACTIVITY = "/signin/setPassword";
+    //SetSubjectActivity
+    public static final String SIGNIN_SET_SUBJECT_ACTIVITY = "/signin/setSubject";
     //endregion
 
     //region module_message
@@ -36,12 +45,17 @@ public class RoutePathConfig {
     //endregion
 
 
-
     //region mine
-    /**
-     * tab"我的"入口页
-     */
-    public static final String Mine_Fragment = "/mine/index";
 
+    // tab"我的"入口页
+    public static final String Mine_Fragment = "/mine/index";
+    // "设置" 页
+    public static final String Mine_Setting_Activity = "/mine/setting";
+    // "移动网络视频播放清晰度" 页
+    public static final String Mine_Video_Resolution_Activity = "/mine/setting/video_resolution";
+    // "更换手机号" 旧手机号 页
+    public static final String Mine_Change_Pwd_Step1_Activity = "/mine/change_pwd/step1";
+    // "更换手机号" 新手机号 页
+    public static final String Mine_Change_Pwd_Step2_Activity = "/mine/change_pwd/step2";
     //endregion mine
 }

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yanxiu.gphone.jiaoyan">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.test.yanxiu.common_base.JYApplication"
         android:allowBackup="true"
@@ -19,8 +21,13 @@
         </activity>
         <activity
             android:name=".business.main.MainActivity"
-            android:theme="@style/AppTheme.Main"></activity>
+            android:theme="@style/AppTheme.Main" />
+        <activity android:name=".business.mine.MineSettingActivity" />
         <activity android:name=".business.course_detail.activity.CourseDetailActivity" />
+        <activity android:name=".business.course_detail.activity.CourseDetailTabActivity" />
+        <activity android:name=".business.mine.MineVideoResolutionActivity" />
+        <activity android:name=".business.mine.MineChangePwdStep1Activity" />
+        <activity android:name=".business.mine.MineChangePwdStep2Activity" />
     </application>
 
 </manifest>

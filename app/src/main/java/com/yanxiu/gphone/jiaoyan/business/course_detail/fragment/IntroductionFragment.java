@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
+import com.test.yanxiu.common_base.base.ui.recycler_view.RecyclerLayoutManager.FullyLinearLayoutManager;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.IntroductionAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.bean.IntroductionBean;
@@ -54,11 +55,11 @@ public class IntroductionFragment extends JYBaseFragment<IntrodutionFragmentCont
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
         rv = contentView.findViewById(R.id.rv);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rv.setLayoutManager(linearLayoutManager);
         adapter = new IntroductionAdapter(getActivity());
-        ArrayList<IntroductionBean> list =new ArrayList();
+        ArrayList<IntroductionBean> list = new ArrayList();
         for (int i = 0; i < 5; i++) {
             list.add(new IntroductionBean());
         }
