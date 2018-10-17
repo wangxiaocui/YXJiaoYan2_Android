@@ -19,6 +19,8 @@ public class MineContract {
 
     public interface IView extends IYXBaseView<IPresenter> {
         void onCheckInDone();
+        void onError(Error error);
+
         void onUserInfoUpdate();
     }
 }

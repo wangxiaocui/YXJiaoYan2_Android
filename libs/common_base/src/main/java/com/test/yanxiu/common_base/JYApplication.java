@@ -48,13 +48,25 @@ public class JYApplication extends YXApplication {
         String urlJson = FileUtils.getFromAssets(Constants.URL_SERVER_FILE_NAME);
         if (urlJson.contains(Constants.MULTICONFIG)) {
             EnvConfigBean envConfigBean = gson.fromJson(urlJson, EnvConfigBean.class);
-//            urlBean = envConfigBean.getData().get(envConfigBean.getCurrentIndex());
-            urlBean = envConfigBean.getData().get(BuildConfig.ENV_CONFIG_CURRENTINDEX);
+            urlBean = chooseTheOne(envConfigBean, envConfigBean.getCurrentIndex());
         } else {
             urlBean = gson.fromJson(urlJson, UrlBean.class);
         }
         UrlRepository.getInstance().setUrlBean(urlBean);
 
+    }
+
+    // 取第一个和设置的currentIndex值相同的bean，没有则返回null
+    private UrlBean chooseTheOne(EnvConfigBean configBean, int index) {
+        UrlBean ret = null;
+        for (UrlBean bean : configBean.getData()) {
+            if (bean.index == index) {
+                ret = bean;
+                break;
+            }
+        }
+
+        return ret;
     }
 
 }

@@ -7,23 +7,23 @@ import java.io.Serializable;
  */
 
 public class JYBaseResponse implements Serializable {
-    private int code;
-    private String info;
+    private int Code;
+    private String Info;
 
     public int getCode() {
-        return code;
+        return Code;
     }
 
     public void setCode(int code) {
-        this.code = code;
+        this.Code = code;
     }
 
     public String getInfo() {
-        return info;
+        return Info;
     }
 
     public void setInfo(String info) {
-        this.info = info;
+        this.Info = info;
     }
 
 }

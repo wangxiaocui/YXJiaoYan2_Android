@@ -133,6 +133,9 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         if (view == tv_checkin) {
             mPresenter.doCheckIn();
         }
+        if (view == tv_checkin_done) {
+            mPresenter.doCheckIn();
+        }
 
         if (view == ll_header) {
             popOptions();
@@ -354,6 +357,11 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     public void onCheckInDone() {
         tv_checkin.setVisibility(View.GONE);
         tv_checkin_done.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onError(Error error) {
+        Toast.makeText(MineFragment.this.getActivity(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
