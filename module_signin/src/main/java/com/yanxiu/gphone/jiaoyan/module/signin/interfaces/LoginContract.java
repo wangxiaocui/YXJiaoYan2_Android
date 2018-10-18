@@ -9,9 +9,9 @@ import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBaseView;
 public class LoginContract {
 
     public interface IView extends IYXBaseView<IPresenter> {
-        void showLoading();
+        void showLoadingView();
 
-        void hideLoading();
+        void hideLoadingView();
 
         void onLoginSuccess();
 

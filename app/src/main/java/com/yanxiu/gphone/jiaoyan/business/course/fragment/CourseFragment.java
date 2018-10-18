@@ -5,10 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CoursePagerAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course.bean.CourseCategoryBean;
@@ -24,6 +26,7 @@ import java.util.List;
 public class CourseFragment extends JYBaseFragment<CourseContract.IPresenter> implements CourseContract.IView {
 
 
+    private TextView tv_search;
     private TabLayout tab_layout_category;
     private ViewPager view_pager_content;
     private CoursePagerAdapter mCoursePagerAdapter;
@@ -40,13 +43,14 @@ public class CourseFragment extends JYBaseFragment<CourseContract.IPresenter> im
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
+        tv_search = contentView.findViewById(R.id.tv_search);
         tab_layout_category = contentView.findViewById(R.id.tab_layout_category);
         view_pager_content = contentView.findViewById(R.id.view_pager_content);
     }
 
     @Override
     public void initListener() {
-
+        tv_search.setOnClickListener(this);
     }
 
     @Override
@@ -56,7 +60,11 @@ public class CourseFragment extends JYBaseFragment<CourseContract.IPresenter> im
 
     @Override
     public void onWidgetClick(View view) {
-
+        switch (view.getId()) {
+            case R.id.tv_search:
+                RouteUtils.startActivity(RoutePathConfig.Search_Activity);
+                break;
+        }
     }
 
     @Override

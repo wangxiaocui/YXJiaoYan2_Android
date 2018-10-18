@@ -25,6 +25,8 @@ public abstract class JYBaseFragment<P extends IYXBasePresenter> extends YXBaseM
         Bundle bundle = getArguments();
         if (bundle != null) {
             initData(bundle);
+        } else {
+            initData(Bundle.EMPTY);
         }
         mCommonLayout = new PublicLoadLayout(getContext());
         mCommonLayout.setErrorLayoutFullScreen();
