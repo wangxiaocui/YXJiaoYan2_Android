@@ -37,6 +37,8 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
         View bannerHead = LayoutInflater.from(getContext()).inflate(R.layout.course_banner_layout, xrecycler_view, false);
         mBanner = bannerHead.findViewById(R.id.banner);
         xrecycler_view.addHeaderView(bannerHead);
+
+
         mBanner.setDelayTime(3000);
     }
 

@@ -11,6 +11,7 @@ import com.yanxiu.gphone.jiaoyan.R;
 
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CourseListAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course.interfaces.CourseListContract;
+import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MineMyCourseAttendAdapter;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCourseAttendContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MineMyCourseAttendPresenter;
 import com.yanxiu.gphone.jiaoyan.customize.banner.BannerGlideImageLoader;
@@ -24,13 +25,13 @@ import java.util.List;
 public class MineMyCourseAttendFragment
         extends BaseRecyclerFragment<MineMyCourseAttendContract.IPresenter>
         implements MineMyCourseAttendContract.IView {
-    protected CourseListAdapter mAdapter;
+    protected MineMyCourseAttendAdapter mAdapter;
 
 
 
     @Override
     protected BaseAdapter initAdapter() {
-        mAdapter = new CourseListAdapter(getContext());
+        mAdapter = new MineMyCourseAttendAdapter(getContext());
         return mAdapter;
     }
 

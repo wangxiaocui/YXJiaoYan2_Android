@@ -66,13 +66,13 @@ public class CourseListAdapter extends BaseAdapter<CourseBean> {
     }
 
 
-    static class CourseViewHolder extends BaseViewHolder<CourseBean> {
-        protected ImageView iv_course_cover;
-        protected TextView tv_title;
-        protected TextView tv_level;
-        protected TextView tv_subject;
-        protected TextView tv_speaker;
-        protected TextView tv_looker_num;
+    public static class CourseViewHolder extends BaseViewHolder<CourseBean> {
+        public ImageView iv_course_cover;
+        public TextView tv_title;
+        public TextView tv_level;
+        public TextView tv_subject;
+        public TextView tv_speaker;
+        public TextView tv_looker_num;
 
         public CourseViewHolder(Context context, View itemView) {
             super(context, itemView);
@@ -94,9 +94,9 @@ public class CourseListAdapter extends BaseAdapter<CourseBean> {
         }
     }
 
-    static class SingleViewHolder extends CourseViewHolder {
-        private ImageView iv_course_play;
-        private View view_divider;
+    public static class SingleViewHolder extends CourseViewHolder {
+        public ImageView iv_course_play;
+        public View view_divider;
 
         public SingleViewHolder(Context context, View itemView) {
             super(context, itemView);
@@ -116,7 +116,7 @@ public class CourseListAdapter extends BaseAdapter<CourseBean> {
         }
     }
 
-    class MultipleViewHolder extends CourseViewHolder {
+    public static class MultipleViewHolder extends CourseViewHolder {
         private TextView tv_duration;
 
         public MultipleViewHolder(Context context, View itemView) {
