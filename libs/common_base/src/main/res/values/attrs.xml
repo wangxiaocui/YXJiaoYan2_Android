@@ -59,7 +59,7 @@
         <!--星星个数-->
         <attr name="starsCount" format="integer" />
         <!--是否可点击滑动操作-->
-        <attr name="clickAble" format="boolean" />
+        <attr name="touchAble" format="boolean" />
     </declare-styleable>
 
 </resources>

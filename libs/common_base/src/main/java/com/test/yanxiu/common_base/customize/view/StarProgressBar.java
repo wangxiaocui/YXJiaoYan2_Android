@@ -34,7 +34,7 @@ public class StarProgressBar extends View {
     private int starCount; //星星数量
     private int starWidth;     //星星图片width，
     private int starHeight;     //星星图片高度
-    private boolean clickAble;     //是否可点击评分
+    private boolean mTouchAble;     //是否可点击评分
 
     public StarProgressBar(Context context) {
         this(context, null);
@@ -48,26 +48,18 @@ public class StarProgressBar extends View {
     public StarProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
-        setClickable(clickAble);
+        setClickable(mTouchAble);
     }
 
     private void init(Context context, AttributeSet attrs) {
         // 获得我们所定义的自定义样式属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.StarProgressBar);
         mColors[0] = typedArray.getColor(R.styleable.StarProgressBar_startColor, Color.parseColor("#42beff"));// 渐变色之起始颜色
-
         mColors[1] = typedArray.getColor(R.styleable.StarProgressBar_endColor, Color.parseColor("#dd66ff"));// 渐变色之结束颜色
-
         backgroundColor = typedArray.getColor(R.styleable.StarProgressBar_backgroundColor, Color.GRAY);// 背景色，默认设置为灰色
-
-//        this.mWidth = typedArray.getDimensionPixelSize(R.styleable.StarProgressBar_totalSize, 20);
-//
-//        this.mHeight = typedArray.getDimensionPixelSize(R.styleable.StarProgressBar_totalheight, 50);
-
         starDrawable = typedArray.getDrawable(R.styleable.StarProgressBar_starIcon);
-
         starCount = typedArray.getInt(R.styleable.StarProgressBar_starsCount, 5);
-        clickAble = typedArray.getBoolean(R.styleable.StarProgressBar_clickAble, false);
+        mTouchAble = typedArray.getBoolean(R.styleable.StarProgressBar_touchAble, false);
         typedArray.recycle();
         mPaint = new Paint();
         mProgressPercentage = 0;
@@ -105,10 +97,17 @@ public class StarProgressBar extends View {
         invalidate();
     }
 
+    /**
+     * 是否能触摸评分
+     */
+    public void setBarTouchAble(boolean touchAble) {
+        mTouchAble = touchAble;
+    }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (!clickAble)
+        if (!mTouchAble)
             return super.onTouchEvent(event);
         float x = event.getX();
         Log.e("dyf", "x = " + x);

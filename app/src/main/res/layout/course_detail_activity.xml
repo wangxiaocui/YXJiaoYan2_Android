@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <com.test.yanxiu.common_base.customize.viewgroup.UnFocusableScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -79,7 +80,7 @@
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="12dp"
                 app:backgroundColor="@color/color_d4d4da"
-                app:clickAble="false"
+                app:touchAble="false"
                 app:starIcon="@drawable/star_single"
                 app:starsCount="5" />
 
@@ -96,6 +97,15 @@
                 android:textColor="@color/color_a6a5ab"
                 android:textSize="@dimen/text_size_12dp" />
 
+            <ImageView
+                android:layout_width="69dp"
+                android:layout_height="69dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_class_name"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/color_1da1f2" />
+
             <RelativeLayout
                 android:id="@+id/layout_introduction"
                 android:layout_width="match_parent"
@@ -111,6 +121,7 @@
                     android:orientation="horizontal" />
 
                 <TextView
+                    android:id="@+id/tv_introduction"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view_blank"
@@ -136,7 +147,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/tv_introduction"
+                android:id="@+id/tv_introduction_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/layout_introduction"
@@ -152,7 +163,7 @@
                 android:id="@+id/tv_introduction_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_introduction"
+                android:layout_below="@+id/tv_introduction_1"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
@@ -206,9 +217,9 @@
                 android:id="@+id/rv_directory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_directory"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_below="@+id/layout_directory" />
+                android:layout_marginRight="20dp" />
 
             <RelativeLayout
                 android:id="@+id/layout_evalution"
@@ -260,5 +271,20 @@
         </RelativeLayout>
     </com.test.yanxiu.common_base.customize.viewgroup.UnFocusableScrollView>
 
+    <!--<android.support.design.widget.TabLayout-->
+    <!--android:id="@+id/tab_layout"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="45dp"-->
+    <!--android:background="@color/color_ffffff">-->
+    <!--&lt;!&ndash;app:tabIndicatorColor="@color/golden"&ndash;&gt;-->
+    <!--&lt;!&ndash;app:tabSelectedTextColor="@color/golden"&ndash;&gt;-->
+    <!--&lt;!&ndash;app:tabTextColor="@color/txt_color_tint_"&ndash;&gt;-->
 
+    <!--</android.support.design.widget.TabLayout>-->
+    <com.test.yanxiu.common_base.customize.viewgroup.CustomTabView
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:background="@color/color_ffffff" />
 </RelativeLayout>

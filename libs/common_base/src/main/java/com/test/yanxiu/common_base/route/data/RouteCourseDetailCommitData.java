@@ -3,13 +3,14 @@ package com.test.yanxiu.common_base.route.data;
 import com.yanxiu.lib.yx_basic_library.base.bean.YXBaseBean;
 
 /**
- * 跳转CourseDetaiActivity时，传入的值
+ * 跳转GoEvaluationActivity时，传入的值
  * Created by 戴延枫 on 2018/10/9.
  */
 
-public class CourseDetailTabData extends YXBaseBean {
-    private int tabposition;
+public class RouteCourseDetailCommitData extends YXBaseBean {
     private String courseId;
+
+    private String evalutionContent;
 
     public String getCourseId() {
         return courseId;
@@ -19,11 +20,11 @@ public class CourseDetailTabData extends YXBaseBean {
         this.courseId = courseId;
     }
 
-    public int getTabposition() {
-        return tabposition;
+    public String getEvalutionContent() {
+        return evalutionContent;
     }
 
-    public void setTabposition(int tabposition) {
-        this.tabposition = tabposition;
+    public void setEvalutionContent(String evalutionContent) {
+        this.evalutionContent = evalutionContent;
     }
 }

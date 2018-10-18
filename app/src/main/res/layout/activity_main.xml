@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemIconTint="@color/selector_main_bottom_tab_text_color"
-        app:itemTextColor="@color/selector_main_bottom_tab_text_color"
+        app:itemIconTint="@color/color_17171b_to_007aff"
+        app:itemTextColor="@color/color_17171b_to_007aff"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/navigation" />
 

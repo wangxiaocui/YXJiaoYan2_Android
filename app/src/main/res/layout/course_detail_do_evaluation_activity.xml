@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="发表评价"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_39dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="轻点星星来评分"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_16dp" />
+
+    <com.test.yanxiu.common_base.customize.view.StarProgressBar
+        android:id="@+id/star_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_teacher"
+        android:layout_marginTop="12dp"
+        app:backgroundColor="@color/color_d4d4da"
+        app:starIcon="@drawable/star_single"
+        app:starsCount="5"
+        app:touchAble="true" />
+
+    <EditText
+        android:id="@+id/et_evalaution"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/course_detail_evaluation_et_shape"
+        android:gravity="top"
+        android:hint="请留下一点宝贵的评价吧，文字字数限制：200"
+        android:maxLength="200"
+        android:padding="10dp"
+        android:textColor="@color/color_17171b"
+        android:textColorHint="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_18dp" />
+
+    <Button
+        android:id="@+id/bt_evalaution_commit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/course_detail_evaluation_commit_btn_selector"
+        android:text="确 定"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/text_size_20dp"
+        android:textStyle="bold" />
+</LinearLayout>
