@@ -25,7 +25,7 @@ public class LoginByCodeActivity extends LoginActivity {
     @Override
     protected void initTitle() {
         super.initTitle();
-        getDefaultBackStyleToolbar().apply();
+        getJyDefaultToolbar();
     }
 
     @Override

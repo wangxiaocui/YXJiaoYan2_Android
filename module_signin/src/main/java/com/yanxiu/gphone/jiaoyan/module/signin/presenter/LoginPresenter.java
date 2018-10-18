@@ -14,7 +14,7 @@ public class LoginPresenter extends YXBasePresenterImpl<LoginContract.IView> imp
 
     @Override
     public void login(String username, String password) {
-        mView.showLoading();
+        mView.showLoadingView();
         signIn(username, password);
     }
 
@@ -30,6 +30,7 @@ public class LoginPresenter extends YXBasePresenterImpl<LoginContract.IView> imp
      * @param password
      */
     private void signIn(String username, String password) {
+        mView.hideLoadingView();
         mView.onLoginSuccess();
 //        mLoginName = username;
 //        SignInRequest request = new SignInRequest();

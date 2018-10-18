@@ -29,6 +29,10 @@ public class RouteUtils {
         ARouter.getInstance().build(path).withSerializable(path, bean).navigation(activity, code);
     }
 
+    public static void startActivityForResult(Activity activity, String path, int code) {
+        ARouter.getInstance().build(path).navigation(activity, code);
+    }
+
     public static void startActivityForResult(Activity activity, String path, AvoidOnResult.Callback callback) {
         Postcard postcard = ARouter.getInstance().build(path);
         LogisticsCenter.completion(postcard);
@@ -43,4 +47,9 @@ public class RouteUtils {
         Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
         return fragment;
     }
+
+    public static <T extends Fragment> T getFramentByPath(String path, YXBaseBean data) {
+        return (T) ARouter.getInstance().build(path).withSerializable(path, data).navigation();
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.test.yanxiu.common_base.route;
 
+import com.test.yanxiu.common_base.route.data.RouteSearchData;
+
 /**
  * Created by Hu Chao on 18/9/28.
  */
@@ -32,8 +34,18 @@ public class RoutePathConfig {
 
     //endregion courses
 
+
+    //region search
+    //SearchActivity
+    public static final String Search_Activity = "/search/index";
+    /**
+     * 搜索结果
+     * invokeData:{@link RouteSearchData}
+     */
+    public static final String Search_Result_Fragment = "/search/result";
     //endregion
 
+    //endregion
 
     //region module_signin
     //LoginActivity

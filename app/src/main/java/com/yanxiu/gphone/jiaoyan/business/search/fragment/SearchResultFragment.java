@@ -1,43 +1,47 @@
-package com.yanxiu.gphone.jiaoyan.business.course.fragment;
+package com.yanxiu.gphone.jiaoyan.business.search.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
+import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragmentContract;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
+import com.test.yanxiu.common_base.route.data.RouteSearchData;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CourseListAdapter;
-import com.yanxiu.gphone.jiaoyan.business.course.interfaces.CourseListContract;
-import com.yanxiu.gphone.jiaoyan.business.course.presenter.CourseListPresenter;
-import com.yanxiu.gphone.jiaoyan.customize.banner.BannerGlideImageLoader;
-import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
-import com.youth.banner.Banner;
-import com.youth.banner.listener.OnBannerListener;
+import com.yanxiu.gphone.jiaoyan.business.search.presenter.SearchResultPresenter;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by Hu Chao on 18/10/11.
+ * Created by Hu Chao on 18/10/17.
  */
-@Route(path = RoutePathConfig.Course_List_Fragment)
-public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.IPresenter> implements CourseListContract.IView, OnBannerListener {
+@Route(path = RoutePathConfig.Search_Result_Fragment)
+public class SearchResultFragment extends BaseRecyclerFragment<BaseRecyclerFragmentContract.IPresenter> {
 
     protected CourseListAdapter mAdapter;
-    protected Banner mBanner;
+    private String searchKey;
+
+    @Override
+    public void initData(@NonNull Bundle bundle) {
+        super.initData(bundle);
+        RouteSearchData data = (RouteSearchData) bundle.getSerializable(RoutePathConfig.Search_Result_Fragment);
+        if (data != null) {
+            searchKey = data.getSearchKey();
+        }
+    }
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
         super.initView(savedInstanceState, contentView);
-        View bannerHead = LayoutInflater.from(getContext()).inflate(R.layout.course_banner_layout, xrecycler_view, false);
-        mBanner = bannerHead.findViewById(R.id.banner);
-        xrecycler_view.addHeaderView(bannerHead);
-        mBanner.setDelayTime(3000);
+        View header = LayoutInflater.from(getContext()).inflate(R.layout.search_result_header, xrecycler_view, false);
+        xrecycler_view.addHeaderView(header);
     }
 
     @Override
@@ -47,8 +51,8 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
     }
 
     @Override
-    protected CourseListContract.IPresenter initPresenterImpl() {
-        return new CourseListPresenter(this);
+    protected BaseRecyclerFragmentContract.IPresenter initPresenterImpl() {
+        return new SearchResultPresenter(this);
     }
 
     @Override
@@ -63,13 +67,17 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
 
     @Override
     public void doBusiness() {
-        showLoadingView();
-        mPresenter.refresh();
+        search(searchKey);
     }
 
     @Override
     public void onWidgetClick(View view) {
 
+    }
+
+    public void search(String searchKey) {
+        showLoadingView();
+        mPresenter.refresh();
     }
 
     @Override
@@ -86,19 +94,10 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
     public void onRefreshSuccess(int total, List datas) {
         hideLoadingView();
         super.onRefreshSuccess(total, datas);
-        mBanner.setImages(Arrays.asList(getResources().getStringArray(R.array.url)))
-                .setImageLoader(new BannerGlideImageLoader())
-                .setOnBannerListener(this)
-                .start();
     }
 
     @Override
     protected String getLoadMoreOffset() {
         return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getUserId());
-    }
-
-    @Override
-    public void OnBannerClick(int position) {
-        YXToastUtil.showToast("点击banner : " + position);
     }
 }

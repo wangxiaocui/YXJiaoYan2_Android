@@ -1,21 +1,16 @@
 package com.test.yanxiu.common_base.base.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.test.yanxiu.common_base.R;
-import com.test.yanxiu.common_base.base.ui.toolbar.AppBarHelper;
-import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
 import com.test.yanxiu.common_base.base.ui.toolbar.Style;
+import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
-
-import java.util.zip.Inflater;
 
 /**
  * Created by Hu Chao on 18/9/28.
@@ -27,16 +22,23 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppBarHelper.with(this).setStatusBarColor(ContextCompat.getColor(this, R.color.color_ffffff)).apply();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             initData(bundle);
+        } else {
+            initData(Bundle.EMPTY);
         }
         setBaseView(bindLayout());
         initTitle();
         initView(savedInstanceState, mCommonLayout);
         initListener();
         doBusiness();
+        mCommonLayout.setRetryButtonOnclickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRetryClick();
+            }
+        });
     }
 
     private void setBaseView(@LayoutRes int layoutId) {
@@ -62,7 +64,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         CommonToolbar.Builder builder = new CommonToolbar.Builder(this).setStatusBarStyle(Style.DEFAULT);
         CommonToolbar toolbar = builder.apply();
 
-        View v = this.getLayoutInflater().inflate(R.layout.common_left_navi_back, null);
+        View v = this.getLayoutInflater().inflate(R.layout.common_left_navi_back, toolbar, false);
         toolbar.addLeftView(View.generateViewId(), v);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,18 +73,6 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
             }
         });
         return toolbar;
-    }
-
-    /**
-     * 获取一个默认样式颜色的toolbar
-     */
-    protected CommonToolbar.Builder getDefaultBackStyleToolbar() {
-        return getDefaultStyleToolbar().addLeftIcon(View.generateViewId(), R.drawable.selector_back, 20, 20, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     /**
@@ -111,11 +101,11 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         }
     }
 
-    public void showLoading() {
+    public void showLoadingView() {
         mCommonLayout.showLoadingView();
     }
 
-    public void hideLoading() {
+    public void hideLoadingView() {
         mCommonLayout.hiddenLoadingView();
     }
 
@@ -123,12 +113,15 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         mCommonLayout.finish();
     }
 
-    public void showError(String error) {
+    public void showErrorView(String error) {
         mCommonLayout.showOtherErrorView(error);
     }
 
-    public void showNetError() {
+    public void showNetErrorView() {
         mCommonLayout.showNetErrorView();
     }
 
+    public void onRetryClick() {
+
+    }
 }
