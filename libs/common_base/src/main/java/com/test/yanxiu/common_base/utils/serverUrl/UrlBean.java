@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 
 public class UrlBean implements Serializable {
+    public int index;
 
     public static final String RELEASE = "release";
     public static final String TEST = "test";

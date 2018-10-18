@@ -82,5 +82,9 @@ public class RoutePathConfig {
     public static final String Mine_Change_Pwd_Step1_Activity = "/mine/change_pwd/step1";
     // "更换手机号" 新手机号 页
     public static final String Mine_Change_Pwd_Step2_Activity = "/mine/change_pwd/step2";
+    // "我的课程" 页
+    public static final String Mine_My_Course_Activity = "/mine/my_course";
+
+
     //endregion mine
 }

@@ -1,5 +1,5 @@
 {
-  "currentIndex": 1,
+  "currentIndex": 98,
   "multiConfig": true,
   "data": [
     {
@@ -37,6 +37,17 @@
       "qiNiuUrl":"http://p2xuvkfak.bkt.clouddn.com/",
       "mode": "dev",
       "index": 2
+    },
+
+    {
+      "server": "http://10.10.20.243:8281",
+      "qiNiuServer": "http://orz.yanxiu.com/7up/platform/data.api",
+      "index": 98
+    },
+    {
+      "server": "http://jyapi.jiaoyan.com",
+      "qiNiuServer": "http://orz.yanxiu.com/7up/platform/data.api",
+      "index": 99
     }
   ]
 }
