@@ -13,11 +13,13 @@ import com.yanxiu.lib.yx_basic_library.network.YXRequestParamType;
 public abstract class JYBaseRequest extends YXRequestBase {
 
     @YXRequestParamType(YXRequestParamType.Type.GET)
-    public String platform = Constants.PLATFORM;
+    //public String platform = Constants.PLATFORM;
+    public String Platform = "android设备";
     @YXRequestParamType(YXRequestParamType.Type.GET)
-    public String versionCode = Constants.version;
+    public String VersionCode = Constants.version;
 
-    public String token = UserInfoManager.getInstance().getToken();
+    public String Token = UserInfoManager.getInstance().getToken();
+    public String DeviceSN; // todo: cailei 设备唯一标示
 
     @Override
     protected String urlServer() {

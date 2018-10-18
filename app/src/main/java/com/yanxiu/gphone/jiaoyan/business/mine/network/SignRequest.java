@@ -19,6 +19,11 @@ public final class SignRequest extends JYBaseRequest {
         return "user/sign";
     }
 
+
+    /**
+     *
+     * 这个为了方便测试GET、POST集中打断点，别的接口不用实现这个方法。
+     */
     @Override
     public <T> UUID startRequest(final Class<T> clazz, final IYXHttpCallback<T> callback) {
         return super.startRequest(JYBaseResponse.class, new IYXHttpCallback<JYBaseResponse>() {

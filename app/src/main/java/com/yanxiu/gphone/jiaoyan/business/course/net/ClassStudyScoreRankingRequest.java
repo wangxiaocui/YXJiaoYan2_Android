@@ -23,9 +23,10 @@ public class ClassStudyScoreRankingRequest extends JYBaseRequest {
 
     public String method = "app.clazs.getUserTaskProgressRank";
 
+    public String token = "d1698f5b1208bd5d269c92dcee74988e";
+
     @Override
     protected String urlServer() {
-        token = "d1698f5b1208bd5d269c92dcee74988e";
         return "http://hbyxb.ymd.yanxiu.com/pxt/platform/data.api";
     }
 

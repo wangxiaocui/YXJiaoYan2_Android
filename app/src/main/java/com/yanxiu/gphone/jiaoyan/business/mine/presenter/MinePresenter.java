@@ -29,7 +29,7 @@ public class MinePresenter
         // todo: cailei
         ((JYBaseFragment)mView).showLoadingView();
         SignRequest signRequest = new SignRequest();
-        signRequest.token = "test 123456";
+        signRequest.Token = "test 123456 测试";
         addRequest(signRequest, JYBaseResponse.class, new IYXHttpCallback<JYBaseResponse>() {
             @Override
             public void onRequestCreated(Request request) {
