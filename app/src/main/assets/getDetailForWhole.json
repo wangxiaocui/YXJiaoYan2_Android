@@ -1,0 +1,85 @@
+{
+  "Code": 200,
+  "Info": "成功",
+  "Data": {
+    "Total": 20,
+    "CourseList": [
+      {
+        "ID": 1,
+        "Name": "课程1",
+        "Teacher": "主讲人",
+        "Recommend": 1,
+        "ResourceID": 1,
+        "ResourceUrl": "http://admin.zgjiaoyan.com/uploadfile/2018/0926/thumb_186_110_20180926093955330.png",
+        "CategoryID": 1,
+        "StartTime": 1541001600000,
+        "ReserveCount": 999,
+        "StudyCount": 999,
+        "Duration": 1000,
+        "StageSubject": {
+          "StageID": 1,
+          "StageName": "学段1",
+          "SubjectID": 1,
+          "SubjectName": "学科1"
+        }
+      },
+      {
+        "ID": 2,
+        "Name": "课程2",
+        "Teacher": "主讲人",
+        "Recommend": 0,
+        "ResourceID": 2,
+        "ResourceUrl": "http://admin.zgjiaoyan.com/uploadfile/2018/0926/thumb_186_110_20180926093955330.png",
+        "CategoryID": 2,
+        "StartTime": 1541001600000,
+        "ReserveCount": 999,
+        "StudyCount": 999,
+        "Duration": 1000,
+        "StageSubject": {
+          "StageID": 2,
+          "StageName": "学段2",
+          "SubjectID": 2,
+          "SubjectName": "学科2"
+        }
+      },
+      {
+        "ID": 3,
+        "Name": "课程3",
+        "Teacher": "主讲人",
+        "Recommend": 0,
+        "ResourceID": 3,
+        "ResourceUrl": "http://admin.zgjiaoyan.com/uploadfile/2018/0926/thumb_186_110_20180926093955330.png",
+        "CategoryID": 3,
+        "StartTime": 1541001600000,
+        "ReserveCount": 999,
+        "StudyCount": 999,
+        "Duration": 1000,
+        "StageSubject": {
+          "StageID": 3,
+          "StageName": "学段3",
+          "SubjectID": 3,
+          "SubjectName": "学科3"
+        }
+      },
+      {
+        "ID": 4,
+        "Name": "课程4",
+        "Teacher": "主讲人",
+        "Recommend": 1,
+        "ResourceID": 4,
+        "ResourceUrl": "http://admin.zgjiaoyan.com/uploadfile/2018/0926/thumb_186_110_20180926093955330.png",
+        "CategoryID": 4,
+        "StartTime": 1541001600000,
+        "ReserveCount": 999,
+        "StudyCount": 999,
+        "Duration": 1000,
+        "StageSubject": {
+          "StageID": 4,
+          "StageName": "学段4",
+          "SubjectID": 4,
+          "SubjectName": "学科4"
+        }
+      }
+    ]
+  }
+}
