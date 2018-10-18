@@ -25,7 +25,7 @@ public class MessageListAdapter extends BaseAdapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.custom_flow_item_layout, viewGroup, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.message_item_interaction, viewGroup, false);
         return new ViewHolder(mContext, view);
     }
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="25dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
+        android:id="@+id/iv"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="13dp"
+        android:scaleType="fitXY"
+        android:src="@color/color_1da1f2"
+        app:corner_size="24dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/iv"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="苏有朋"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_16dp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="3dp"
+            android:background="@color/color_1da1f2" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:background="@color/color_1da1f2" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_comment_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_name"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/iv"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_12dp"
+        android:text="2018.10.10 18:01" />
+
+    <TextView
+        android:id="@+id/tv_comment_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_comment_date"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/iv"
+        android:lineSpacingExtra="4dp"
+        android:text="党的十八大以来，习近平总书记站在全面建成小康社会、实现中华民族伟大复兴中国梦的战略高度，把脱贫攻坚摆到治国理政突出位置，提出一系列新思想新观点，作出一系列新决策新部署，推动中国减贫事业取得巨大成就，对世界减贫进程作出了重大贡献。为帮助国内外读者学习研究习近平关于扶贫的重要论述和中国脱贫攻坚的伟大实践，推动全面建成小康社会、共建人类命运共同体，中共中央党史和文献研究院会同国务院扶贫办编辑了《习近平扶贫论述摘编》。"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_16dp" />
+
+</RelativeLayout>
