@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.yanxiu.gphone.jiaoyan.customize.aggregate.wave.StopWaveView
@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         app:above_wave_color="#dfe2e6"
         app:blow_wave_color="#51dfe2e6"
-        app:progress="100"
+        app:progress="90"
         app:use_default_alpha="true"
         app:wave_height="little"
         app:wave_hz="normal"
@@ -68,10 +68,10 @@
                 android:id="@+id/tv_join"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="加入学习"
                 android:textColor="@color/color_17171b"
                 android:textSize="@dimen/text_size_18dp"
-                android:textStyle="bold"
-                android:text="加入学习" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -97,19 +97,19 @@
             android:id="@+id/tv_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="免费加入学习"
             android:textColor="@color/color_17171b"
             android:textSize="@dimen/text_size_18dp"
-            android:textStyle="bold"
-            android:text="免费加入学习" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tv_other_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/course_detailt_leraning_top"
+            android:text="需要消耗0财富值"
             android:textColor="@color/color_007aff"
-            android:textSize="@dimen/text_size_12dp"
-            android:text="需要消耗0财富值" />
+            android:textSize="@dimen/text_size_12dp" />
 
     </LinearLayout>
 
@@ -117,6 +117,7 @@
         android:id="@+id/layout_learning_finish"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:background="@drawable/course_detail_join_learning_wave_finish_shape"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">

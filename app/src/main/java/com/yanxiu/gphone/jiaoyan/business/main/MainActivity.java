@@ -79,26 +79,26 @@ public class MainActivity extends JYBaseActivity {
                         mFragmentFactory.showFragment(0);
                         return true;
                     case R.id.navigation_live:
-                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
-                        mFragmentFactory.showFragment(1);
-                        return true;
-                    case R.id.navigation_message:
-                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
-                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
                         CheckLoginUtil.checkLogin(MainActivity.this, new CheckLoginUtil.OnLoginStateCallback() {
                             @Override
                             public void onLoginSuccess() {
                                 YXToastUtil.showToast("登录成功");
-                                mFragmentFactory.showFragment(2);
+                                root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
+                                AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
+                                mFragmentFactory.showFragment(1);
                             }
 
                             @Override
                             public void onLoginFail() {
+                                navigationView.setSelectedItemId(R.id.navigation_course + mFragmentFactory.getCurrentIndex());
                                 YXToastUtil.showToast("登录失败");
                             }
                         });
-//                        RouteUtils.startActivity(RoutePathConfig.App_Course_Detail_Tab);
+                        return true;
+                    case R.id.navigation_message:
+                        root_view.setBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.color_ffffff));
+                        AppBarHelper.with(MainActivity.this).setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.colorPrimaryDark)).apply();
+                        mFragmentFactory.showFragment(2);
                         return true;
                     case R.id.navigation_mine:
                         root_view.setBackground(null);

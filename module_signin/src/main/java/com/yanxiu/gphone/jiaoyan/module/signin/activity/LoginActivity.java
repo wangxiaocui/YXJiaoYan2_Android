@@ -134,7 +134,7 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
     }
 
     protected void onLoginTypeClick() {
-        RouteUtils.startActivityForResult(this, RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY, REQUEST_CODE);
+        RouteUtils.startActivityForResult(this, RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY, REQUEST_CODE,null);
     }
 
     protected void onRegisterClick() {

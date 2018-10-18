@@ -56,15 +56,15 @@ public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContrac
     @Override
     public void onRefreshSuccess(int total, List datas) {
         xrecycler_view.refreshComplete();
-        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
         mAdapter.setData(datas);
+        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
     }
 
     @Override
     public void onLoadMoreSuccess(int total, List datas) {
         xrecycler_view.loadMoreComplete();
-        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
         mAdapter.addData(datas);
+        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
     }
 
     /**

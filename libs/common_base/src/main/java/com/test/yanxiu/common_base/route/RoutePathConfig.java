@@ -1,5 +1,7 @@
 package com.test.yanxiu.common_base.route;
 
+import com.test.yanxiu.common_base.route.data.RouteSearchData;
+
 /**
  * Created by Hu Chao on 18/9/28.
  */
@@ -18,16 +20,32 @@ public class RoutePathConfig {
      * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
      */
     public static final String App_Course_Detail = "/app/CourseDetailActivity";
+
     /**
      * 课程详情页
      * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailTabData}
      */
     public static final String App_Course_Detail_Tab = "/app/CourseDetailTabActivity";
 
+    /**
+     * 课程详情页里去评论页面
+     */
+    public static final String App_Course_Detail_Go_Evaluation = "/app/GoEvaluationActivity";
+
     //endregion courses
 
+
+    //region search
+    //SearchActivity
+    public static final String Search_Activity = "/search/index";
+    /**
+     * 搜索结果
+     * invokeData:{@link RouteSearchData}
+     */
+    public static final String Search_Result_Fragment = "/search/result";
     //endregion
 
+    //endregion
 
     //region module_signin
     //LoginActivity
@@ -45,6 +63,8 @@ public class RoutePathConfig {
     //region module_message
     //MessageFragment
     public static final String Message_Fragment = "/message/index";
+    //MessageListFragment
+    public static final String Message_List_Fragment = "/message/list";
     //endregion
 
 

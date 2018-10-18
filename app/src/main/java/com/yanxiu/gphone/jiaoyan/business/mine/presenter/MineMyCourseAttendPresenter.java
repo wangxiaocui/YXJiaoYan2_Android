@@ -1,16 +1,11 @@
 package com.yanxiu.gphone.jiaoyan.business.mine.presenter;
 
-import com.test.yanxiu.common_base.base.net.JYBaseCallback;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragmentPresenter;
-import com.yanxiu.gphone.jiaoyan.business.course.net.ClassStudyScoreRankingRequest;
-import com.yanxiu.gphone.jiaoyan.business.course.net.ClassStudyScoreRankingResponse;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCourseAttendContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.mock.MockListRequest;
 import com.yanxiu.gphone.jiaoyan.business.mine.mock.MockListResponse;
 import com.yanxiu.lib.yx_basic_library.network.IYXHttpCallback;
-import com.yanxiu.lib.yx_basic_library.network.IYXResponseBodyDealer;
 import com.yanxiu.lib.yx_basic_library.network.YXRequestBase;
-import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 import okhttp3.Request;
 

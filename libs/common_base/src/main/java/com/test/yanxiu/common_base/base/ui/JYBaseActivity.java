@@ -35,12 +35,20 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             initData(bundle);
+        } else {
+            initData(Bundle.EMPTY);
         }
         setBaseView(bindLayout());
         initTitle();
         initView(savedInstanceState, mCommonLayout);
         initListener();
         doBusiness();
+        mCommonLayout.setRetryButtonOnclickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onRetryClick();
+            }
+        });
     }
 
     private void setBaseView(@LayoutRes int layoutId) {
@@ -103,11 +111,11 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         }
     }
 
-    public void showLoading() {
+    public void showLoadingView() {
         mCommonLayout.showLoadingView();
     }
 
-    public void hideLoading() {
+    public void hideLoadingView() {
         mCommonLayout.hiddenLoadingView();
     }
 
@@ -115,11 +123,11 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         mCommonLayout.finish();
     }
 
-    public void showError(String error) {
+    public void showErrorView(String error) {
         mCommonLayout.showOtherErrorView(error);
     }
 
-    public void showNetError() {
+    public void showNetErrorView() {
         mCommonLayout.showNetErrorView();
     }
 
@@ -195,4 +203,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     }
     // endregion
 
+    public void onRetryClick() {
+
+    }
 }

@@ -44,7 +44,7 @@ public abstract class BaseFragmentFactory {
 
         mFragments[index] = mFragmentManager.findFragmentByTag(mRoutePath[index]);
         if (mFragments[index] == null) {
-            mFragments[index] = RouteUtils.getFragmentByPath(mRoutePath[index]);
+            mFragments[index] = RouteUtils.getFramentByPath(mRoutePath[index]);
             if (mFragments[index] != null) {
                 transaction.add(initContainerId(), mFragments[index], mRoutePath[index]);
                 transaction.show(mFragments[index]);

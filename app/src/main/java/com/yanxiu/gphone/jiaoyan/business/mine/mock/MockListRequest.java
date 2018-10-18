@@ -1,6 +1,6 @@
 package com.yanxiu.gphone.jiaoyan.business.mine.mock;
 
-import com.yanxiu.gphone.jiaoyan.business.course.bean.ClassStudyScoreRankingBean;
+import com.yanxiu.gphone.jiaoyan.business.course.bean.CourseBean;
 import com.yanxiu.lib.yx_basic_library.network.IYXHttpCallback;
 import com.yanxiu.lib.yx_basic_library.network.YXRequestBase;
 
@@ -58,7 +58,7 @@ public class MockListRequest extends YXRequestBase {
         response.code = 0;
         response.data = new ArrayList<>();
         for (int i = 0; i < pageSize; i++) {
-            ClassStudyScoreRankingBean bean = new ClassStudyScoreRankingBean();
+            CourseBean bean = new CourseBean();
             response.data.add(bean);
         }
         callback.onSuccess(this, (T) response);

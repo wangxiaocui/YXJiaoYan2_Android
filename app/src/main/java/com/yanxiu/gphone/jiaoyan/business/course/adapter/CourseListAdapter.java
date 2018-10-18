@@ -10,23 +10,16 @@ import android.widget.TextView;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseViewHolder;
 import com.yanxiu.gphone.jiaoyan.R;
-import com.yanxiu.gphone.jiaoyan.business.course.bean.ClassStudyScoreRankingBean;
-
-import java.util.List;
+import com.yanxiu.gphone.jiaoyan.business.course.bean.CourseBean;
 
 
-public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
+public class CourseListAdapter extends BaseAdapter<CourseBean> {
 
     public static final int COURSE_SINGLE = 0;
     public static final int COURSE_MULTIPLE = 1;
 
     public CourseListAdapter(Context context) {
         super(context);
-    }
-
-    @Override
-    public void setData(List<ClassStudyScoreRankingBean> datas) {
-        mDatas = datas;
     }
 
     @Override
@@ -73,7 +66,7 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
     }
 
 
-    static class CourseViewHolder extends BaseViewHolder<ClassStudyScoreRankingBean> {
+    static class CourseViewHolder extends BaseViewHolder<CourseBean> {
         protected ImageView iv_course_cover;
         protected TextView tv_title;
         protected TextView tv_level;
@@ -92,7 +85,7 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
         }
 
         @Override
-        public void setData(final int position, final ClassStudyScoreRankingBean data) {
+        public void setData(final int position, final CourseBean data) {
             iv_course_cover.setImageResource(R.drawable.bg_login);
             tv_title.setText("如何把握英语课程中各种任务群的关系如何把握英语课程中的各种任务群的关系如何把握");
             tv_level.setText("初中");
@@ -112,7 +105,7 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
         }
 
         @Override
-        public void setData(final int position, final ClassStudyScoreRankingBean data) {
+        public void setData(final int position, final CourseBean data) {
             super.setData(position, data);
             tv_speaker.setText("主讲：嘿嘿嘿\u3000·\u3000120分钟");
             iv_course_play.setImageResource(R.drawable.homepage_notice);
@@ -132,7 +125,7 @@ public class CourseListAdapter extends BaseAdapter<ClassStudyScoreRankingBean> {
         }
 
         @Override
-        public void setData(final int position, final ClassStudyScoreRankingBean data) {
+        public void setData(final int position, final CourseBean data) {
             super.setData(position, data);
             tv_speaker.setText("主讲：哈哈哈");
             tv_duration.setText("9课时 (360分钟)");

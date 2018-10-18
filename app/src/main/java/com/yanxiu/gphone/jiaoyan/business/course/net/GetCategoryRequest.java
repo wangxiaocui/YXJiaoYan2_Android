@@ -25,7 +25,7 @@ public class GetCategoryRequest extends JYMockRequest {
 
     @Override
     protected int setMockDelayTime() {
-        return 4;
+        return 2;
     }
 
     @Override

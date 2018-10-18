@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/tab_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_jieshao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="介绍"
+            android:textColor="@color/color_17171b_to_007aff"
+            android:textSize="@dimen/text_size_19dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/line_jieshao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/customize_viewgroup_custom_tabview_horizontal_line_selector" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/customize_viewgroup_custom_tabview_vertical_line_shape" />
+
+    <LinearLayout
+        android:id="@+id/tab_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_mulu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="目录"
+            android:textColor="@color/color_17171b_to_007aff"
+            android:textSize="@dimen/text_size_19dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/line_mulu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/customize_viewgroup_custom_tabview_horizontal_line_selector" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/customize_viewgroup_custom_tabview_vertical_line_shape" />
+
+    <LinearLayout
+        android:id="@+id/tab_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_pingjia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="评价"
+            android:textColor="@color/color_17171b_to_007aff"
+            android:textSize="@dimen/text_size_19dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/line_pingjia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/customize_viewgroup_custom_tabview_horizontal_line_selector" />
+    </LinearLayout>
+
+
+</LinearLayout>

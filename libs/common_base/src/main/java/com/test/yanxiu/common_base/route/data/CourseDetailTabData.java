@@ -8,6 +8,7 @@ import com.yanxiu.lib.yx_basic_library.base.bean.YXBaseBean;
  */
 
 public class CourseDetailTabData extends YXBaseBean {
+    private int tabposition;
     private String courseId;
 
     public String getCourseId() {
@@ -16,5 +17,13 @@ public class CourseDetailTabData extends YXBaseBean {
 
     public void setCourseId(String courseId) {
         this.courseId = courseId;
+    }
+
+    public int getTabposition() {
+        return tabposition;
+    }
+
+    public void setTabposition(int tabposition) {
+        this.tabposition = tabposition;
     }
 }
