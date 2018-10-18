@@ -34,9 +34,8 @@ public class RouteUtils {
         new AvoidOnResult(activity).startForResult(intent, callback);
     }
 
-    public static Fragment getFramentByPath(String path) {
-        Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
-        return fragment;
+    public static <T extends Fragment> T getFramentByPath(String path) {
+        return (T) ARouter.getInstance().build(path).navigation();
     }
 
     public static <T extends Fragment> T getFramentByPath(String path, YXBaseBean data) {

@@ -57,6 +57,8 @@ public class RoutePathConfig {
     //region module_message
     //MessageFragment
     public static final String Message_Fragment = "/message/index";
+    //MessageListFragment
+    public static final String Message_List_Fragment = "/message/list";
     //endregion
 
 
