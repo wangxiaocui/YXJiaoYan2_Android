@@ -19,6 +19,8 @@ import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXScreenUtil;
+import com.yanxiu.lib.yx_basic_library.util.YXSystemUtil;
 
 import java.lang.reflect.Field;
 
@@ -136,7 +138,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     // 用于 "我的课程"， "我的证书"
     public void configJyTablayout001(TabLayout tablayout) {
         tablayout.setSelectedTabIndicator(R.drawable.common_indicator_horizontal);
-        wrapTabIndicatorToTitle(tablayout, 0, 25);
+        wrapTabIndicatorToTitle(tablayout, 0, YXScreenUtil.dpToPxInt(this, 25));
         setDivider(tablayout);
     }
 
@@ -198,7 +200,8 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     private void setDivider(TabLayout tabLayout) {
         LinearLayout ll = (LinearLayout) tabLayout.getChildAt(0);
         ll.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-        ll.setDividerPadding(25); // (tablayout height - divider height) * 0.5
+        // todo : cailei 这个要能动态计算就好了，(tablayout height - divider height) * 0.5
+        ll.setDividerPadding(YXScreenUtil.dpToPxInt(this, 15));
         ll.setDividerDrawable(ContextCompat.getDrawable(this, R.drawable.common_divider_vertical));
     }
     // endregion
