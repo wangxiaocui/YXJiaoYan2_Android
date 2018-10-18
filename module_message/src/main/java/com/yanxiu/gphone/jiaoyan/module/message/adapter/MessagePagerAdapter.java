@@ -1,12 +1,13 @@
 package com.yanxiu.gphone.jiaoyan.module.message.adapter;
 
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
-import com.yanxiu.gphone.jiaoyan.module.message.fragment.MessageListFragment;
+import com.yanxiu.gphone.jiaoyan.module.message.fragment.MessageUserFragment;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,20 +19,22 @@ import java.util.List;
 public class MessagePagerAdapter extends FragmentStatePagerAdapter {
 
     private List<String> mDatas;
-    private HashMap<String, MessageListFragment> fragmentHashMap;
+    private List<String> mPath;
+    private HashMap<String, Fragment> fragmentHashMap;
 
     public MessagePagerAdapter(FragmentManager fm) {
         super(fm);
         this.fragmentHashMap = new HashMap<>();
         mDatas = Arrays.asList("互动消息", "系统消息");
+        mPath = Arrays.asList(RoutePathConfig.Message_User_Fragment, RoutePathConfig.Message_System_Fragment);
     }
 
     @Override
-    public MessageListFragment getItem(int position) {
-        MessageListFragment fragment;
+    public Fragment getItem(int position) {
+        Fragment fragment;
         String id = mDatas.get(position);
         if (!fragmentHashMap.containsKey(id)) {
-            fragment = RouteUtils.getFramentByPath(RoutePathConfig.Message_List_Fragment);
+            fragment = RouteUtils.getFramentByPath(mPath.get(position));
             fragmentHashMap.put(id, fragment);
         } else {
             fragment = fragmentHashMap.get(id);

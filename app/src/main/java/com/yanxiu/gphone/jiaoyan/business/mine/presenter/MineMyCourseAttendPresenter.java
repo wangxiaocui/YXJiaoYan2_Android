@@ -21,7 +21,7 @@ public class MineMyCourseAttendPresenter
     }
 
     @Override
-    public void request(final String offset) {
+    public void request(final boolean isRefresh, final String offset) {
         MockListRequest request = new MockListRequest();
         addRequest(request, MockListResponse.class, new IYXHttpCallback<MockListResponse>() {
             @Override
@@ -31,7 +31,7 @@ public class MineMyCourseAttendPresenter
 
             @Override
             public void onSuccess(YXRequestBase request, MockListResponse ret) {
-                if (offset == null) {
+                if (isRefresh) {
                     mView.onRefreshSuccess(100, ret.data);
                 } else {
                     mView.onLoadMoreSuccess(100, ret.data);

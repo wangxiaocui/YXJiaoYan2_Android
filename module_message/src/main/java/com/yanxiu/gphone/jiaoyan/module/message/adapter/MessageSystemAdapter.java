@@ -13,19 +13,20 @@ import com.yanxiu.gphone.jiaoyan.module.message.R;
 
 
 /**
+ * 系统消息页adapter
  * Created by Hu Chao on 18/10/18.
  */
-public class MessageListAdapter extends BaseAdapter {
+public class MessageSystemAdapter extends BaseAdapter {
 
 
-    public MessageListAdapter(Context context) {
+    public MessageSystemAdapter(Context context) {
         super(context);
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.message_item_interaction, viewGroup, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.message_item_user, viewGroup, false);
         return new ViewHolder(mContext, view);
     }
 
