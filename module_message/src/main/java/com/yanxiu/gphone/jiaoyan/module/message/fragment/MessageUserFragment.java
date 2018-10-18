@@ -1,30 +1,35 @@
 package com.yanxiu.gphone.jiaoyan.module.message.fragment;
 
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
-import com.yanxiu.gphone.jiaoyan.module.message.adapter.MessageListAdapter;
-import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageListContract;
-import com.yanxiu.gphone.jiaoyan.module.message.presenter.MessageListPresenter;
+import com.yanxiu.gphone.jiaoyan.module.message.adapter.MessageUserAdapter;
+import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageUserContract;
+import com.yanxiu.gphone.jiaoyan.module.message.presenter.MessageUserPresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXScreenUtil;
 
 import java.util.Arrays;
 
 /**
+ * 互动消息页
  * Created by Hu Chao on 18/10/18.
  */
-@Route(path = RoutePathConfig.Message_List_Fragment)
-public class MessageListFragment extends BaseRecyclerFragment<MessageListContract.IPresenter> implements MessageListContract.IView {
+@Route(path = RoutePathConfig.Message_User_Fragment)
+public class MessageUserFragment extends BaseRecyclerFragment<MessageUserContract.IPresenter> implements MessageUserContract.IView {
     @Override
     protected BaseAdapter initAdapter() {
-        return new MessageListAdapter(getContext());
+        View view = new View(getContext());
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, YXScreenUtil.dpToPxInt(getContext(), 35)));
+        xrecycler_view.addHeaderView(view);
+        return new MessageUserAdapter(getContext());
     }
 
     @Override
     public void initListener() {
-
     }
 
     @Override
@@ -38,8 +43,8 @@ public class MessageListFragment extends BaseRecyclerFragment<MessageListContrac
     }
 
     @Override
-    protected MessageListContract.IPresenter initPresenterImpl() {
-        return new MessageListPresenter(this);
+    protected MessageUserContract.IPresenter initPresenterImpl() {
+        return new MessageUserPresenter(this);
     }
 
     @Override

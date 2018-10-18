@@ -16,7 +16,7 @@ public class CourseListPresenter extends BaseRecyclerFragmentPresenter<CourseLis
     }
 
     @Override
-    public void request(final String offset) {
+    public void request(final boolean isRefresh, String offset) {
         GetDetailForWholeRequest request = new GetDetailForWholeRequest();
         addRequest(request, GetDetailForWholeResponse.class, new JYBaseCallback<GetDetailForWholeResponse>() {
             @Override
@@ -26,7 +26,7 @@ public class CourseListPresenter extends BaseRecyclerFragmentPresenter<CourseLis
 
             @Override
             protected void onSuccessResponse(YXRequestBase request, GetDetailForWholeResponse ret) {
-                if (offset == null) {
+                if (isRefresh) {
                     mView.onRefreshSuccess(ret.getData().getTotal(),
                             ret.getData().getCourseList());
                 } else {

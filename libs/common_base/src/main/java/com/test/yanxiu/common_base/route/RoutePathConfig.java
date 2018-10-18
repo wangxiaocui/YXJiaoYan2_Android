@@ -61,10 +61,12 @@ public class RoutePathConfig {
     //endregion
 
     //region module_message
-    //MessageFragment
+    //MessageFragment 消息页
     public static final String Message_Fragment = "/message/index";
-    //MessageListFragment
-    public static final String Message_List_Fragment = "/message/list";
+    //MessageUserFragment 互动消息
+    public static final String Message_User_Fragment = "/message/user";
+    //MessageSystemFragment 系统消息
+    public static final String Message_System_Fragment = "/message/system";
     //endregion
 
 

@@ -10,15 +10,19 @@ public abstract class BaseRecyclerFragmentPresenter<V extends BaseRecyclerFragme
 
     @Override
     public void refresh() {
-        request(null);
+        request(true, null);
     }
 
     @Override
     public void loadMore(final String offset) {
-        request(offset);
+        request(false, offset);
     }
 
-    public abstract void request(final String offset);
+    /**
+     * @param isRefresh 区分刷新请求还是加载更多请求
+     * @param offset    加载更多的偏移
+     */
+    public abstract void request(boolean isRefresh, final String offset);
 
 
 }
