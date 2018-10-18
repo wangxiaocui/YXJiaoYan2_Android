@@ -8,14 +8,8 @@ import com.test.yanxiu.common_base.base.net.JYMockRequest;
  */
 public class GetDetailForWholeRequest extends JYMockRequest {
 
-    public String Token = "1234567890-0987654321";
-    public String TailD = "0";
-    public String PageSize = "10";
-
-    @Override
-    protected String urlServer() {
-        return "http://10.10.20.243/v1";
-    }
+//    public String TailD = "0";
+//    public String PageSize = "10";
 
     @Override
     protected String urlPath() {

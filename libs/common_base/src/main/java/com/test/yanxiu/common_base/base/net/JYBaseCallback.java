@@ -10,11 +10,12 @@ public abstract class JYBaseCallback<T extends JYBaseResponse> implements IYXHtt
 
     @Override
     public final void onSuccess(YXRequestBase request, T ret) {
-        if (ret.getCode() == 0) {
-            onSuccessResponse(request, ret);
-        } else {
-            onFail(request, new Error(ret.getInfo()));
-        }
+        onSuccessResponse(request, ret);
+//        if (ret.getCode() == 200) {
+//            onSuccessResponse(request, ret);
+//        } else {
+//            onFail(request, new Error(ret.getInfo()));
+//        }
     }
 
     protected abstract void onSuccessResponse(YXRequestBase request, T ret);
