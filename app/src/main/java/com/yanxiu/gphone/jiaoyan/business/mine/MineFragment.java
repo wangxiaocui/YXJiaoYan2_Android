@@ -153,7 +153,8 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
             YXLogger.d("cailei", "财富值");
         }
         if (view == item_wodekecheng) {
-            YXLogger.d("cailei", "我的课程");
+            // 我的课程
+            RouteUtils.startActivity(RoutePathConfig.Mine_My_Course_Activity);
         }
         if (view == item_wodezhengshu) {
             YXLogger.d("cailei", "我的证书");

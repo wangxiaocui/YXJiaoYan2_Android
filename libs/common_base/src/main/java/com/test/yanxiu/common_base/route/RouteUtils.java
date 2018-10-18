@@ -34,7 +34,7 @@ public class RouteUtils {
         new AvoidOnResult(activity).startForResult(intent, callback);
     }
 
-    public static Fragment getFramentByPath(String path) {
+    public static Fragment getFragmentByPath(String path) {
         Fragment fragment = (Fragment) ARouter.getInstance().build(path).navigation();
         return fragment;
     }
