@@ -25,6 +25,7 @@
         <activity android:name=".business.mine.MineSettingActivity" />
         <activity android:name=".business.course_detail.activity.CourseDetailActivity" />
         <activity android:name=".business.course_detail.activity.CourseDetailTabActivity" />
+        <activity android:name=".business.course_detail.activity.GoEvaluationActivity" />
         <activity android:name=".business.mine.MineVideoResolutionActivity" />
         <activity android:name=".business.mine.MineChangePwdStep1Activity" />
         <activity android:name=".business.mine.MineChangePwdStep2Activity" />

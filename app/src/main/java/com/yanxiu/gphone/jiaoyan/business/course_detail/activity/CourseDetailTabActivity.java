@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.customize.view.StarProgressBar;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.route.data.CourseDetailTabData;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.CourseDetailViewPagerAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.DirectoryFragment;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 
 @Route(path = RoutePathConfig.App_Course_Detail_Tab)
 public class CourseDetailTabActivity extends JYBaseActivity {
+
+    private CourseDetailTabData mData;
 
     private TabLayout tablayout;
     private ViewPager viewpager;
@@ -37,6 +40,7 @@ public class CourseDetailTabActivity extends JYBaseActivity {
 
     @Override
     public void initData(@NonNull Bundle bundle) {
+        mData = (CourseDetailTabData) bundle.getSerializable(RoutePathConfig.App_Course_Detail_Tab);
 
     }
 
@@ -75,6 +79,12 @@ public class CourseDetailTabActivity extends JYBaseActivity {
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
         tablayout.setTabsFromPagerAdapter(adapter);
+
+        if (mData != null && mData.getTabposition() > 0) {
+            if (viewpager.getChildCount() <= (mData.getTabposition() - 1)) {
+                viewpager.setCurrentItem(mData.getTabposition() - 1);
+            }
+        }
     }
 
     @Override

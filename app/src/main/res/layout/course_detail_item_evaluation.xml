@@ -53,7 +53,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
         app:backgroundColor="@color/color_d4d4da"
-        app:clickAble="false"
+        app:touchAble="false"
         app:starIcon="@drawable/star_single"
         app:starsCount="5" />
 

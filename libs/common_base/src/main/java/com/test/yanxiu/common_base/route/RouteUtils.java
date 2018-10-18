@@ -3,6 +3,7 @@ package com.test.yanxiu.common_base.route;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 
 import com.alibaba.android.arouter.core.LogisticsCenter;
@@ -18,6 +19,14 @@ public class RouteUtils {
 
     public static void startActivity(String path) {
         ARouter.getInstance().build(path).navigation();
+    }
+
+    public static void startActivityWithData(String path, YXBaseBean bean) {
+        ARouter.getInstance().build(path).withSerializable(path, bean).navigation();
+    }
+
+    public static void startActivityForResult(Activity activity, String path, int code, @Nullable YXBaseBean bean) {
+        ARouter.getInstance().build(path).withSerializable(path, bean).navigation(activity, code);
     }
 
     public static void startActivityForResult(Activity activity, String path, int code) {
