@@ -51,7 +51,7 @@ public class SearchActivity extends JYBaseActivity<SearchContract.IPresenter> im
 
     @Override
     public int bindLayout() {
-        return R.layout.course_search_activity;
+        return R.layout.search_activity;
     }
 
     @Override
@@ -139,12 +139,12 @@ public class SearchActivity extends JYBaseActivity<SearchContract.IPresenter> im
                 mHistoryKey.add(key);
             }
             customize_search_view.setFocusState(false);
-            refreshSearchHistory();
             //延时100ms,等键盘收起后再收缩
             customize_search_view.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     showSearchResult(key);
+                    refreshSearchHistory();
                 }
             }, 100);
         }
@@ -152,7 +152,7 @@ public class SearchActivity extends JYBaseActivity<SearchContract.IPresenter> im
 
     private void refreshSearchHistory() {
         if (mHistoryKey.size() == 0) {
-            rl_search_history.setVisibility(View.GONE);
+//            rl_search_history.setVisibility(View.GONE);
         } else {
             rl_search_history.setVisibility(View.VISIBLE);
             if (tag_flow_layout_history.getAdapter() == null) {

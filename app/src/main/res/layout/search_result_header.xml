@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="7dp"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="42dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_result_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="为您搜索到相关结果1234条"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_16dp"
+        android:textStyle="bold" />
+</FrameLayout>

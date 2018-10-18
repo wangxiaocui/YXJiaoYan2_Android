@@ -2,6 +2,7 @@ package com.yanxiu.gphone.jiaoyan.business.search.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -12,6 +13,7 @@ import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClick
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
 import com.test.yanxiu.common_base.route.data.RouteSearchData;
+import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CourseListAdapter;
 import com.yanxiu.gphone.jiaoyan.business.search.presenter.SearchResultPresenter;
 
@@ -33,6 +35,13 @@ public class SearchResultFragment extends BaseRecyclerFragment<BaseRecyclerFragm
         if (data != null) {
             searchKey = data.getSearchKey();
         }
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState, View contentView) {
+        super.initView(savedInstanceState, contentView);
+        View header = LayoutInflater.from(getContext()).inflate(R.layout.search_result_header, xrecycler_view, false);
+        xrecycler_view.addHeaderView(header);
     }
 
     @Override
