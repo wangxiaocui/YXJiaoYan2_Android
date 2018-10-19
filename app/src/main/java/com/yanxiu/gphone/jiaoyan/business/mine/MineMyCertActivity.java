@@ -70,9 +70,6 @@ public class MineMyCertActivity extends JYBaseActivity {
 
         viewpager.setAdapter(fragmentPagerAdapter);
         tablayout.setupWithViewPager(viewpager);
-        tablayout.getTabAt(0).select();
-
-        configJyTablayout001(tablayout);
     }
 
     @Override
