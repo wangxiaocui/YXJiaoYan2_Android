@@ -61,8 +61,8 @@
              android:textColor="#a6a5ab"
              android:textSize="16dp" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
+            <com.yanxiu.gphone.jiaoyan.business.mine.mock.MineGradientProgressView
+                android:id="@+id/custom_progress_view"
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"
                 android:layout_centerVertical="true"
@@ -70,9 +70,6 @@
                 android:layout_toLeftOf="@+id/tv_cert_progress"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-
-                android:max="100"
-                android:progress="60"
                 android:progressDrawable="@drawable/mine_custom_progress_bar" />
 
     </RelativeLayout>
