@@ -1,20 +1,13 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
@@ -22,16 +15,15 @@ import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
-import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created By cailei on 2018/10/18
+ * Created By cailei on 2018/10/19
  */
-@Route(path = RoutePathConfig.Mine_My_Course_Activity)
-public class MineMyCourseActivity extends JYBaseActivity {
-    private List<String> mTabNames = Arrays.asList("已加入", "已预约");
+@Route(path = RoutePathConfig.Mine_My_Cert_Activity)
+public class MineMyCertActivity extends JYBaseActivity {
+    private List<String> mTabNames = Arrays.asList("已完成", "未完成");
     private List<Fragment> mFragments =
             Arrays.<Fragment>asList(new MineMyCourseAttendFragment(), new MineMyCourseReserveFragment());
 
@@ -40,7 +32,7 @@ public class MineMyCourseActivity extends JYBaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.mine_activity_my_course;
+        return R.layout.mine_activity_my_cert;
     }
 
     @Override

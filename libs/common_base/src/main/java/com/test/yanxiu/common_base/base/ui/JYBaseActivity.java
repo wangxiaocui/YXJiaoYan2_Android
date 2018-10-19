@@ -137,6 +137,7 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
 
     // 用于 "我的课程"， "我的证书"
     public void configJyTablayout001(TabLayout tablayout) {
+        tablayout.setTabIndicatorFullWidth(true);
         tablayout.setSelectedTabIndicator(R.drawable.common_indicator_horizontal);
         wrapTabIndicatorToTitle(tablayout, 0, YXScreenUtil.dpToPxInt(this, 25));
         setDivider(tablayout);
