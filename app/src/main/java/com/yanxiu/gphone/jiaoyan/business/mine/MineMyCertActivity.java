@@ -25,7 +25,7 @@ import java.util.List;
 public class MineMyCertActivity extends JYBaseActivity {
     private List<String> mTabNames = Arrays.asList("已完成", "未完成");
     private List<Fragment> mFragments =
-            Arrays.<Fragment>asList(new MineMyCourseAttendFragment(), new MineMyCourseReserveFragment());
+            Arrays.<Fragment>asList(new MineMyCertFinishFragment(), new MineMyCertUnFinishFragment());
 
     private TabLayout tablayout;
     private ViewPager viewpager;
