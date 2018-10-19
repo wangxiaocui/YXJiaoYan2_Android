@@ -157,7 +157,8 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
             RouteUtils.startActivity(RoutePathConfig.Mine_My_Course_Activity);
         }
         if (view == item_wodezhengshu) {
-            YXLogger.d("cailei", "我的证书");
+            // 我的证书
+            RouteUtils.startActivity(RoutePathConfig.Mine_My_Cert_Activity);
         }
         if (view == item_shezhi) {
             RouteUtils.startActivity(RoutePathConfig.Mine_Setting_Activity);

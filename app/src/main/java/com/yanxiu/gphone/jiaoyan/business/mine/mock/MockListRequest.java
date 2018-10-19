@@ -3,6 +3,7 @@ package com.yanxiu.gphone.jiaoyan.business.mine.mock;
 import com.yanxiu.gphone.jiaoyan.business.course.bean.CourseBean;
 import com.yanxiu.lib.yx_basic_library.network.IYXHttpCallback;
 import com.yanxiu.lib.yx_basic_library.network.YXRequestBase;
+import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -38,19 +39,23 @@ public class MockListRequest extends YXRequestBase {
     private <T> void response(IYXHttpCallback<T> callback) {
         // 随机决定接口是否成功 10%失败
         int rand = new Random().nextInt(100 + 1);
-        if (rand < 10) {
+        //if (rand < 10) {
+        if (rand < 0) {
+            YXLogger.e("cailei", "mock 网络错误");
             callback.onFail(this, new Error());
             return;
         }
 
         // 决定是否还有更多数据 50%有更多数据
         rand = new Random().nextInt(100 + 1);
-        if (rand < 50) {
+        //if (rand < 50) {
+        if (rand < 0) {
             // 没有更多数据了,返回空data
             MockListResponse response = new MockListResponse();
             response.code = 0;
             response.data = new ArrayList<>();
             callback.onSuccess(this, (T) response);
+            YXLogger.e("cailei", "mock 最后一页数据");
             return;
         }
 
@@ -62,5 +67,6 @@ public class MockListRequest extends YXRequestBase {
             response.data.add(bean);
         }
         callback.onSuccess(this, (T) response);
+        YXLogger.e("cailei", "mock 成功获取一页数据");
     }
 }

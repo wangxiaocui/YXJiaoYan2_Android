@@ -4,25 +4,26 @@ import android.view.View;
 
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
-import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MineMyCourseAttendAdapter;
 import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MyCertAdapter;
-import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCourseAttendContract;
-import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MineMyCourseAttendPresenter;
+import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MyCertFinishAdapter;
+import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MyCertUnFinishAdapter;
+import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCertUnFinishContract;
+import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MineMyCertUnFinishPresenter;
 
 import java.util.List;
 
 /**
- * Created By cailei on 2018/10/18
+ * Created By cailei on 2018/10/19
  */
-public class MineMyCourseAttendFragment
-        extends BaseRecyclerFragment<MineMyCourseAttendContract.IPresenter>
-        implements MineMyCourseAttendContract.IView {
-
-    protected MineMyCourseAttendAdapter mAdapter;
+public class MineMyCertUnFinishFragment
+        extends BaseRecyclerFragment<MineMyCertUnFinishContract.IPresenter>
+        implements MineMyCertUnFinishContract.IView
+{
+    protected MyCertUnFinishAdapter mAdapter;
 
     @Override
     protected BaseAdapter initAdapter() {
-        mAdapter = new MineMyCourseAttendAdapter(getContext());
+        mAdapter = new MyCertUnFinishAdapter(getContext());
         return mAdapter;
     }
 
@@ -42,8 +43,8 @@ public class MineMyCourseAttendFragment
     }
 
     @Override
-    protected MineMyCourseAttendContract.IPresenter initPresenterImpl() {
-        return new MineMyCourseAttendPresenter(this);
+    protected MineMyCertUnFinishContract.IPresenter initPresenterImpl() {
+        return new MineMyCertUnFinishPresenter(this);
     }
 
     @Override
@@ -66,7 +67,6 @@ public class MineMyCourseAttendFragment
     @Override
     protected String getLoadMoreOffset() {
         return "10";
-        // return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getID());
     }
     // endregion mvp
 }
