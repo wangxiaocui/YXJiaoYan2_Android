@@ -1,6 +1,7 @@
 package com.yanxiu.gphone.jiaoyan.business.course.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -31,12 +32,22 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
     protected CourseListAdapter mAdapter;
     protected Banner mBanner;
 
+    /**
+     * 初始化数据
+     *
+     * @param bundle 传递过来的 bundle
+     */
+    @Override
+    public void initData(@NonNull Bundle bundle) {
+
+    }
+
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
         super.initView(savedInstanceState, contentView);
-        View bannerHead = LayoutInflater.from(getContext()).inflate(R.layout.course_banner_layout, xrecycler_view, false);
+        View bannerHead = LayoutInflater.from(getContext()).inflate(R.layout.course_banner_layout, mRecyclerView, false);
         mBanner = bannerHead.findViewById(R.id.banner);
-        xrecycler_view.addHeaderView(bannerHead);
+        mRecyclerView.addHeaderView(bannerHead);
         mBanner.setDelayTime(3000);
     }
 

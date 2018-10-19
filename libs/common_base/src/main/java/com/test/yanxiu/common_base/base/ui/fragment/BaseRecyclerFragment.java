@@ -1,7 +1,6 @@
 package com.test.yanxiu.common_base.base.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
@@ -18,14 +17,11 @@ import java.util.List;
  */
 public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContract.IPresenter> extends JYBaseFragment<P> implements BaseRecyclerFragmentContract.IView<P> {
 
-    protected XRecyclerView xrecycler_view;
+    protected View mContentView;
+
+    protected XRecyclerView mRecyclerView;
 
     protected BaseAdapter mAdapter;
-
-    @Override
-    public void initData(@NonNull Bundle bundle) {
-
-    }
 
     @Override
     public int bindLayout() {
@@ -34,9 +30,10 @@ public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContrac
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
-        xrecycler_view = contentView.findViewById(R.id.rv);
-        xrecycler_view.setLayoutManager(new LinearLayoutManager(getContext()));
-        xrecycler_view.setLoadingListener(new XRecyclerView.LoadingListener() {
+        mContentView = contentView;
+        mRecyclerView = contentView.findViewById(R.id.rv);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
                 mPresenter.refresh();
@@ -48,22 +45,22 @@ public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContrac
             }
         });
         mAdapter = initAdapter();
-        xrecycler_view.setAdapter(mAdapter);
-        xrecycler_view.setLoadingMoreEnabled(loadingMoreEnabled());
-        xrecycler_view.setPullRefreshEnabled(pullRefreshEnabled());
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLoadingMoreEnabled(loadingMoreEnabled());
+        mRecyclerView.setPullRefreshEnabled(pullRefreshEnabled());
     }
 
     @Override
     public void onRefreshSuccess(int total, List datas) {
-        xrecycler_view.refreshComplete();
-        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
+        mRecyclerView.refreshComplete();
+        mRecyclerView.setNoMore(mAdapter.getItemCount() >= total);
         mAdapter.setData(datas);
     }
 
     @Override
     public void onLoadMoreSuccess(int total, List datas) {
-        xrecycler_view.loadMoreComplete();
-        xrecycler_view.setNoMore(mAdapter.getItemCount() >= total);
+        mRecyclerView.loadMoreComplete();
+        mRecyclerView.setNoMore(mAdapter.getItemCount() >= total);
         mAdapter.addData(datas);
     }
 

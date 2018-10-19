@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="25dp">
+
+    <TextView
+        android:id="@+id/tv_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="新春小寒假的课程让你的成绩迅速提高新春小寒假的课程让你的成绩迅速提高新春小寒假的课程让你的成绩迅速提高"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_21dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_course_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="主讲：刘长江"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_18dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/layout_video_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选集"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_21dp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_video_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="45dp"
+        android:text="提问与回复"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_21dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

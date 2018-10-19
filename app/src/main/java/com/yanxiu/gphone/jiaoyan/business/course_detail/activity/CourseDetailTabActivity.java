@@ -18,6 +18,7 @@ import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.DirectoryFragme
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.EvaluationFragment;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.IntroductionFragment;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class CourseDetailTabActivity extends JYBaseActivity {
     @Override
     protected void initTitle() {
         super.initTitle();
+        getJyDefaultToolbar();
     }
 
     private void initTab() {

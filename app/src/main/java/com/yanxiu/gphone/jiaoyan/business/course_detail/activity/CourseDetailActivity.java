@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
+import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
 import com.test.yanxiu.common_base.base.ui.recycler_view.RecyclerLayoutManager.FullyLinearLayoutManager;
 import com.test.yanxiu.common_base.customize.aggregate.vieweffect.GradientEffect;
 import com.test.yanxiu.common_base.customize.aggregate.vieweffect.GradientEffectImpl;
@@ -33,9 +34,10 @@ import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 import java.util.ArrayList;
 
 @Route(path = RoutePathConfig.App_Course_Detail)
-public class CourseDetailActivity extends JYBaseActivity {
+public class CourseDetailActivity extends JYBaseActivity implements OnRecyclerViewItemClickListener {
 
-    public static final int EVALUATION_CODE = 15890;
+    public static final int DIRECTORY_REQUEST_CODE = 15880;//目录点击
+    public static final int EVALUATION_REQUEST_CODE = 15890;//评价点击
     private CustomTabView tab_layout;
     private UnFocusableScrollView scrollView;
 
@@ -45,6 +47,7 @@ public class CourseDetailActivity extends JYBaseActivity {
 
     private TextView tv_directory;//目录
     private TextView tv_directory_all;//目录全部
+    private DirectioryAdapter directioryAdapter;
     private RecyclerView rv_directory;//目录
 
     private TextView tv_evalution;//评价
@@ -108,6 +111,11 @@ public class CourseDetailActivity extends JYBaseActivity {
         tv_directory = findViewById(R.id.tv_directory);
         tv_directory_all = findViewById(R.id.tv_directory_all);
         rv_directory = findViewById(R.id.rv_directory);
+
+        FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rv_directory.setLayoutManager(linearLayoutManager);
+        directioryAdapter = new DirectioryAdapter(this);
     }
 
     private void initEvalutionView() {
@@ -117,6 +125,11 @@ public class CourseDetailActivity extends JYBaseActivity {
         rv_evalution = findViewById(R.id.rv);
         starProgressBar = findViewById(R.id.star_progress);
         starProgressBar.setBarTouchAble(false);
+
+        FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rv_evalution.setLayoutManager(linearLayoutManager);
+        evaluationAdapter = new EvaluationAdapter(this);
     }
 
     private void setData() {
@@ -130,23 +143,15 @@ public class CourseDetailActivity extends JYBaseActivity {
     }
 
     private void setDirectoryData() {
-        FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        rv_directory.setLayoutManager(linearLayoutManager);
-        DirectioryAdapter adapter = new DirectioryAdapter(this);
         ArrayList<DirectioryBean> list = new ArrayList();
         for (int i = 0; i < 3; i++) {
             list.add(new DirectioryBean());
         }
-        adapter.setData(list);
-        rv_directory.setAdapter(adapter);
+        directioryAdapter.setData(list);
+        rv_directory.setAdapter(directioryAdapter);
     }
 
     private void setEvalutionData() {
-        FullyLinearLayoutManager linearLayoutManager = new FullyLinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        rv_evalution.setLayoutManager(linearLayoutManager);
-        evaluationAdapter = new EvaluationAdapter(this);
         ArrayList<EvalutionBean> list = new ArrayList();
         for (int i = 0; i < 3; i++) {
             list.add(new EvalutionBean());
@@ -166,6 +171,8 @@ public class CourseDetailActivity extends JYBaseActivity {
         tv_directory_all.setOnClickListener(this);
         tv_evalution_all.setOnClickListener(this);
         card_view_evalution.setOnClickListener(this);
+
+        directioryAdapter.setOnRecyclerViewItemClickListener(this);
         tab_layout.setOnTabClickListener(new CustomTabView.OnTabClickListener() {
 
             @Override
@@ -208,7 +215,7 @@ public class CourseDetailActivity extends JYBaseActivity {
             case R.id.card_view_evalution:
                 RouteCourseDetailCommitData commitData = new RouteCourseDetailCommitData();
                 commitData.setCourseId("test");
-                RouteUtils.startActivityForResult(CourseDetailActivity.this, RoutePathConfig.App_Course_Detail_Go_Evaluation, EVALUATION_CODE, commitData);
+                RouteUtils.startActivityForResult(CourseDetailActivity.this, RoutePathConfig.App_Course_Detail_Go_Evaluation, EVALUATION_REQUEST_CODE, commitData);
                 break;
         }
     }
@@ -243,12 +250,24 @@ public class CourseDetailActivity extends JYBaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == EVALUATION_CODE) {
+        if (requestCode == EVALUATION_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 RouteCourseDetailCommitData commitData = (RouteCourseDetailCommitData) data.getSerializableExtra(RoutePathConfig.App_Course_Detail_Go_Evaluation);
                 YXToastUtil.showToast(commitData.getEvalutionContent());
                 evaluationAdapter.addData(new EvalutionBean());
             }
         }
+    }
+
+    /**
+     * 目录点击回调
+     *
+     * @param itemView
+     * @param data
+     * @param position
+     */
+    @Override
+    public void onItemClick(View itemView, Object data, int position) {
+        RouteUtils.startActivityForResult(this, RoutePathConfig.Video_Activity, DIRECTORY_REQUEST_CODE, null);
     }
 }

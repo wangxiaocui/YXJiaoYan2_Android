@@ -34,6 +34,20 @@ public class RoutePathConfig {
 
     //endregion courses
 
+    //region video
+
+    /**
+     * 视频页
+     */
+    public static final String Video_Activity = "/app/VideoActiivity";
+    /**
+     * 视频信息fragment
+     * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
+     */
+    public static final String Video_Activity_Fragment = "/video/VideoInfoFragment";
+
+    //endregion video
+
 
     //region search
     //SearchActivity

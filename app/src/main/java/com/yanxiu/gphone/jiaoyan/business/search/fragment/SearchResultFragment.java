@@ -30,7 +30,6 @@ public class SearchResultFragment extends BaseRecyclerFragment<BaseRecyclerFragm
 
     @Override
     public void initData(@NonNull Bundle bundle) {
-        super.initData(bundle);
         RouteSearchData data = (RouteSearchData) bundle.getSerializable(RoutePathConfig.Search_Result_Fragment);
         if (data != null) {
             searchKey = data.getSearchKey();
@@ -40,8 +39,8 @@ public class SearchResultFragment extends BaseRecyclerFragment<BaseRecyclerFragm
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
         super.initView(savedInstanceState, contentView);
-        View header = LayoutInflater.from(getContext()).inflate(R.layout.search_result_header, xrecycler_view, false);
-        xrecycler_view.addHeaderView(header);
+        View header = LayoutInflater.from(getContext()).inflate(R.layout.search_result_header, mRecyclerView, false);
+        mRecyclerView.addHeaderView(header);
     }
 
     @Override
