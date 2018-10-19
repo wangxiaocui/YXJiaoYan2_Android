@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
-import com.yanxiu.gphone.jiaoyan.module.message.fragment.MessageUserFragment;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,7 +25,7 @@ public class MessagePagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.fragmentHashMap = new HashMap<>();
         mDatas = Arrays.asList("互动消息", "系统消息");
-        mPath = Arrays.asList(RoutePathConfig.Message_User_Fragment, RoutePathConfig.Message_System_Fragment);
+        mPath = Arrays.asList(RoutePathConfig.Message_Interact_Fragment, RoutePathConfig.Message_System_Fragment);
     }
 
     @Override

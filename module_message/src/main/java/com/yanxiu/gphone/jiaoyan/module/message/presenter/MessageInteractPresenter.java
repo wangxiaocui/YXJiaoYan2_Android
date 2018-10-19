@@ -2,18 +2,18 @@ package com.yanxiu.gphone.jiaoyan.module.message.presenter;
 
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragmentPresenter;
 import com.yanxiu.gphone.jiaoyan.module.message.bean.MessageBean;
-import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageSystemContract;
+import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageInteractContract;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 系统消息页Presenter
+ * 互动消息页Presenter
  * Created by Hu Chao on 18/10/18.
  */
-public class MessageSystemPresenter extends BaseRecyclerFragmentPresenter<MessageSystemContract.IView> implements MessageSystemContract.IPresenter {
+public class MessageInteractPresenter extends BaseRecyclerFragmentPresenter<MessageInteractContract.IView> implements MessageInteractContract.IPresenter {
 
-    public MessageSystemPresenter(MessageSystemContract.IView view) {
+    public MessageInteractPresenter(MessageInteractContract.IView view) {
         super(view);
     }
 

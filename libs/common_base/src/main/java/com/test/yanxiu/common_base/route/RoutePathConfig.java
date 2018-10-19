@@ -34,6 +34,20 @@ public class RoutePathConfig {
 
     //endregion courses
 
+    //region video
+
+    /**
+     * 视频页
+     */
+    public static final String Video_Activity = "/app/VideoActiivity";
+    /**
+     * 视频信息fragment
+     * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
+     */
+    public static final String Video_Activity_Fragment = "/video/VideoInfoFragment";
+
+    //endregion video
+
 
     //region search
     //SearchActivity
@@ -63,8 +77,8 @@ public class RoutePathConfig {
     //region module_message
     //MessageFragment 消息页
     public static final String Message_Fragment = "/message/index";
-    //MessageUserFragment 互动消息
-    public static final String Message_User_Fragment = "/message/user";
+    //MessageInteractFragment 互动消息
+    public static final String Message_Interact_Fragment = "/message/interact";
     //MessageSystemFragment 系统消息
     public static final String Message_System_Fragment = "/message/system";
     //endregion

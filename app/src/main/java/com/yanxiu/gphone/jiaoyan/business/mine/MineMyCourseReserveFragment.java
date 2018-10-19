@@ -3,33 +3,35 @@ package com.yanxiu.gphone.jiaoyan.business.mine;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.TextView;
 
-import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
-import com.yanxiu.gphone.jiaoyan.R;
-import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MineMyCourseAttendAdapter;
 import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MineMyCourseReserveAdapter;
-import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCourseAttendContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCourseReserveContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MineMyCourseReservePresenter;
-import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 
 import java.util.List;
 
 /**
  * Created By cailei on 2018/10/18
  */
-public class MineMyCourseReserveFragment
-        extends BaseRecyclerFragment<MineMyCourseReserveContract.IPresenter>
-        implements MineMyCourseReserveContract.IView {
+public class MineMyCourseReserveFragment extends BaseRecyclerFragment<MineMyCourseReserveContract.IPresenter> implements MineMyCourseReserveContract.IView {
     protected MineMyCourseReserveAdapter mAdapter;
 
     @Override
     protected BaseAdapter initAdapter() {
         mAdapter = new MineMyCourseReserveAdapter(getContext());
         return mAdapter;
+    }
+
+    /**
+     * 初始化数据
+     *
+     * @param bundle 传递过来的 bundle
+     */
+    @Override
+    public void initData(@NonNull Bundle bundle) {
+
     }
 
     @Override

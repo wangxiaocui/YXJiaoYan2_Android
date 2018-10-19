@@ -1,10 +1,11 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
-import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MyCertAdapter;
 import com.yanxiu.gphone.jiaoyan.business.mine.adapter.MyCertFinishAdapter;
 import com.yanxiu.gphone.jiaoyan.business.mine.interfaces.MineMyCertFinishContract;
 import com.yanxiu.gphone.jiaoyan.business.mine.presenter.MineMyCertFinishPresenter;
@@ -14,8 +15,7 @@ import java.util.List;
 /**
  * Created By cailei on 2018/10/19
  */
-public class MineMyCertFinishFragment
-        extends BaseRecyclerFragment<MineMyCertFinishContract.IPresenter>
+public class MineMyCertFinishFragment extends BaseRecyclerFragment<MineMyCertFinishContract.IPresenter>
         implements MineMyCertFinishContract.IView
 {
     protected MyCertFinishAdapter mAdapter;
@@ -24,6 +24,16 @@ public class MineMyCertFinishFragment
     protected BaseAdapter initAdapter() {
         mAdapter = new MyCertFinishAdapter(getContext());
         return mAdapter;
+    }
+
+    /**
+     * 初始化数据
+     *
+     * @param bundle 传递过来的 bundle
+     */
+    @Override
+    public void initData(@NonNull Bundle bundle) {
+
     }
 
     @Override

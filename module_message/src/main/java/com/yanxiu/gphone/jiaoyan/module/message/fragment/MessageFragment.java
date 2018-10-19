@@ -3,15 +3,19 @@ package com.yanxiu.gphone.jiaoyan.module.message.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.utils.TabLayoutUtil;
 import com.yanxiu.gphone.jiaoyan.module.message.R;
 import com.yanxiu.gphone.jiaoyan.module.message.adapter.MessagePagerAdapter;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXScreenUtil;
 
 /**
  * Created by Hu Chao on 18/10/8.
@@ -49,6 +53,7 @@ public class MessageFragment extends JYBaseFragment {
         mPageAdapter = new MessagePagerAdapter(getFragmentManager());
         view_pager.setAdapter(mPageAdapter);
         tab_layout.setupWithViewPager(view_pager);
+        TabLayoutUtil.setTabLayoutDrivider(tab_layout);
     }
 
     @Override
