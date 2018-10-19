@@ -1,8 +1,6 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,20 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
 import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClickListener;
-import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
-import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.db.SpManager;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.customize.view.RecycleViewDivider;
-import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 /**
  * 更改4G下视频清晰图页面
@@ -39,7 +33,7 @@ public class MineVideoResolutionActivity extends JYBaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.mine_video_resolution_activity;
+        return R.layout.mine_activity_video_resolution;
     }
 
     @Override

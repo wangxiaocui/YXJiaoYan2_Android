@@ -1,9 +1,7 @@
 package com.yanxiu.gphone.jiaoyan.business.mine;
 
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -12,9 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
-import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.module.signin.util.CountDownUtil;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
@@ -35,7 +31,7 @@ public abstract class MineChangePwdActivity_Base extends JYBaseActivity {
 
     @Override
     public int bindLayout() {
-        return R.layout.mine_change_pwd_activity;
+        return R.layout.mine_activity_change_pwd;
     }
 
     @Override
