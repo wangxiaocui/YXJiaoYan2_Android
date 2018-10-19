@@ -34,7 +34,8 @@ public class CoursePagerAdapter extends FragmentStatePagerAdapter {
         CourseListFragment fragment;
         String id = mCategorys.get(position).getId();
         if (!fragmentHashMap.containsKey(id)) {
-            fragment = (CourseListFragment) RouteUtils.getFramentByPath(RoutePathConfig.Course_List_Fragment);
+
+            fragment = RouteUtils.getFramentByPath(RoutePathConfig.Course_List_Fragment);
             fragmentHashMap.put(id, fragment);
         } else {
             fragment = fragmentHashMap.get(id);

@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
+        style="@style/LargeTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Message"
-        android:textColor="@color/color_333333"
-        android:textSize="@dimen/text_size_16dp" />
+        android:layout_marginTop="45dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="消息" />
 
-</RelativeLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="30dp"
+        app:tabBackground="@null"
+        app:tabGravity="center"
+        app:tabIndicator="@drawable/common_tab_layout_indicator_shape"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="scrollable"
+        app:tabPaddingEnd="20dp"
+        app:tabPaddingStart="20dp"
+        app:tabRippleColor="@color/transparent"
+        app:tabSelectedTextColor="@color/color_007aff"
+        app:tabTextAppearance="@style/JiaoYan.TextAppearance.Design.Tab"
+        app:tabTextColor="@color/color_a6a5ab" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

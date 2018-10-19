@@ -75,8 +75,12 @@ public class RoutePathConfig {
     //endregion
 
     //region module_message
-    //MessageFragment
+    //MessageFragment 消息页
     public static final String Message_Fragment = "/message/index";
+    //MessageInteractFragment 互动消息
+    public static final String Message_Interact_Fragment = "/message/interact";
+    //MessageSystemFragment 系统消息
+    public static final String Message_System_Fragment = "/message/system";
     //endregion
 
 
@@ -92,5 +96,10 @@ public class RoutePathConfig {
     public static final String Mine_Change_Pwd_Step1_Activity = "/mine/change_pwd/step1";
     // "更换手机号" 新手机号 页
     public static final String Mine_Change_Pwd_Step2_Activity = "/mine/change_pwd/step2";
+    // "我的课程" 页
+    public static final String Mine_My_Course_Activity = "/mine/my_course";
+    // "我的证书" 页
+    public static final String Mine_My_Cert_Activity = "/mine/my_cert";
+
     //endregion mine
 }

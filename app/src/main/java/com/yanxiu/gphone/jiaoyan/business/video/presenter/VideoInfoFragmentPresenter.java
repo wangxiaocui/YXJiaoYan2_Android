@@ -12,8 +12,12 @@ public class VideoInfoFragmentPresenter extends BaseRecyclerFragmentPresenter<Vi
         super(view);
     }
 
+    /**
+     * @param isRefresh 区分刷新请求还是加载更多请求
+     * @param offset    加载更多的偏移
+     */
     @Override
-    public void request(String offset) {
+    public void request(boolean isRefresh, String offset) {
 
     }
 }

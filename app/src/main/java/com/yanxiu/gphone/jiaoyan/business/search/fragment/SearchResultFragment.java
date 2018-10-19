@@ -97,6 +97,6 @@ public class SearchResultFragment extends BaseRecyclerFragment<BaseRecyclerFragm
 
     @Override
     protected String getLoadMoreOffset() {
-        return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getUserId());
+        return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getID());
     }
 }

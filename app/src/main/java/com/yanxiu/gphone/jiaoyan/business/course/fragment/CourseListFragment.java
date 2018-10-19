@@ -105,7 +105,7 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
 
     @Override
     protected String getLoadMoreOffset() {
-        return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getUserId());
+        return String.valueOf(mAdapter.getData(mAdapter.getItemCount() - 1).getID());
     }
 
     @Override

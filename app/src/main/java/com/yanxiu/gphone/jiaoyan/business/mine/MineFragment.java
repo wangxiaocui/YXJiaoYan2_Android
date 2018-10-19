@@ -133,6 +133,9 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         if (view == tv_checkin) {
             mPresenter.doCheckIn();
         }
+        if (view == tv_checkin_done) {
+            mPresenter.doCheckIn();
+        }
 
         if (view == ll_header) {
             popOptions();
@@ -150,10 +153,12 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
             YXLogger.d("cailei", "财富值");
         }
         if (view == item_wodekecheng) {
-            YXLogger.d("cailei", "我的课程");
+            // 我的课程
+            RouteUtils.startActivity(RoutePathConfig.Mine_My_Course_Activity);
         }
         if (view == item_wodezhengshu) {
-            YXLogger.d("cailei", "我的证书");
+            // 我的证书
+            RouteUtils.startActivity(RoutePathConfig.Mine_My_Cert_Activity);
         }
         if (view == item_shezhi) {
             RouteUtils.startActivity(RoutePathConfig.Mine_Setting_Activity);
@@ -354,6 +359,11 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
     public void onCheckInDone() {
         tv_checkin.setVisibility(View.GONE);
         tv_checkin_done.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onError(Error error) {
+        Toast.makeText(MineFragment.this.getActivity(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

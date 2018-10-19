@@ -23,8 +23,8 @@ import java.util.UUID;
 
 public abstract class JYMockRequest extends JYBaseRequest {
 
-    public static final int SUCCESS = 0;
-    public static final String NET_ERROR = "当前无网络";
+    public String SUCCESS = "0";
+    public String NET_ERROR = "当前无网络";
 
 
     @Override

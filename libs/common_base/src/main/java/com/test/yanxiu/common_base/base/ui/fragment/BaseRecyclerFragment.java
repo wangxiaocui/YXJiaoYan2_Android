@@ -66,6 +66,7 @@ public abstract class BaseRecyclerFragment<P extends BaseRecyclerFragmentContrac
 
     /**
      * 设置是否可上拉加载更多，默认禁止
+     * 如果设置可加载更多，则必须重写{@link #getLoadMoreOffset()}方法，设置加载更多的偏移
      *
      * @return
      */

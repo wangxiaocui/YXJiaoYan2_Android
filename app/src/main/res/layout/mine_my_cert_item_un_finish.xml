@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="258dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="13dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/common_course_top_layout" />
+
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f0f1f3" />
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <ImageView
+            android:id="@+id/iv_icon_cert"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="#ff0000" />
+
+        <TextView
+            android:id="@+id/tv_cert"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/iv_icon_cert"
+            android:gravity="center_vertical"
+            android:text="证书"
+            android:textColor="#007aff"
+            android:textSize="16dp" />
+
+
+
+         <TextView
+             android:id="@+id/tv_cert_progress"
+             android:layout_width="wrap_content"
+             android:layout_height="40dp"
+             android:layout_alignParentRight="true"
+             android:layout_centerVertical="true"
+             android:layout_marginRight="15dp"
+             android:gravity="center"
+             android:text="已完成 45%"
+             android:textColor="#a6a5ab"
+             android:textSize="16dp" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_cert"
+                android:layout_toLeftOf="@+id/tv_cert_progress"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:max="100"
+                android:progress="60"
+                android:progressDrawable="@drawable/mine_custom_progress_bar" />
+
+    </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

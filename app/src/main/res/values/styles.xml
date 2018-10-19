@@ -5,4 +5,5 @@
     <style name="AppTheme.Main">
         <item name="android:windowBackground">@drawable/bg_login</item>
     </style>
+
 </resources>

@@ -15,7 +15,7 @@ public class EvalutionFragmentPresenter extends BaseRecyclerFragmentPresenter<Ev
     }
 
     @Override
-    public void request(String offset) {
+    public void request(boolean isRefresh, String offset) {
 
     }
 }
