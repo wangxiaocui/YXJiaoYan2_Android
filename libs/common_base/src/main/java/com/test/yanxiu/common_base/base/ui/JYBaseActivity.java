@@ -1,17 +1,9 @@
 package com.test.yanxiu.common_base.base.ui;
 
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.test.yanxiu.common_base.R;
 import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
@@ -19,10 +11,6 @@ import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
-import com.yanxiu.lib.yx_basic_library.util.YXScreenUtil;
-import com.yanxiu.lib.yx_basic_library.util.YXSystemUtil;
-
-import java.lang.reflect.Field;
 
 /**
  * Created by Hu Chao on 18/9/28.
@@ -132,79 +120,6 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
     public void showNetErrorView() {
         mCommonLayout.showNetErrorView();
     }
-
-    // region 配置特定的tablayout样式
-
-    // 用于 "我的课程"， "我的证书"
-    public void configJyTablayout001(TabLayout tablayout) {
-        tablayout.setSelectedTabIndicator(R.drawable.common_indicator_horizontal);
-        wrapTabIndicatorToTitle(tablayout, 0, YXScreenUtil.dpToPxInt(this, 25));
-        setDivider(tablayout);
-    }
-
-    public void wrapTabIndicatorToTitle(TabLayout tabLayout, int externalMargin, int internalMargin) {
-        View tabStrip = tabLayout.getChildAt(0);
-        if (tabStrip instanceof ViewGroup) {
-            ViewGroup tabStripGroup = (ViewGroup) tabStrip;
-            tabStripGroup.setClipChildren(false);
-            int childCount = ((ViewGroup) tabStrip).getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                ViewGroup tabView = (ViewGroup) tabStripGroup.getChildAt(i);
-                TextView tv = (TextView)tabView.getChildAt(1);
-
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tv.getLayoutParams();
-                params.leftMargin = 0;
-                params.rightMargin = 0;
-                tv.setLayoutParams(params);
-                tv.setPadding(0,0,0,0);
-
-
-                //set minimum width to 0 for instead for small texts, indicator is not wrapped as expected
-                tabView.setMinimumWidth(0);
-                tabView.setClipChildren(false);
-
-                // set padding to 0 for wrapping indicator as title
-                tabView.setPadding(0, tabView.getPaddingTop(), 0, tabView.getPaddingBottom());
-                // setting custom margin between tabs
-                if (tabView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) tabView.getLayoutParams();
-                    if (i == 0) {
-                        // left
-                        settingMargin(layoutParams, externalMargin, internalMargin);
-                    } else if (i == childCount - 1) {
-                        // right
-                        settingMargin(layoutParams, internalMargin, externalMargin);
-                    } else {
-                        // internal
-                        settingMargin(layoutParams, internalMargin, internalMargin);
-                    }
-                }
-            }
-
-            tabLayout.requestLayout();
-        }
-    }
-
-    private void settingMargin(ViewGroup.MarginLayoutParams layoutParams, int start, int end) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            layoutParams.setMarginStart(start);
-            layoutParams.setMarginEnd(end);
-            layoutParams.leftMargin = start;
-            layoutParams.rightMargin = end;
-        } else {
-            layoutParams.leftMargin = start;
-            layoutParams.rightMargin = end;
-        }
-    }
-
-    private void setDivider(TabLayout tabLayout) {
-        LinearLayout ll = (LinearLayout) tabLayout.getChildAt(0);
-        ll.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-        // todo : cailei 这个要能动态计算就好了，(tablayout height - divider height) * 0.5
-        ll.setDividerPadding(YXScreenUtil.dpToPxInt(this, 15));
-        ll.setDividerDrawable(ContextCompat.getDrawable(this, R.drawable.common_divider_vertical));
-    }
-    // endregion
 
     public void onRetryClick() {
 

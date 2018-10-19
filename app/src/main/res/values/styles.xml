@@ -6,14 +6,4 @@
         <item name="android:windowBackground">@drawable/bg_login</item>
     </style>
 
-    <style name="Jiaoyan.Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">@color/color_007aff</item>
-        <item name="tabIndicatorHeight">3dp</item>
-        <item name="tabSelectedTextColor">@color/color_007aff</item>
-    </style>
-
-    <style name="Jiaoyan.TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textSize">19dp</item>
-        <item name="android:textColor">@color/color_a6a5ab</item>
-    </style>
 </resources>

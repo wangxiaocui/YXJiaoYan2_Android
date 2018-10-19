@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="25dp"
+    android:gravity="center_vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <com.yanxiu.lib.yx_basic_library.customize.view.RoundCornerImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="12dp"
+        android:scaleType="fitXY"
+        app:corner_size="24dp"
+        tools:src="@color/color_1da1f2" />
+
+    <LinearLayout
+        android:id="@+id/ll_layout_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/iv_avatar"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_16dp"
+            tools:text="苏有朋" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="3dp"
+            tools:src="@color/color_1da1f2" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            tools:src="@color/color_1da1f2" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ll_layout_name"
+        android:layout_below="@+id/ll_layout_name"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_12dp"
+        tools:text="2018.10.10 18:01" />
+
+    <TextView
+        android:id="@+id/tv_message_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ll_layout_name"
+        android:layout_below="@+id/tv_time"
+        android:layout_marginTop="10dp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="@color/color_17171b"
+        android:textSize="@dimen/text_size_18dp"
+        tools:text="身份证审核已通过" />
+
+    <TextView
+        android:id="@+id/tv_message_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ll_layout_name"
+        android:layout_below="@+id/tv_message_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/color_a6a5ab"
+        android:textSize="@dimen/text_size_16dp"
+        tools:text="荣誉值+10、财富值+5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_message_extra"
+        android:layout_marginBottom="23dp"
+        android:background="@color/color_f0f1f3" />
+</RelativeLayout>

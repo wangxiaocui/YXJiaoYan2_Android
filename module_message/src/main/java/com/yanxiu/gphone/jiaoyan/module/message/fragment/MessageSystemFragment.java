@@ -6,21 +6,19 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.fragment.BaseRecyclerFragment;
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseAdapter;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
-import com.yanxiu.gphone.jiaoyan.module.message.adapter.MessageUserAdapter;
-import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageUserContract;
-import com.yanxiu.gphone.jiaoyan.module.message.presenter.MessageUserPresenter;
-
-import java.util.Arrays;
+import com.yanxiu.gphone.jiaoyan.module.message.adapter.MessageSystemAdapter;
+import com.yanxiu.gphone.jiaoyan.module.message.interfaces.MessageSystemContract;
+import com.yanxiu.gphone.jiaoyan.module.message.presenter.MessageSystemPresenter;
 
 /**
  * 系统消息页
  * Created by Hu Chao on 18/10/18.
  */
 @Route(path = RoutePathConfig.Message_System_Fragment)
-public class MessageSystemFragment extends BaseRecyclerFragment<MessageUserContract.IPresenter> implements MessageUserContract.IView {
+public class MessageSystemFragment extends BaseRecyclerFragment<MessageSystemContract.IPresenter> implements MessageSystemContract.IView {
     @Override
     protected BaseAdapter initAdapter() {
-        return new MessageUserAdapter(getContext());
+        return new MessageSystemAdapter(getContext());
     }
 
     @Override
@@ -35,12 +33,12 @@ public class MessageSystemFragment extends BaseRecyclerFragment<MessageUserContr
 
     @Override
     public void doBusiness() {
-        mAdapter.setData(Arrays.asList("1", "2", "3", "4", "5", "6", "1", "2", "3", "4", "5", "6"));
+        mPresenter.refresh();
     }
 
     @Override
-    protected MessageUserContract.IPresenter initPresenterImpl() {
-        return new MessageUserPresenter(this);
+    protected MessageSystemContract.IPresenter initPresenterImpl() {
+        return new MessageSystemPresenter(this);
     }
 
     @Override
