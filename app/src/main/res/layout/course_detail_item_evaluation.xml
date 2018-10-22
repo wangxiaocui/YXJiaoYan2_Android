@@ -39,24 +39,7 @@
             android:layout_marginLeft="3dp"
             android:background="@color/color_1da1f2" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="5dp"
-            android:background="@color/color_1da1f2" />
     </LinearLayout>
-
-    <com.test.yanxiu.common_base.customize.view.StarProgressBar
-        android:id="@+id/star_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        app:backgroundColor="@color/color_d4d4da"
-        app:touchAble="false"
-        app:starIcon="@drawable/star_single"
-        app:starsCount="5" />
-
 
     <TextView
         android:id="@+id/tv_comment_status"
@@ -68,6 +51,18 @@
         android:textColor="@color/color_a6a5ab"
         android:textSize="@dimen/text_size_12dp"
         tool:text="学习三课时后评论" />
+
+    <com.test.yanxiu.common_base.customize.view.StarProgressBar
+        android:id="@+id/star_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/layout_name"
+        android:layout_marginTop="4dp"
+        app:backgroundColor="@color/color_d4d4da"
+        app:starIcon="@drawable/star_single"
+        app:starsCount="5"
+        app:touchAble="false" />
 
     <TextView
         android:id="@+id/tv_comment_date"

@@ -9,17 +9,15 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
-import com.test.yanxiu.common_base.customize.view.StarProgressBar;
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.data.CourseDetailTabData;
+import com.test.yanxiu.common_base.utils.TabLayoutUtil;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.adapter.CourseDetailViewPagerAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.DirectoryFragment;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.EvaluationFragment;
 import com.yanxiu.gphone.jiaoyan.business.course_detail.fragment.IntroductionFragment;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
-import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
-import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 import java.util.ArrayList;
 
@@ -80,7 +78,7 @@ public class CourseDetailTabActivity extends JYBaseActivity {
         CourseDetailViewPagerAdapter adapter = new CourseDetailViewPagerAdapter(getSupportFragmentManager(), titleDatas, fragmentList);
         viewpager.setAdapter(adapter);
         tablayout.setupWithViewPager(viewpager);
-        tablayout.setTabsFromPagerAdapter(adapter);
+        TabLayoutUtil.setTabLayoutDrivider(tablayout);
 
         if (mData != null && mData.getTabposition() > 0) {
             if (viewpager.getChildCount() <= (mData.getTabposition() - 1)) {

@@ -34,7 +34,7 @@ import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 import java.util.ArrayList;
 
 @Route(path = RoutePathConfig.App_Course_Detail)
-public class CourseDetailActivity extends JYBaseActivity implements OnRecyclerViewItemClickListener {
+public class CourseDetailActivity extends JYBaseActivity implements OnRecyclerViewItemClickListener,UnFocusableScrollView.OnScrollListener {
 
     public static final int DIRECTORY_REQUEST_CODE = 15880;//目录点击
     public static final int EVALUATION_REQUEST_CODE = 15890;//评价点击
@@ -194,6 +194,8 @@ public class CourseDetailActivity extends JYBaseActivity implements OnRecyclerVi
                 }
             }
         });
+
+        scrollView.setOnScrollListener(this);
     }
 
     @Override
@@ -269,5 +271,21 @@ public class CourseDetailActivity extends JYBaseActivity implements OnRecyclerVi
     @Override
     public void onItemClick(View itemView, Object data, int position) {
         RouteUtils.startActivityForResult(this, RoutePathConfig.Video_Activity, DIRECTORY_REQUEST_CODE, null);
+    }
+
+    /**
+     * 回调方法， 返回MyScrollView滑动的Y方向距离
+     *
+     * @param scrollY
+     */
+    @Override
+    public void onScroll(int scrollY) {
+        if (0<= scrollY && scrollY < tv_directory_top) {
+            tab_layout.selectTab(1);
+        } else if (scrollY <tv_evalution_top) {
+            tab_layout.selectTab(2);
+        } else {
+            tab_layout.selectTab(3);
+        }
     }
 }
