@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseViewHolder;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.mine.mock.MineGradientProgressView;
+
+import java.util.Random;
 
 /**
  * Created By cailei on 2018/10/19
@@ -26,10 +29,13 @@ public class MyCertUnFinishAdapter extends MyCertAdapter {
 
     public class FinishViewHolder extends CertViewHolder {
         public TextView tv_cert_progress;
+        public MineGradientProgressView custom_progress_view;
 
         public FinishViewHolder(Context context, View itemView) {
             super(context, itemView);
             tv_cert_progress = itemView.findViewById(R.id.tv_cert_progress);
+            custom_progress_view = itemView.findViewById(R.id.custom_progress_view);
+            custom_progress_view.setProgress(new Random().nextFloat());
         }
     }
 }
