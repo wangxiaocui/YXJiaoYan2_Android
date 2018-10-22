@@ -1,5 +1,6 @@
 package com.yanxiu.gphone.jiaoyan.business.course.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.test.yanxiu.common_base.base.ui.recycler_view.OnRecyclerViewItemClick
 import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.course.activity.CourseTopicActivity;
 import com.yanxiu.gphone.jiaoyan.business.course.adapter.CourseListAdapter;
 import com.yanxiu.gphone.jiaoyan.business.course.interfaces.CourseListContract;
 import com.yanxiu.gphone.jiaoyan.business.course.presenter.CourseListPresenter;
@@ -110,6 +112,6 @@ public class CourseListFragment extends BaseRecyclerFragment<CourseListContract.
 
     @Override
     public void OnBannerClick(int position) {
-        YXToastUtil.showToast("点击banner : " + position);
+        RouteUtils.startActivity(RoutePathConfig.Course_Topic_Activity);
     }
 }

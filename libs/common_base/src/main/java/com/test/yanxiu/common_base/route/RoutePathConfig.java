@@ -1,5 +1,6 @@
 package com.test.yanxiu.common_base.route;
 
+import com.test.yanxiu.common_base.route.data.RouteCourseCategoryData;
 import com.test.yanxiu.common_base.route.data.RouteSearchData;
 
 /**
@@ -15,6 +16,19 @@ public class RoutePathConfig {
     public static final String Course_List_Fragment = "/course/list";
 
     //region course
+    /**
+     * 课程分类Fragment
+     * invokeData:{@link RouteCourseCategoryData}
+     */
+    public static final String Course_Category_Fragment = "/course/CategoryFragment";
+    /**
+     * 课程专题页
+     */
+    public static final String Course_Topic_Activity = "/course/topicActivity";
+    /**
+     * 课程专题Fragment
+     */
+    public static final String Course_Topic_Fragment = "/course/topicFragment";
     /**
      * 课程详情页
      * invokeData:{@link com.test.yanxiu.common_base.route.data.CourseDetailData}
