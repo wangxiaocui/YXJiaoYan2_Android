@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.TextView;
 
 import com.test.yanxiu.common_base.R;
 import com.test.yanxiu.common_base.base.ui.toolbar.CommonToolbar;
@@ -11,6 +12,9 @@ import com.test.yanxiu.common_base.base.ui.toolbar.Style;
 import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.yanxiu.lib.yx_basic_library.YXBaseActivity;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
+import com.yanxiu.lib.yx_basic_library.util.YXScreenUtil;
+
+import static android.view.View.GONE;
 
 /**
  * Created by Hu Chao on 18/9/28.
@@ -65,6 +69,25 @@ public abstract class JYBaseActivity<P extends IYXBasePresenter> extends YXBaseA
         CommonToolbar toolbar = builder.apply();
 
         View v = this.getLayoutInflater().inflate(R.layout.common_left_navi_back, toolbar, false);
+        toolbar.addLeftView(View.generateViewId(), v);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        return toolbar;
+    }
+
+    // 只有 "<" 而不是 "< 返回", 居中有 "Title"
+    protected CommonToolbar getJyDefaultToolbar(String title) {
+        CommonToolbar.Builder builder = new CommonToolbar.Builder(this).setStatusBarStyle(Style.DEFAULT);
+        CommonToolbar toolbar = builder.addTitleText(title, 18, getResources().getColor(R.color.color_17171b))
+                .apply();
+
+        View v = this.getLayoutInflater().inflate(R.layout.common_left_navi_back, toolbar, false);
+        TextView tv_navi_left = v.findViewById(R.id.tv_navi_left);
+        tv_navi_left.setVisibility(GONE);
         toolbar.addLeftView(View.generateViewId(), v);
         v.setOnClickListener(new View.OnClickListener() {
             @Override

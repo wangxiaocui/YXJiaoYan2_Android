@@ -32,6 +32,7 @@
         <activity android:name=".business.mine.MineChangePwdStep2Activity" />
         <activity android:name=".business.mine.MineMyCourseActivity" />
         <activity android:name=".business.mine.MineMyCertActivity" />
+        <activity android:name=".business.mine.MineMyCertDetailActivity" />
         <activity android:name=".business.mine.MineMyMoneyActivity" />
         <activity android:name=".business.search.activity.SearchActivity" />
     </application>
