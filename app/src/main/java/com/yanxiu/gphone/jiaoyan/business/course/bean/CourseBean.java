@@ -7,6 +7,7 @@ import com.yanxiu.lib.yx_basic_library.base.bean.YXBaseBean;
  */
 public class CourseBean extends YXBaseBean {
     private String ID;
+    private int Recommend;
 
     public String getID() {
         return ID;
@@ -16,4 +17,11 @@ public class CourseBean extends YXBaseBean {
         this.ID = ID;
     }
 
+    public int getRecommend() {
+        return Recommend;
+    }
+
+    public void setRecommend(int recommend) {
+        Recommend = recommend;
+    }
 }
