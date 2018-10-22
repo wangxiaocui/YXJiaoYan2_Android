@@ -1,15 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView android:layout_height="wrap_content"
+    <!-- 标题 "我的财富值"-->
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:text="HELLO" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
 
-    <com.yanxiu.gphone.jiaoyan.business.mine.mock.MineGradientProgressView
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/LargeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="我的财富值" />
+
+        <ImageView
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:layout_toRightOf="@id/tv_title"
+            android:background="#ff0000" />
+
+    </RelativeLayout>
+
+    <!-- 当前财富值 + 999 行-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="当前财富值"
+                android:textColor="#a5a6ab"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="0dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="8210"
+                android:textColor="#007aff"
+                android:textSize="45dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#f0f1f3" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="当前财富值"
+                android:textColor="#a5a6ab"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="639"
+                android:textColor="#a5a6ab"
+                android:textSize="36dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#f0f1f3" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="当前财富值"
+                android:textColor="#a5a6ab"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="42"
+                android:textColor="#a5a6ab"
+                android:textSize="36dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- 3 个 button 今日签到、完善资料、 资质认证 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:clipChildren="false">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:clipChildren="false">
+
+            <TextView
+                android:id="@+id/tv_today_checkin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/btn_style_002_bg_selector"
+                android:gravity="center"
+                android:text="今日签到"
+                android:textColor="@drawable/btn_style_002_text_selector"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_today_checkin"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="-10dp"
+                android:background="#ff0000"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_complete_info"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style_002_bg_selector"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:text="完善资料"
+            android:textColor="@drawable/btn_style_002_text_selector"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_qualify_cert"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style_002_bg_selector"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:text="资质认证"
+            android:textColor="@drawable/btn_style_002_text_selector"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+    <!-- 分割线 -->
+    <View android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f0f1f3" />
 
 </LinearLayout>
