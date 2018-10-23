@@ -10,6 +10,7 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.test.yanxiu.common_base.base.ui.JYBaseFragment;
 import com.yanxiu.gphone.jiaoyan.R;
+import com.yanxiu.gphone.jiaoyan.business.base.JyBaseRecyclerFragmentContract;
 
 import java.util.List;
 

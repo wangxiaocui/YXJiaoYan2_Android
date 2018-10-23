@@ -34,6 +34,7 @@
         <activity android:name=".business.mine.MineMyCertActivity" />
         <activity android:name=".business.mine.MineMyCertDetailActivity" />
         <activity android:name=".business.mine.MineMyMoneyActivity" />
+        <activity android:name=".business.my_wealth.ui.MyWealthActivity" />
         <activity android:name=".business.search.activity.SearchActivity" />
         <activity android:name=".business.course.activity.CourseTopicActivity" />
     </application>
