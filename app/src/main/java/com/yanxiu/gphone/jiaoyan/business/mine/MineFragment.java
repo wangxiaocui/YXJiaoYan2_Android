@@ -147,6 +147,8 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
         }
         if (view == item_zizhirenzheng) {
             YXLogger.d("cailei", "资质证书");
+            // 资质证书
+            RouteUtils.startActivity(RoutePathConfig.Mine_My_Cert_Verify_Activity);
         }
 
         if (view == item_caifuzhi) {

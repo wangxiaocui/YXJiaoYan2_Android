@@ -118,6 +118,21 @@ public class RoutePathConfig {
     public static final String Mine_My_Cert_Detail_Activity = "/mine/my_cert/detail";
     // "我的财富" 页
     public static final String Mine_My_Money_Activity = "/mine/my_money";
-
+    // "资质验证" 页
+    public static final String Mine_My_Cert_Verify_Activity = "/mine/my_cert_verify";
+    // "资质验证介绍" 页
+    public static final String Mine_My_Cert_Verify_Guide_Activity = "/mine/my_cert_verify_guide";
+    //"实名认证"页
+    public static final String Mine_My_RealName_Verify_Activity = "/mine/my_realname_verify";
+    //"教师资格证"页
+    public static final String Mine_My_teacher_Verify_Activity = "/mine/my_teacher_cert_verify";
+    //"教研员"页
+    public static final String Mine_My_Professor_Verify_Activity = "/mine/my_professor_cert_verify";
+    //"学历认证"页
+    public static final String Mine_My_Education_Verify_Activity = "/mine/my_education_cert_verify";
+    //"职称证书"页
+    public static final String Mine_My_Tech_Verify_Activity = "/mine/my_tech_cert_verify";
+    //"荣誉证书"页
+    public static final String Mine_My_Prize_Verify_Activity = "/mine/my_prize_cert_verify";
     //endregion mine
 }

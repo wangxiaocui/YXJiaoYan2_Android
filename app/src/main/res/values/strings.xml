@@ -2,4 +2,8 @@
     <!--<string name="app_name">YXJiaoYan2_Android</string>-->
     <string name="no_camera_permissions">相机权限被禁用，请在权限设置中开启</string>
     <string name="no_storage_permissions">存储权限被禁用，请在权限设置中开启</string>
+    <string name="realname_verify_hint">正面为含照片、身份证、地址的一面\n背面则为印有国徽的一面</string>
+    <string name="cert_submit">提 交</string>
+    <string name="cert_fail_reason">未通过原因：%s</string>
+    <string name="cert_cancel">撤销当前申请</string>
 </resources>

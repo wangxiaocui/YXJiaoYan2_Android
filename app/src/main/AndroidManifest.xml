@@ -36,6 +36,14 @@
         <activity android:name=".business.mine.MineMyMoneyActivity" />
         <activity android:name=".business.search.activity.SearchActivity" />
         <activity android:name=".business.course.activity.CourseTopicActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyCertVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyCertVerifyGuideActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyEducationVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyPrizeVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyProfessorVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyRealNameVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyteacherVerifyActivity" />
+        <activity android:name=".business.mine.cert_verify.MineMyTechVerifyActivity" />
     </application>
 
 </manifest>

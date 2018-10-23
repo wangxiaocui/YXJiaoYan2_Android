@@ -26,4 +26,36 @@
         <item name="android:textStyle">bold</item>
         <item name="textAllCaps">true</item>
     </style>
+
+    <style name="CertVerifySubTitleText">
+        <item name="android:textSize">@dimen/text_size_21dp</item>
+        <item name="android:textColor">@color/color_17171b</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+
+    <style name="CertVerifyHintText">
+        <item name="android:textSize">@dimen/text_size_16dp</item>
+        <item name="android:textColor">@color/color_a6a5ab</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+
+    <style name="CertVerifySubmitText">
+        <item name="android:textSize">@dimen/text_size_16dp</item>
+        <item name="android:textColor">@color/color_ffffff</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/btn_style_001_bg_selector</item>
+    </style>
+
+    <style name="CertVerifyCancelText">
+        <item name="android:textSize">@dimen/text_size_16dp</item>
+        <item name="android:textColor">@color/color_17171b</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
 </resources>
