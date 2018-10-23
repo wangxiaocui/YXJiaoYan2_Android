@@ -35,7 +35,10 @@ import java.util.ArrayList;
 public class VideoInfoFragment extends BaseRecyclerFragment<VideoInfoFragmentContract.IPresenter> implements VideoInfoFragmentContract.IView, OnRecyclerViewItemClickListener {
 
     private YXBaseBean mockInt;
+    private boolean isSingleVideo;
     private View mHeader;
+    private View layout_video_list;//多视频的视频list界面
+    private View layout_jianjie;//单视频的简介界面
     private RecyclerView rv_video_list;
     private VideoListAdapter mVideoListAdapter;
 
@@ -47,6 +50,7 @@ public class VideoInfoFragment extends BaseRecyclerFragment<VideoInfoFragmentCon
     @Override
     public void initData(@NonNull Bundle bundle) {
         mockInt = (YXBaseBean) bundle.getSerializable(RoutePathConfig.Video_Activity_Fragment);
+        isSingleVideo = true;
     }
 
     /**
@@ -75,13 +79,21 @@ public class VideoInfoFragment extends BaseRecyclerFragment<VideoInfoFragmentCon
         mHeader = LayoutInflater.from(getActivity()).inflate(R.layout.video_info_header, (ViewGroup) mContentView.findViewById(android.R.id.content), false);
         mRecyclerView.addHeaderView(mHeader);
 
-        rv_video_list = mHeader.findViewById(R.id.rv_video_list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rv_video_list.setLayoutManager(linearLayoutManager);
-        mVideoListAdapter = new VideoListAdapter(getActivity());
+        layout_video_list = mHeader.findViewById(R.id.layout_video_list);
+        layout_jianjie = mHeader.findViewById(R.id.layout_jianjie);
 
-        setVideoListData();
+        if (isSingleVideo) {
+            layout_jianjie.setVisibility(View.VISIBLE);
+        } else {
+            layout_video_list.setVisibility(View.VISIBLE);
+            rv_video_list = mHeader.findViewById(R.id.rv_video_list);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            rv_video_list.setLayoutManager(linearLayoutManager);
+            mVideoListAdapter = new VideoListAdapter(getActivity());
+
+            setVideoListData();
+        }
     }
 
     private void setVideoListData() {

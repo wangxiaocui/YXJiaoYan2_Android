@@ -652,7 +652,7 @@ public class LSTCourseVideoManager {
         boolean isHead = (playerView.getPlayer() == headPlayer ? true : false);//是否为片头，片头不计时
         if (!isHead && playerViewListener != null && playbackState != ExoPlayer.STATE_IDLE
                 && playbackState != ExoPlayer.STATE_ENDED && playerView.getPlayer().getPlayWhenReady()) {
-            
+
             playerViewListener.onPlayerUpdateProgress();
 
         }
