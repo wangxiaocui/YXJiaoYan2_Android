@@ -30,7 +30,8 @@ ext {
             //下拉刷新 https://github.com/CymChad/BaseRecyclerViewAdapterHelper
             recyclerViewHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:${recyclerViewHelperVersion}",
             //流式tag布局 https://github.com/hongyangAndroid/FlowLayout
-            flowlayout        : "com.hyman:flowlayout-lib:${flowlayoutVersion}"
+            flowlayout        : "com.hyman:flowlayout-lib:${flowlayoutVersion}",
+            picker_view       : "com.contrarywind:Android-PickerView:${picker_view}"
     ]
     //VIDEO dependencies
     videoLibDependencies = [
@@ -40,7 +41,6 @@ ext {
     appLibDependencies = [
             transparent_text_view: "it.gilvegliach.android:transparent-text-textview:${transparent_text_view}",
             //banner https://github.com/youth5201314/banner
-            banner               : "com.youth.banner:banner:${bannerVersion}",
-            picker_view          : "com.contrarywind:Android-PickerView:${picker_view}"
+            banner               : "com.youth.banner:banner:${bannerVersion}"
     ]
 }

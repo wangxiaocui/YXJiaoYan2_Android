@@ -36,6 +36,7 @@
         <activity android:name=".business.mine.MineMyMoneyActivity" />
         <activity android:name=".business.search.activity.SearchActivity" />
         <activity android:name=".business.course.activity.CourseTopicActivity" />
+        <activity android:name=".business.complete_info.UserinfoSubjectActivity" />
     </application>
 
 </manifest>

@@ -18,7 +18,7 @@ public class CheckLoginUtil {
 
     public static void checkLogin(Activity activity, final OnLoginStateCallback callback) {
         if (!hasLogin) {
-            RouteUtils.startActivityForResult(activity, RoutePathConfig.SIGNIN_LOGIN_ACTIVITY, new AvoidOnResult.Callback() {
+            RouteUtils.startActivityForResult(activity, RoutePathConfig.Signin_Login_Activity, new AvoidOnResult.Callback() {
                 @Override
                 public void onActivityResult(int resultCode, Intent data) {
                     if (resultCode == Activity.RESULT_OK) {

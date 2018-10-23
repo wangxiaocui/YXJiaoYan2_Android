@@ -1,6 +1,5 @@
 package com.yanxiu.gphone.jiaoyan.module.signin.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -25,10 +24,8 @@ import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
  * 登录页面
  * Created by Hu Chao on 18/10/9.
  */
-@Route(path = RoutePathConfig.SIGNIN_LOGIN_ACTIVITY)
+@Route(path = RoutePathConfig.Signin_Login_Activity)
 public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> implements LoginContract.IView {
-
-    private static final int REQUEST_CODE = 100;
 
     protected TextView tv_title;
     protected TextInputLayout text_input_layout_accout;
@@ -55,6 +52,12 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
     }
 
     @Override
+    protected void initTitle() {
+        super.initTitle();
+        getJyDefaultToolbar();
+    }
+
+    @Override
     public void initView(Bundle savedInstanceState, View contentView) {
         tv_title = contentView.findViewById(R.id.tv_title);
         text_input_layout_accout = contentView.findViewById(R.id.text_input_layout_accout);
@@ -66,6 +69,7 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
         tv_login_type = contentView.findViewById(R.id.tv_login_type);
         tv_register = contentView.findViewById(R.id.tv_register);
         tv_get_code.setVisibility(View.GONE);
+        text_input_layout_password.setPasswordVisibilityToggleEnabled(true);
     }
 
     @Override
@@ -120,8 +124,13 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
 
     @Override
     public void onLoginSuccess() {
-        setResult(RESULT_OK);
-        finish();
+        //todo 判断个人信息必填项是否填写了，未填写，则跳转必填项页面
+        if (true) {
+            RouteUtils.startActivity(RoutePathConfig.Signin_Set_Required_Info_Activity);
+        } else {
+            setResult(RESULT_OK);
+            finish();
+        }
     }
 
     @Override
@@ -134,19 +143,10 @@ public class LoginActivity extends JYBaseActivity<LoginContract.IPresenter> impl
     }
 
     protected void onLoginTypeClick() {
-        RouteUtils.startActivityForResult(this, RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY, REQUEST_CODE,null);
+        RouteUtils.startActivity(RoutePathConfig.Signin_Login_By_Code_Activity);
     }
 
     protected void onRegisterClick() {
-        RouteUtils.startActivity(RoutePathConfig.SIGNIN_REGISTER_ACTIVITY);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-
-            finish();
-        }
+        RouteUtils.startActivity(RoutePathConfig.Signin_Register_Activity);
     }
 }

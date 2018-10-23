@@ -1,52 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
-            android:text="学段"
-            android:textStyle="bold" />
-
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/tag_flow_layout_level"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemSpacing="10dp">
+            android:orientation="vertical">
 
-        </com.zhy.view.flowlayout.TagFlowLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:layout_marginTop="30dp"
+                android:text="学段"
+                android:textColor="@color/color_17171b"
+                android:textSize="@dimen/text_size_21dp"
+                android:textStyle="bold" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/color_f0f1f3" />
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/tag_flow_layout_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:itemSpacing="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp"
-            android:paddingTop="20dp"
-            android:text="学科"
-            android:textStyle="bold" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:background="@color/color_f0f1f3" />
 
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:id="@+id/tag_flow_layout_subject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:itemSpacing="10dp">
+            <LinearLayout
+                android:id="@+id/ll_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
 
-        </com.zhy.view.flowlayout.TagFlowLayout>
-    </LinearLayout>
-</ScrollView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="19dp"
+                    android:text="学科"
+                    android:textColor="@color/color_17171b"
+                    android:textSize="@dimen/text_size_21dp"
+                    android:textStyle="bold" />
+
+                <com.zhy.view.flowlayout.TagFlowLayout
+                    android:id="@+id/tag_flow_layout_subject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:itemSpacing="10dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/color_f0f1f3" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_style_001_bg_selector"
+        android:enabled="false"
+        android:text="确定"
+        android:textColor="@color/color_ffffff"
+        android:textSize="@dimen/text_size_20dp" />
+</LinearLayout>
