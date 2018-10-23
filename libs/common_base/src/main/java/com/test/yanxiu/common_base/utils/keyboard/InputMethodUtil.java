@@ -1,4 +1,4 @@
-package com.test.yanxiu.common_base.utils;
+package com.test.yanxiu.common_base.utils.keyboard;
 
 import android.content.Context;
 import android.view.View;

@@ -32,7 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,6 +48,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_jianjie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/color_f0f1f3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="课程简介"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_21dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_jianjie_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:lineHeight="24dp"
+            android:text="啊是的撒打算的湿哒哒多阿斯达斯大啊是的撒打算的湿哒哒多阿斯达斯大啊是的撒打算的湿哒哒多阿斯达斯大"
+            android:textColor="@color/color_17171b"
+            android:textSize="@dimen/text_size_16dp" />
 
     </LinearLayout>
 
