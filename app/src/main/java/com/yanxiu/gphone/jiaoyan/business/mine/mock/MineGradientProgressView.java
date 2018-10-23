@@ -7,9 +7,7 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.graphics.Region;
 import android.graphics.Shader;
-import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 

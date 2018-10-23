@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.test.yanxiu.common_base.base.ui.recycler_view.BaseViewHolder;
+import com.test.yanxiu.common_base.route.RoutePathConfig;
+import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.R;
 import com.yanxiu.gphone.jiaoyan.business.mine.mock.MineGradientProgressView;
 
@@ -37,5 +39,18 @@ public class MyCertUnFinishAdapter extends MyCertAdapter {
             custom_progress_view = itemView.findViewById(R.id.custom_progress_view);
             custom_progress_view.setProgress(new Random().nextFloat());
         }
+
+        @Override
+        public void setData(int position, Object data) {
+            super.setData(position, data);
+            this.itemView.setOnClickListener(onClickListener);
+        }
+
+        private View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RouteUtils.startActivity(RoutePathConfig.Mine_My_Cert_Detail_Activity);
+            }
+        };
     }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        android:background="@drawable/mine_my_cert_detail_pic_bg"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:id="@+id/iv_cert"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/mock_cert" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_style_001_bg_selector"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:gravity="center"
+
+        android:layout_marginTop="50dp"
+        android:text="保存证书到相册" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#a6a5ab"
+        android:textSize="14dp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:lineHeight="26dp"
+        android:text="申请纸质证书需要缴工本费100元\n如有需要发送邮件至:zhengshu@zgjioyan.com" />
+</LinearLayout>

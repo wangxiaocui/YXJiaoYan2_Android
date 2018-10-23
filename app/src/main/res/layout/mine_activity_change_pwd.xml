@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
-            android:background="@drawable/signin_login_btn_bg_selector"
+            android:background="@drawable/btn_style_001_bg_selector"
             android:enabled="false"
             android:text="next"
             android:textColor="@color/color_ffffff"
