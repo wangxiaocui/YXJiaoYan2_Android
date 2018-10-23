@@ -1,6 +1,6 @@
 类型	| 样式
 --- 	| ---
-`btn_style_01` | ![](file:./btn_style_001.png) | 
+`btn_style_001` | ![](file:./btn_style_001.png) | 
 
 ```
 android:layout_width="match_parent"
@@ -15,7 +15,7 @@ android:gravity="center"
 
 类型	| 样式
 --- 	| ---
-`btn_style_02` | ![](file:./btn_style_002.png) | 
+`btn_style_002` | ![](file:./btn_style_002.png) | 
 
 ```
 android:layout_width="0dp"

@@ -12,10 +12,9 @@ import com.yanxiu.gphone.jiaoyan.module.signin.R;
 import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 /**
- * 注册页面
  * Created by Hu Chao on 18/10/10.
  */
-@Route(path = RoutePathConfig.SIGNIN_REGISTER_ACTIVITY)
+@Route(path = RoutePathConfig.Signin_Register_Activity)
 public class RegisterActivity extends LoginByCodeActivity {
 
     private LinearLayout tv_register_notice;
@@ -40,6 +39,7 @@ public class RegisterActivity extends LoginByCodeActivity {
         tv_register_notice.setVisibility(View.VISIBLE);
         tv_agreement = contentView.findViewById(R.id.tv_agreement);
         tv_privacy = contentView.findViewById(R.id.tv_privacy);
+        text_input_layout_password.setPasswordVisibilityToggleEnabled(false);
     }
 
     @Override
@@ -66,6 +66,6 @@ public class RegisterActivity extends LoginByCodeActivity {
 
     @Override
     public void onLoginSuccess() {
-        RouteUtils.startActivity(RoutePathConfig.SIGNIN_SET_PASSWORD_ACTIVITY);
+        RouteUtils.startActivity(RoutePathConfig.Signin_Set_Password_Activity);
     }
 }

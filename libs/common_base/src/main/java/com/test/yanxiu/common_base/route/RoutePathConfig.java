@@ -63,7 +63,7 @@ public class RoutePathConfig {
     //endregion video
 
 
-    //region search
+    //region 搜索 search
     //SearchActivity
     public static final String Search_Activity = "/search/index";
     /**
@@ -73,19 +73,26 @@ public class RoutePathConfig {
     public static final String Search_Result_Fragment = "/search/result";
     //endregion
 
+    //region 完善个人资料 complete_info
+    //设置学段学科 UserinfoSubjectActivity
+    public static final String User_Info_Subject_Activity = "/completeInfo/subject";
+    //设置密码/修改密码 UserinfoPasswordActivity
+    public static final String User_Info_Password_Activity = "/completeInfo/password";
+    //endregion
+
     //endregion
 
     //region module_signin
     //LoginActivity
-    public static final String SIGNIN_LOGIN_ACTIVITY = "/signin/login";
+    public static final String Signin_Login_Activity = "/signin/login";
     //LoginByCodeActivity
-    public static final String SIGNIN_LOGIN_BY_CODE_ACTIVITY = "/signin/loginByCode";
+    public static final String Signin_Login_By_Code_Activity = "/signin/loginByCode";
     //RegisterActivity
-    public static final String SIGNIN_REGISTER_ACTIVITY = "/signin/register";
+    public static final String Signin_Register_Activity = "/signin/register";
     //SetPasswordActivity
-    public static final String SIGNIN_SET_PASSWORD_ACTIVITY = "/signin/setPassword";
-    //SetSubjectActivity
-    public static final String SIGNIN_SET_SUBJECT_ACTIVITY = "/signin/setSubject";
+    public static final String Signin_Set_Password_Activity = "/signin/setPassword";
+    //个人资料必填项 SetRequiredInfoActivity
+    public static final String Signin_Set_Required_Info_Activity = "/signin/required_info";
     //endregion
 
     //region module_message
@@ -116,6 +123,7 @@ public class RoutePathConfig {
     public static final String Mine_My_Cert_Activity = "/mine/my_cert";
     // "证书详情" 页
     public static final String Mine_My_Cert_Detail_Activity = "/mine/my_cert/detail";
+
     // "我的财富" 页
     public static final String Mine_My_Money_Activity = "/mine/my_money";
     // "资质验证" 页
@@ -134,5 +142,7 @@ public class RoutePathConfig {
     public static final String Mine_My_Tech_Verify_Activity = "/mine/my_tech_cert_verify";
     //"荣誉证书"页
     public static final String Mine_My_Prize_Verify_Activity = "/mine/my_prize_cert_verify";
+    // "我的财富" 页 2
+    public static final String My_Wealth_Activity = "/my_wealth/index";
     //endregion mine
 }

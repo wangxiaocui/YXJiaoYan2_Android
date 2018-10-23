@@ -15,18 +15,12 @@ import com.yanxiu.gphone.jiaoyan.module.signin.util.CountDownUtil;
  * 验证码登录
  * Created by Hu Chao on 18/10/9.
  */
-@Route(path = RoutePathConfig.SIGNIN_LOGIN_BY_CODE_ACTIVITY)
+@Route(path = RoutePathConfig.Signin_Login_By_Code_Activity)
 public class LoginByCodeActivity extends LoginActivity {
 
     private static final int REQUEST_CODE = 100;
 
     protected CountDownUtil mCountDownUtil;
-
-    @Override
-    protected void initTitle() {
-        super.initTitle();
-        getJyDefaultToolbar();
-    }
 
     @Override
     public void initView(Bundle savedInstanceState, View contentView) {
@@ -38,7 +32,7 @@ public class LoginByCodeActivity extends LoginActivity {
         text_input_layout_password.setHint("4位验证码");
         tv_get_code.setVisibility(View.VISIBLE);
         tv_login_type.setText("用密码登录");
-
+        text_input_layout_password.setPasswordVisibilityToggleEnabled(false);
     }
 
     @Override
@@ -70,14 +64,6 @@ public class LoginByCodeActivity extends LoginActivity {
         super.onDestroy();
         if (mCountDownUtil != null) {
             mCountDownUtil.cancel();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-            finish();
         }
     }
 

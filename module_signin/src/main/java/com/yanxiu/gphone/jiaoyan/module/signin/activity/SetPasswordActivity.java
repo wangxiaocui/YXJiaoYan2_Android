@@ -2,15 +2,12 @@ package com.yanxiu.gphone.jiaoyan.module.signin.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.test.yanxiu.common_base.base.ui.JYBaseActivity;
@@ -18,13 +15,12 @@ import com.test.yanxiu.common_base.route.RoutePathConfig;
 import com.test.yanxiu.common_base.route.RouteUtils;
 import com.yanxiu.gphone.jiaoyan.module.signin.R;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
-import com.yanxiu.lib.yx_basic_library.util.YXToastUtil;
 
 /**
  * 设置密码页面
  * Created by Hu Chao on 18/10/10.
  */
-@Route(path = RoutePathConfig.SIGNIN_SET_PASSWORD_ACTIVITY)
+@Route(path = RoutePathConfig.Signin_Set_Password_Activity)
 public class SetPasswordActivity extends JYBaseActivity {
 
     protected EditText et_password1;
@@ -34,6 +30,12 @@ public class SetPasswordActivity extends JYBaseActivity {
     @Override
     public void initData(@NonNull Bundle bundle) {
 
+    }
+
+    @Override
+    protected void initTitle() {
+        super.initTitle();
+        getJyDefaultToolbar();
     }
 
     @Override
@@ -79,7 +81,8 @@ public class SetPasswordActivity extends JYBaseActivity {
     @Override
     public void onWidgetClick(View view) {
         if (view.getId() == R.id.btn_ok) {
-            RouteUtils.startActivity(RoutePathConfig.SIGNIN_SET_SUBJECT_ACTIVITY);
+            RouteUtils.startActivity(RoutePathConfig.User_Info_Subject_Activity);
+            finish();
         }
     }
 

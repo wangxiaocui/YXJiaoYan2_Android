@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -10,6 +10,7 @@
         android:layout_height="211dp">
 
         <com.yanxiu.video.PlayerView
+            android:id="@+id/player_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/black"
@@ -26,8 +27,68 @@
     <FrameLayout
         android:id="@+id/video_info_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_question_commit_root"
+        android:layout_below="@+id/video_layout"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_marginRight="20dp" />
+
+    <LinearLayout
+        android:id="@+id/layout_question_commit_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13dp"
+        android:layout_marginTop="13dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/bt_question_commit"
+            android:layout_width="335dp"
+            android:layout_height="45dp"
+            android:background="@drawable/color_007aff_corner_6dp_shape"
+            android:text="发布提问"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/text_size_18dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/layout_question_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_question_content"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:background="@drawable/course_detail_evaluation_et_shape"
+                android:gravity="top"
+                android:hint="提问与回复..."
+                android:maxLength="200"
+                android:padding="10dp"
+                android:textColor="@color/color_17171b"
+                android:textColorHint="@color/color_a6a5ab"
+                android:textSize="@dimen/text_size_18dp" />
+
+            <TextView
+                android:id="@+id/tv_question_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="发布"
+                android:textColor="@color/color_a6a5ab_to_007aff_enable"
+                android:textSize="@dimen/text_size_18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
