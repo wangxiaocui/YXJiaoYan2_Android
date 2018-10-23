@@ -6,10 +6,12 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.test.yanxiu.common_base.customize.PublicLoadLayout;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.IYXBasePresenter;
 import com.yanxiu.lib.yx_basic_library.base.basemvp.YXBaseMvpFragment;
+import com.yanxiu.lib.yx_basic_library.util.logger.YXLogger;
 
 /**
  * Created by Hu Chao on 18/9/28.
@@ -85,6 +87,11 @@ public abstract class JYBaseFragment<P extends IYXBasePresenter> extends YXBaseM
 
     public void showNetErrorView() {
         mCommonLayout.showNetErrorView();
+    }
+
+    public void showEmptyView() {
+        // todo : cailei 这个应该也相当通用
+        Toast.makeText(getContext(), "应该添加一个空界面", Toast.LENGTH_LONG);
     }
 
     public void onRetryClick() {

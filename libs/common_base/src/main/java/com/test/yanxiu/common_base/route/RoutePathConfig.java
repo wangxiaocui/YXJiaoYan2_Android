@@ -123,8 +123,11 @@ public class RoutePathConfig {
     public static final String Mine_My_Cert_Activity = "/mine/my_cert";
     // "证书详情" 页
     public static final String Mine_My_Cert_Detail_Activity = "/mine/my_cert/detail";
+
     // "我的财富" 页
     public static final String Mine_My_Money_Activity = "/mine/my_money";
+    // "我的财富" 页 2
+    public static final String My_Wealth_Activity = "/my_wealth/index";
 
     //endregion mine
 }

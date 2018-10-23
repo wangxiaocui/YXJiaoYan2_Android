@@ -151,7 +151,8 @@ public class MineFragment extends JYBaseFragment<MineContract.IPresenter>
 
         if (view == item_caifuzhi) {
             // 我的财富值
-            RouteUtils.startActivity(RoutePathConfig.Mine_My_Money_Activity);
+            // RouteUtils.startActivity(RoutePathConfig.Mine_My_Money_Activity);
+            RouteUtils.startActivity(RoutePathConfig.My_Wealth_Activity);
         }
         if (view == item_wodekecheng) {
             // 我的课程

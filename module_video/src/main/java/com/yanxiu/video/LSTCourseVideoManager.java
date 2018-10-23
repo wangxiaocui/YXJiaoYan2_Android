@@ -405,9 +405,7 @@ public class LSTCourseVideoManager {
         playerView.getPlayer().setPlayWhenReady(userWantPlayWhenReady);
     }
 
-    /*
-     *视频状态监听 开始
-     */
+    //region 视频状态监听
 
     /**
      * region 片头，正片状态listeners基类
@@ -524,13 +522,10 @@ public class LSTCourseVideoManager {
             }
         }
     }
-    /*
-     * 视频状态监听 结束
-     */
+    //endregion 视频状态监听
 
-    /*
-     * 旋转屏 开始
-     */
+    //region 旋转屏
+
     public boolean isPortrait = true;//是否竖屏
 
     /**
@@ -622,13 +617,9 @@ public class LSTCourseVideoManager {
         controllerView.setPlayer(bodyPlayer);
         controllerView.show();
     }
-    /*
-     * 旋转屏 结束
-     */
+    //endregion 旋转屏
 
-    /*
-     * 随堂练 相关 开始
-     */
+
     private Handler handler = new Handler();
     private final Runnable updateProgressAction = new Runnable() {
         @Override
@@ -652,7 +643,7 @@ public class LSTCourseVideoManager {
         boolean isHead = (playerView.getPlayer() == headPlayer ? true : false);//是否为片头，片头不计时
         if (!isHead && playerViewListener != null && playbackState != ExoPlayer.STATE_IDLE
                 && playbackState != ExoPlayer.STATE_ENDED && playerView.getPlayer().getPlayWhenReady()) {
-            
+
             playerViewListener.onPlayerUpdateProgress();
 
         }
@@ -663,6 +654,8 @@ public class LSTCourseVideoManager {
             handler.postDelayed(updateProgressAction, delayMs);
         }
     }
+
+    //region 随堂练 相关 结束
 
     /**
      * 判断随堂练是否显示
@@ -681,13 +674,6 @@ public class LSTCourseVideoManager {
 
         if (playerViewListener != null)
             playerViewListener.onPlayerShowSuiTangLian();
-
-//        for (CourseVideoModel.SuiTangLianModel model : this.model.suiTangLianItems) {
-//            if ((position > model.position - 5000) && (position < model.position + 5000)) {
-//                popSuiTangLian(model);
-//                return;
-//            }
-//        }
     }
 
     /**
@@ -765,13 +751,10 @@ public class LSTCourseVideoManager {
         playerView.getPlayer().seekTo(position);
         playerView.getPlayer().setPlayWhenReady(userWantPlayWhenReady);
     }
-     /*
-     * 随堂练 相关 结束
-     */
+    //endregion 随堂练 相关 结束
 
-    /*
-     * 移动网wifi 相关 开始
-     */
+    //region 移动网wifi 相关
+
     private boolean hasDealtWithFourG() {
         if (NetWorkUtils.isNetworkAvailable(context) && !NetWorkUtils.isWifi(context)) {
             setState(VideoState.FourG);
@@ -791,9 +774,7 @@ public class LSTCourseVideoManager {
 
         setState(VideoState.FourG);
     }
-    /*
-     *移动网wifi 相关 结束
-     */
+    //endregion 移动网wifi 相关
 
     /**
      * 创建mp4、m3u8等格式的MediaSource，prepare需要

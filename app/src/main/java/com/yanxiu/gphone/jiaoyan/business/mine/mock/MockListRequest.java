@@ -39,17 +39,17 @@ public class MockListRequest extends YXRequestBase {
     private <T> void response(IYXHttpCallback<T> callback) {
         // 随机决定接口是否成功 10%失败
         int rand = new Random().nextInt(100 + 1);
-        //if (rand < 10) {
-        if (rand < 0) {
+        if (rand < 50) {
+        //if (rand < 0) {
             YXLogger.e("cailei", "mock 网络错误");
             callback.onFail(this, new Error());
             return;
         }
 
-        // 决定是否还有更多数据 50%有更多数据
+        // 决定是否还有更多数据 10%没有有更多数据了
         rand = new Random().nextInt(100 + 1);
-        //if (rand < 50) {
-        if (rand < 0) {
+        if (rand < 10) {
+        //if (rand < 0) {
             // 没有更多数据了,返回空data
             MockListResponse response = new MockListResponse();
             response.code = 0;
